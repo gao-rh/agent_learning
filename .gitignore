@@ -3,6 +3,9 @@
 
 # Obsidian local state
 .obsidian/workspace*.json
+.obsidian/app.json
+.obsidian/appearance.json
+.obsidian/core-plugins.json
 .obsidian/cache/
 .obsidian/plugins/*/data.json
 .trash/
@@ -34,4 +37,3 @@ build/
 # Environment files
 .env
 .env.*
-
