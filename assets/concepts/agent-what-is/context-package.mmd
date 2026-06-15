@@ -1,0 +1,21 @@
+flowchart LR
+    subgraph A["稳定规则"]
+      A1["System / Developer rules"]
+      A2["项目规则<br/>AGENTS.md / TOOLS.md"]
+    end
+    subgraph B["动态上下文"]
+      B1["用户输入"]
+      B2["对话历史或摘要"]
+      B3["记忆检索结果"]
+      B4["文件内容"]
+    end
+    subgraph C["工具与环境"]
+      C1["工具定义<br/>tools schema"]
+      C2["工具执行结果"]
+      C3["当前环境和任务状态"]
+    end
+    A --> P["Runtime 拼装、裁剪、排序"]
+    B --> P
+    C --> P
+    P --> L["模型本轮实际看到的上下文包"]
+    L --> O["模型输出<br/>message 或 tool call"]

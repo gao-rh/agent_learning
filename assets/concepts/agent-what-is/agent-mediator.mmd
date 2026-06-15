@@ -1,0 +1,11 @@
+flowchart LR
+    U["人<br/>目标、问题、偏好"] --> E["渠道 / Channel<br/>聊天软件 / CLI / Web UI / App"]
+    E --> R["Agent Runtime<br/>上下文、工具、记忆、权限、任务"]
+    R --> M["大模型<br/>GPT / Claude / Gemini"]
+    R --> T["工具与电脑<br/>文件 / Shell / Web / GUI / MCP"]
+    R --> S["外部系统<br/>消息、日历、代码仓库、数据库"]
+    M --> R
+    T --> R
+    S --> R
+    R --> E
+    E --> U

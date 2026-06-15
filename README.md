@@ -1,16 +1,17 @@
 # Agent Learning
 
-这个仓库是我的 AI Agent 核心学习笔记区，用于沉淀课程、论文、代码实验、项目复盘和自己的方法论。
+这个仓库是我的长期学习与认知迭代库，用于沉淀课程、论文、代码实验、项目复盘、DeepMe 认知迭代笔记和自己的方法论。
 
 ## 使用方式
 
 - Obsidian：日常阅读、双链、回顾和知识地图。
 - GitHub：核心 Markdown、代码实验和小型附件的同步与备份。
-- Codex：批量整理、生成索引、重构笔记、检查链接、提炼项目经验。
+- Codex：批量整理、生成索引、重构笔记、检查链接、提炼项目经验和每日认知迭代。
+- DeepMe：认知迭代的来源之一，可同步到本仓库后纳入日常反思和复盘。
 
 ## 学习工作流
 
-这个库的核心不是保存资料，而是把学习推进到可回忆、可解释、可实践、可复用。
+这个库的核心不是保存资料，而是把学习推进到可回忆、可解释、可实践、可复用，并持续记录自己的认知变化。
 
 ```text
 Capture -> Understand -> Retrieve -> Build -> Teach -> Review
@@ -35,6 +36,7 @@ Capture -> Understand -> Retrieve -> Build -> Teach -> Review
 30-projects/    实践项目、实验项目、真实使用记录
 40-code-labs/   可运行代码、demo、notebook、小实验
 50-systems/     自己沉淀的方法论、工作流、架构设计
+60-cognition/   DeepMe 认知迭代、每日反思、判断更新
 90-reviews/     周总结、月总结、阶段复盘
 assets/         图片、图表、小型附件
 templates/      Obsidian/Codex 共用笔记模板
@@ -47,6 +49,7 @@ templates/      Obsidian/Codex 共用笔记模板
 3. 已经形成自己理解的概念，拆成 `20-concepts/` 里的独立卡片。
 4. 真实项目和代码实验分别放进 `30-projects/` 和 `40-code-labs/`。
 5. 能复用的方法论、判断标准、工作流，沉淀到 `50-systems/`。
+6. 认知变化、判断更新、DeepMe 同步内容和每日反思，放进 `60-cognition/`。
 
 ## 每周固定动作
 
@@ -54,6 +57,7 @@ templates/      Obsidian/Codex 共用笔记模板
 - 更新 `01-maps/`：把新概念挂到学习地图上。
 - 做一次主动回忆：不看资料写出本周最重要的 3-5 个概念。
 - 做一个小验证：代码、推导、复现、例子或讲给别人。
+- 记录本周最重要的认知迭代：哪些判断变了，为什么变。
 - 写一篇 `90-reviews/YYYY-Www.md` 周复盘。
 
 ## Git 同步建议

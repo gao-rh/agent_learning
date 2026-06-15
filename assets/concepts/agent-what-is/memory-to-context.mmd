@@ -1,0 +1,11 @@
+flowchart LR
+    A["外部记忆<br/>MEMORY.md / memory/*.md / 项目文件"] --> B["切 chunk"]
+    B --> C["关键词索引<br/>FTS / BM25"]
+    B --> D["语义索引<br/>Embedding / Vector"]
+    Q["当前问题"] --> E["检索"]
+    C --> E
+    D --> E
+    E --> F["排序、去重、过滤"]
+    F --> G["Top chunks"]
+    G --> H["注入当前回合上下文"]
+    H --> I["模型基于被注入的材料回答"]

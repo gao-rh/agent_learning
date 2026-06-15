@@ -1,0 +1,34 @@
+flowchart TD
+    A["记忆文件<br/>MEMORY.md / memory/*.md / extraPaths"] --> B["读取文件"]
+    B --> C["切成 chunk<br/>带 path、line range、hash"]
+
+    C --> D["关键词索引路径"]
+    D --> D1["Tokenizer 分词<br/>unicode61 / trigram"]
+    D1 --> D2["FTS5 倒排索引<br/>token -> chunk_id"]
+    D2 --> D3["SQLite FTS 表<br/>chunks_fts"]
+
+    C --> E["语义索引路径"]
+    E --> E1["Embedding model<br/>OpenAI / Gemini / Voyage / Local 等"]
+    E1 --> E2["chunk vector"]
+    E2 --> E3["SQLite 存储<br/>chunks.embedding / chunks_vec"]
+
+    Q["用户问题"] --> Q1["查询预处理"]
+    Q1 --> K["关键词查询"]
+    Q1 --> S["语义查询"]
+
+    K --> K1["查询分词"]
+    K1 --> K2["FTS5 MATCH / LIKE fallback"]
+    K2 --> K3["BM25 排序<br/>keyword candidates<br/>id/path/lines/snippet/textScore"]
+
+    S --> S1["query embedding"]
+    S1 --> S2["Vector Search<br/>cosine distance/similarity"]
+    S2 --> S3["vector candidates<br/>id/path/lines/snippet/vectorScore"]
+
+    K3 --> H1["候选池合并"]
+    S3 --> H1
+    H1 --> H2["按 chunk id 去重<br/>同一 chunk 合并 textScore/vectorScore"]
+    H2 --> H3["加权打分<br/>score = vectorWeight * vectorScore + textWeight * textScore"]
+    H3 --> H4["可选重排<br/>temporal decay / MMR"]
+    H4 --> H5["阈值过滤 + Top N"]
+    H5 --> R["最终结果列表<br/>path + lines + snippet + score + source"]
+    R --> Ctx["注入当前回合上下文<br/>模型看到的是这些片段"]

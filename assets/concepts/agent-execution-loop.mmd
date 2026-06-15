@@ -1,0 +1,21 @@
+flowchart TD
+    A["用户输入任务"] --> B["Agent Runtime 收集上下文"]
+    B --> C["拼装请求: 规则 / 对话 / 记忆 / 文件 / tools schema"]
+    C --> D["调用模型 API"]
+    D --> E{"response.output 里有什么?"}
+
+    E -->|"只有 message/output_text"| F["展示自然语言回复给用户"]
+
+    E -->|"有 function_call / tool call"| G["Runtime 解析工具调用"]
+    G --> H["校验工具名、参数、权限、沙箱、是否需用户批准"]
+    H --> I{"允许执行?"}
+
+    I -->|"否"| J["生成错误/拒绝结果"]
+    I -->|"是"| K["执行工具: 文件 / Shell / 网页 / 电脑 / MCP"]
+
+    J --> L["把 tool result / error 放回下一轮上下文"]
+    K --> L
+    L --> D
+
+    E -->|"message + tool call 同时出现"| M["通常先暂存 message，优先执行工具"]
+    M --> G

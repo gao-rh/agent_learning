@@ -1,0 +1,11 @@
+flowchart LR
+    A["AutoGPT<br/>早期 autonomous agent"] --> B["Claude Code<br/>终端/IDE coding agent"]
+    A --> C["Codex<br/>软件工程 agent"]
+    A --> D["Gemini CLI<br/>开源 terminal agent"]
+    A --> E["OpenClaw<br/>gateway-first personal runtime"]
+    E --> F["Hermes<br/>self-hosted profile/skills/memory runtime"]
+    B --> G["共同趋势<br/>从模型回答走向系统做事"]
+    C --> G
+    D --> G
+    E --> G
+    F --> G

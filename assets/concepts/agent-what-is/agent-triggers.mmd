@@ -1,0 +1,9 @@
+flowchart TB
+    A["用户消息<br/>对话、问答、写代码"] --> R["Agent Runtime"]
+    B["Heartbeat<br/>周期性主 session 自检"] --> R
+    C["Cron<br/>精确定时任务"] --> R
+    D["Hooks<br/>内部事件触发"] --> R
+    E["Webhooks<br/>外部 HTTP 触发"] --> R
+    R --> F["拼上下文"]
+    F --> G["调用模型"]
+    G --> H["工具执行 / 回复 / 记录状态"]

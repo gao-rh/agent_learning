@@ -1,0 +1,14 @@
+flowchart TB
+    U["渠道 / Channel<br/>QQ / Telegram / CLI / Codex App"] --> R["Agent Runtime<br/>调度、状态、权限、执行"]
+    R --> C["上下文系统<br/>规则 / 历史 / 文件 / 记忆 / 工具结果"]
+    R --> M["模型<br/>理解、推理、选择下一步"]
+    R --> MEM["记忆系统<br/>MEMORY.md / memory/*.md / 索引"]
+    R --> T["工具系统<br/>文件 / Shell / Web / Computer / MCP"]
+    R --> SK["Skill / Sub-agent<br/>SOP / 分工 / 上下文隔离"]
+    R --> P["权限系统<br/>Sandbox / Approval / Tool policy"]
+    R --> A["自动化机制<br/>Heartbeat / Cron / Hooks / Webhooks"]
+    R --> S["会话与任务<br/>Session / Compaction / Tasks"]
+    C --> M
+    M --> R
+    T --> R
+    MEM --> C
