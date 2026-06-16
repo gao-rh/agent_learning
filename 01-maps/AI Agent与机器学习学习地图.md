@@ -3,7 +3,7 @@ type: map
 status: active
 tags: [machine-learning, agent]
 created: 2026-06-13
-updated: 2026-06-13
+updated: 2026-06-17
 ---
 
 # AI Agent 与机器学习学习地图
@@ -47,21 +47,26 @@ updated: 2026-06-13
 
 ### 来源
 
-- 待添加讲座笔记
+- [李宏毅机器学习 2026：Agent 到底是什么](../10-sources/courses/李宏毅机器学习2026/2026-06-13-Agent到底是什么.md)
 
 ### 概念
 
-- 待添加：context engineering
-- 待添加：retrieval
-- 待添加：tool use
-- 待添加：subagent
-- 待添加：memory
+- [Agent 执行循环](../20-concepts/Agent执行循环.md)
+- [Agent 当前回合上下文包](../20-concepts/Agent当前回合上下文包.md)
+- [上下文拼接不等于模型记忆](../20-concepts/上下文拼接不等于模型记忆.md)
+- [Agent 中介层](../20-concepts/Agent中介层.md)
+- [OpenClaw 是什么](../20-concepts/OpenClaw是什么.md)
+- [OpenClaw 记忆机制](../20-concepts/OpenClaw记忆机制.md)
+- [记忆搜索总览](../20-concepts/记忆搜索总览.md)
+- [关键词检索：FTS 倒排索引与 BM25](../20-concepts/关键词检索-FTS倒排索引与BM25.md)
+- [Sub-agent 与 Session Span](../20-concepts/Sub-agent与Session%20Span.md)
+- 待补强：tool use 的最小协议和真实运行日志
 
 ### 实验
 
-- 待添加：最小可用 agent loop
-- 待添加：RAG baseline
-- 待添加：subagent compression demo
+- 待开始：最小可用 agent loop
+- 待开始：RAG baseline
+- 待开始：subagent compression demo
 
 ## 每周更新
 
@@ -69,4 +74,3 @@ updated: 2026-06-13
 - 哪些概念已经能脱离资料讲清楚。
 - 哪些内容需要代码验证。
 - 哪些问题值得下周继续追。
-
