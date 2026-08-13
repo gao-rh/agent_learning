@@ -4,6 +4,8 @@ status: draft
 tags: [business-analysis, internet-business, knowledge-base, ai-agent, rag, graphrag, semantic-layer, text-to-sql, data-assets]
 created: 2026-06-14
 updated: 2026-06-14
+origin_type: 自主学习
+origin: Agent与经营分析专题研究
 source:
   - https://medium.com/airbnb-engineering/scaling-knowledge-at-airbnb-875d73eff091
   - https://medium.com/airbnb-engineering/scaling-knowledge-access-and-retrieval-at-airbnb-665b6ba21e95

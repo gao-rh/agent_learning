@@ -4,6 +4,8 @@ status: draft
 tags: [ai-agent, openclaw, agent-runtime, config]
 created: 2026-06-13
 updated: 2026-06-14
+origin_type: 课程+自主研究
+origin: 李宏毅机器学习2026+OpenClaw本地资料
 source:
   - 10-sources/courses/李宏毅机器学习2026/2026-06-13-Agent到底是什么.md
   - 00-inbox/2026-06-13-agent到底是什么原始课堂记录.md

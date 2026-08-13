@@ -4,6 +4,8 @@ status: stable-draft
 tags: [ai-agent, context-engineering, agent-runtime]
 created: 2026-06-14
 updated: 2026-06-14
+origin_type: 课程衍生
+origin: 李宏毅机器学习2026+学习讨论
 source:
   - 10-sources/courses/李宏毅机器学习2026/2026-06-13-Agent到底是什么.md
   - 00-inbox/2026-06-13-agent到底是什么原始课堂记录.md

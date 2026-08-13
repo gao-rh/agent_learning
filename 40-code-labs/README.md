@@ -8,3 +8,8 @@
 - 源代码或 notebook
 - 必要的输入样例
 
+## 当前实验
+
+- [Attention Visualization 学习网页](attention-visualization-learning-ui/README.md)
+- [最小 Agent Tool Loop](minimal-agent-tool-loop/README.md)
+- [KV Cache 六模式中文对照](kv-cache-chinese-comparison/README.md)

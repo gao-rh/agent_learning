@@ -4,6 +4,8 @@ status: draft
 tags: [business-analysis, rag, knowledge-base, data-warehouse, agent, milvus, data-governance]
 created: 2026-06-13
 updated: 2026-06-13
+origin_type: 自主学习
+origin: Agent与经营分析专题研究
 source:
   - 用户关于经营分析 Skill、数据查询、专题分析、业务知识库的讨论
   - https://developers.llamaindex.ai/python/framework/module_guides/loading/ingestion_pipeline/

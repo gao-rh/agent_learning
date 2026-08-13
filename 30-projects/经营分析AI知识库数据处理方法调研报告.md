@@ -4,6 +4,8 @@ status: draft
 tags: [business-analysis, knowledge-base, data-processing, research-report, knowledge-graph, structured-extraction, rag]
 created: 2026-06-14
 updated: 2026-06-14
+origin_type: 自主学习
+origin: Agent与经营分析专题研究
 source:
   - https://microsoft.github.io/graphrag/
   - https://microsoft.github.io/graphrag/index/default_dataflow/

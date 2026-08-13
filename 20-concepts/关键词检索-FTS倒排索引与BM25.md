@@ -4,6 +4,8 @@ status: draft
 tags: [search, fts, bm25, sqlite, openclaw, memory]
 created: 2026-06-13
 updated: 2026-06-13
+origin_type: 自主学习
+origin: 记忆搜索专题
 source:
   - 20-concepts/OpenClaw记忆机制.md
   - 00-inbox/2026-06-13-agent到底是什么原始课堂记录.md

@@ -12,7 +12,7 @@ updated: 2026-06-13
 
 优先从这些页面开始，而不是从图谱开始：
 
-- [AI Agent 与机器学习学习地图](AI%20Agent%E4%B8%8E%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%AD%A6%E4%B9%A0%E5%9C%B0%E5%9B%BE.md)
+- [学习资料](../学习资料/README.md)
 - [长期学习工作流](../50-systems/%E9%95%BF%E6%9C%9F%E5%AD%A6%E4%B9%A0%E5%B7%A5%E4%BD%9C%E6%B5%81.md)
 - [Inbox](../00-inbox/README.md)
 
@@ -46,4 +46,3 @@ updated: 2026-06-13
 2. Obsidian 搜索。
 3. 反向链接。
 4. 每周复盘里的下一步列表。
-

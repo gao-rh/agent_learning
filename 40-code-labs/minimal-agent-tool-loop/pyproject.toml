@@ -1,0 +1,19 @@
+[project]
+name = "minimal-agent-tool-loop"
+version = "0.1.0"
+description = "A minimal OpenAI-compatible Agent tool loop running on local Qwen3 via Ollama"
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "httpx>=0.28,<1",
+    "openai>=2.0,<3",
+    "python-dotenv>=1.0,<2",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8,<10",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

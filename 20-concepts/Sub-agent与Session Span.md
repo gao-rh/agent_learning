@@ -4,6 +4,8 @@ status: draft
 tags: [ai-agent, subagent, session-span, context-isolation, openclaw]
 created: 2026-06-13
 updated: 2026-06-13
+origin_type: 课程衍生
+origin: 课堂记录+OpenClaw本地资料
 source:
   - 00-inbox/2026-06-13-agent到底是什么原始课堂记录.md
   - local: openclaw agents --help

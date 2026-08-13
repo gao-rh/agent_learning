@@ -4,6 +4,8 @@ status: draft
 tags: [business-analysis, knowledge-base, knowledge-graph, structured-extraction, graphrag, semantic-layer, rag]
 created: 2026-06-14
 updated: 2026-06-14
+origin_type: 自主学习
+origin: Agent与经营分析专题研究
 source:
   - 30-projects/经营分析AI知识库建设方案.md
   - 30-projects/经营分析AI知识库行业对标调研.md

@@ -4,6 +4,8 @@ status: draft
 tags: [ai-agent, skill, context-engineering, openclaw]
 created: 2026-06-13
 updated: 2026-06-13
+origin_type: 自主学习
+origin: OpenClaw+Codex+Anthropic资料
 source:
   - local: openclaw skills --help
   - local: openclaw skills info skill-creator

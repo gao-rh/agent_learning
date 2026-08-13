@@ -4,6 +4,8 @@ status: draft
 tags: [business-analysis, ai-agent, knowledge-base, share-report, data-assets, knowledge-service]
 created: 2026-06-14
 updated: 2026-06-14
+origin_type: 自主学习
+origin: Agent与经营分析专题研究
 source:
   - 30-projects/互联网业务分析知识库Agent调研报告.md
   - https://medium.com/airbnb-engineering/scaling-knowledge-at-airbnb-875d73eff091
