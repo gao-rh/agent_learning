@@ -22,6 +22,8 @@ local-materials/
 *.7z
 *.dmg
 *.log
+*.pdf
+*.pptx
 
 # Python / notebooks / code labs
 __pycache__/
