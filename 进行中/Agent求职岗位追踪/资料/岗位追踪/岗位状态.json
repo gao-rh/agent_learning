@@ -1,67 +1,67 @@
 {
   "schema_version": 2,
   "snapshot_date": "2026-08-14",
-  "next_rotation_group": "B",
-  "last_rotation_group": "A",
+  "next_rotation_group": "C",
+  "last_rotation_group": "B",
   "rotation_size": 6,
   "consecutive_over_budget": 0,
   "failures": {
     "字节跳动": {
-      "count": 10,
+      "count": 11,
       "last_failure": "verification_limited: 官方入口 HTTP 200 可达；未取得稳定结构化 Agent 列表或详情",
       "reason": "official entry reachable; structured Agent list/detail API not obtained in this run",
       "last_failure_at": "2026-08-14"
     },
     "阿里云": {
-      "count": 10,
+      "count": 11,
       "last_failure": "verification_limited: 官方入口 HTTP 200 可达；未取得稳定结构化 Agent 列表或详情",
       "reason": "official entry reachable; structured Agent list/detail API not obtained in this run",
       "last_failure_at": "2026-08-14"
     },
     "蚂蚁集团": {
-      "count": 10,
+      "count": 11,
       "last_failure": "verification_limited: 官方入口 HTTP 200 可达；未取得稳定结构化 Agent 列表或详情",
       "reason": "official entry reachable; structured Agent list/detail API not obtained in this run",
       "last_failure_at": "2026-08-14"
     },
     "美团": {
-      "count": 10,
+      "count": 11,
       "last_failure": "verification_limited: 官方入口 HTTP 200 可达；未取得稳定结构化 Agent 列表或详情",
       "reason": "official entry reachable; structured Agent list/detail API not obtained in this run",
       "last_failure_at": "2026-08-14"
     },
     "百度": {
-      "count": 10,
+      "count": 11,
       "last_failure": "verification_limited: 官方入口 HTTP 200 可达；未取得稳定结构化 Agent 列表或详情",
       "reason": "official entry reachable; structured Agent list/detail API not obtained in this run",
       "last_failure_at": "2026-08-14"
     },
     "滴滴": {
-      "count": 10,
+      "count": 11,
       "last_failure": "verification_limited: 官方入口 HTTP 200 可达；未取得稳定结构化 Agent 列表或详情",
       "reason": "official entry reachable; structured Agent list/detail API not obtained in this run",
       "last_failure_at": "2026-08-14"
     },
     "DeepSeek": {
-      "count": 10,
-      "last_failure": "verification_limited: 官方入口本轮访问失败；未据此关闭历史岗位",
-      "reason": "curl: (35) LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to talent.deepseek.com:443 \n",
+      "count": 11,
+      "last_failure": "verification_limited: 官方入口 HTTP 200 可达；页面未提供稳定结构化 Agent 列表或详情",
+      "reason": "official entry reachable; structured Agent list/detail API not obtained in this run",
       "last_failure_at": "2026-08-14"
     },
     "MiniMax": {
-      "count": 10,
+      "count": 11,
       "last_failure": "verification_limited: 官方入口 HTTP 200 可达；未取得稳定结构化 Agent 列表或详情",
       "reason": "official entry reachable; structured Agent list/detail API not obtained in this run",
       "last_failure_at": "2026-08-14"
     },
     "智谱": {
-      "count": 10,
+      "count": 11,
       "last_failure": "verification_limited: 官方入口 HTTP 200 可达；未取得稳定结构化 Agent 列表或详情",
       "reason": "official entry reachable; structured Agent list/detail API not obtained in this run",
       "last_failure_at": "2026-08-14"
     },
     "月之暗面": {
-      "count": 10,
+      "count": 11,
       "last_failure": "verification_limited: 官方入口 HTTP 200 可达；未取得稳定结构化 Agent 列表或详情",
       "reason": "official entry reachable; structured Agent list/detail API not obtained in this run",
       "last_failure_at": "2026-08-14"
@@ -97,34 +97,40 @@
       "last_failure_at": "2026-08-14"
     },
     "网易": {
-      "count": 3,
-      "last_failure": "2026-08-07",
-      "reason": "monthly full coverage official entry reachable; structured Agent list/detail API not obtained in this run"
+      "count": 4,
+      "last_failure": "verification_limited: B 组官方入口 HTTP 200 可达；未取得稳定结构化 Agent 列表或详情",
+      "reason": "rotation B official entry reachable; structured Agent list/detail API not obtained in this run",
+      "last_failure_at": "2026-08-14"
     },
     "携程": {
-      "count": 3,
-      "last_failure": "2026-08-07",
-      "reason": "monthly full coverage official entry reachable; structured Agent list/detail API not obtained in this run"
+      "count": 4,
+      "last_failure": "verification_limited: B 组官方入口 HTTP 200 可达；岗位数据动态加载，未取得稳定结构化 Agent 列表或详情",
+      "reason": "rotation B official entry reachable; job data dynamically loaded; structured Agent list/detail API not obtained in this run",
+      "last_failure_at": "2026-08-14"
     },
     "B站": {
-      "count": 3,
-      "last_failure": "2026-08-07",
-      "reason": "monthly full coverage official entry reachable; structured Agent list/detail API not obtained in this run"
+      "count": 4,
+      "last_failure": "verification_limited: B 组官方入口 HTTP 200 可达；未取得稳定结构化 Agent 列表或详情",
+      "reason": "rotation B official entry reachable; structured Agent list/detail API not obtained in this run",
+      "last_failure_at": "2026-08-14"
     },
     "联想": {
-      "count": 3,
-      "last_failure": "2026-08-07",
-      "reason": "monthly full coverage official entry reachable; structured Agent list/detail API not obtained in this run"
+      "count": 4,
+      "last_failure": "verification_limited: B 组官方入口 HTTP 200 可达；未取得稳定结构化 Agent 列表或详情",
+      "reason": "rotation B official entry reachable; structured Agent list/detail API not obtained in this run",
+      "last_failure_at": "2026-08-14"
     },
     "阶跃星辰": {
-      "count": 3,
-      "last_failure": "2026-08-07",
-      "reason": "monthly full coverage official entry reachable; structured Agent list/detail API not obtained in this run"
+      "count": 4,
+      "last_failure": "verification_limited: B 组官网入口 HTTP 200 可达；未发现稳定结构化社招列表",
+      "reason": "rotation B official homepage reachable; stable social recruitment list not found",
+      "last_failure_at": "2026-08-14"
     },
     "百川": {
-      "count": 3,
-      "last_failure": "2026-08-07",
-      "reason": "monthly full coverage official entry reachable; structured Agent list/detail API not obtained in this run"
+      "count": 4,
+      "last_failure": "verification_limited: B 组官网入口 HTTP 200 可达；未取得稳定结构化岗位列表",
+      "reason": "rotation B official homepage reachable; structured job list not obtained",
+      "last_failure_at": "2026-08-14"
     },
     "零一万物": {
       "count": 4,
@@ -3946,5 +3952,5 @@
       "jd_hash": "4c513327eee74fe624917f6230085242e86fe6c8d6f6d7b399335e9bed3dcbd2"
     }
   ],
-  "last_run_at": "2026-08-14T00:00:00+08:00"
+  "last_run_at": "2026-08-14T02:03:53+08:00"
 }
