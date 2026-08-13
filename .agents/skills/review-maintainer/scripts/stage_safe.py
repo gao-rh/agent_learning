@@ -34,6 +34,7 @@ EXCLUDED_DIRECTORY_NAMES = {
     "build",
     "dist",
     "node_modules",
+    "outputs",
     "venv",
 }
 EXCLUDED_NAMES = {".DS_Store"}
