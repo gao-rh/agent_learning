@@ -1,0 +1,11 @@
+{
+  "source_commit": "89202d9",
+  "file_count": 65858,
+  "total_bytes": 12298709652,
+  "hashed_files": 49345,
+  "dataless_files": 16428,
+  "large_unhashed_files": 73,
+  "hash_max_bytes": 5242880,
+  "manifest": "归档/迁移记录/2026-08-14-迁移后文件清单.tsv.gz",
+  "manifest_sha256": "d6d32dd3b0940564c9beb03d3310c64f1a1da55d28e9b47237e8f2c6ea7d3d06"
+}

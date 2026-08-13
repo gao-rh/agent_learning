@@ -25,6 +25,7 @@ local-materials/
 
 # Python / notebooks / code labs
 __pycache__/
+.pytest_cache/
 .venv/
 venv/
 .ipynb_checkpoints/
@@ -39,3 +40,6 @@ build/
 # Environment files
 .env
 .env.*
+
+# Local migration and generated workspaces
+.local/
