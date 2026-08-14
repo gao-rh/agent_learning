@@ -22,17 +22,15 @@ def iter_markdown(root: Path):
             or relative.parts[0].startswith(".git-recovery-")
         ):
             continue
-        if (
-            len(relative.parts) >= 3
-            and relative.parts[0] == "学习资料"
-            and "参考资料" in relative.parts
-        ):
+        if "本地资料" in relative.parts:
             continue
-        if relative.parts[:2] == ("归档", "旧规划与旧制度"):
+        if relative.parts and relative.parts[0] == "4-学习资料" and "参考资料" in relative.parts:
             continue
-        if relative.parts[:3] == ("清单", "旧内容迁移判断", "资料"):
+        if relative.parts[:2] == ("5-归档", "旧规划与旧制度"):
             continue
-        if relative == Path("归档/迁移记录/规划文档全量台账-迁移前.md"):
+        if relative.parts[:3] == ("1-清单", "旧内容迁移判断", "资料"):
+            continue
+        if relative == Path("5-归档/迁移记录/规划文档全量台账-迁移前.md"):
             continue
         yield file_path
 

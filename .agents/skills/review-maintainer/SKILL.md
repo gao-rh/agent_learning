@@ -10,7 +10,7 @@ Only use this Skill inside `/Users/gaoronghui/Documents/agent_learning`.
 ## Before Work
 
 1. Confirm `PREFERENCES.md` has been read in the current session; read it if not.
-2. Read `AGENTS.md`, the four state READMEs and immediate topic READMEs such as `进行中/*/README.md`. Do not recursively read experiment, dependency, output, or reference READMEs unless the current anomaly requires one.
+2. Read `AGENTS.md`, the four state READMEs and immediate topic READMEs such as `2-进行中/*/README.md`. Do not recursively read experiment, dependency, output, or reference READMEs unless the current anomaly requires one.
 3. Treat user-authored text outside `AI-SUMMARY` markers as protected.
 
 ## Allowed Automatic Work

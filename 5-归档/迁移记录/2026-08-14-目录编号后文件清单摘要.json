@@ -1,0 +1,11 @@
+{
+  "source_commit": "37e9cc5",
+  "file_count": 65865,
+  "total_bytes": 12301756299,
+  "hashed_files": 65700,
+  "dataless_files": 0,
+  "large_unhashed_files": 153,
+  "hash_max_bytes": 5242880,
+  "manifest": "5-归档/迁移记录/2026-08-14-目录编号后文件清单.tsv.gz",
+  "manifest_sha256": "c44985c13d11251473f9545a6797e9270ec8513b04101dd27605d60c3f7e7519"
+}

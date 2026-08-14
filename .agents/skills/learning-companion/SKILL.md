@@ -11,7 +11,7 @@ Only use this Skill inside `/Users/gaoronghui/Documents/agent_learning`.
 
 1. Confirm `PREFERENCES.md` has been read in the current session; read it if not.
 2. Read `AGENTS.md` and the current topic `README.md`.
-3. If the topic is unclear, record the item in `清单/README.md` as `待判断`; do not invent a topic.
+3. If the topic is unclear, record the item in `1-清单/README.md` as `待判断`; do not invent a topic.
 
 ## Teaching Loop
 

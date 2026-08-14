@@ -12,7 +12,8 @@
 
 # Large or generated local artifacts
 local-materials/
-学习资料/**/参考资料/
+**/资料/本地资料/
+4-学习资料/**/参考资料/
 *.mp4
 *.mov
 *.mkv

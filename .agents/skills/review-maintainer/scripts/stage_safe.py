@@ -59,7 +59,9 @@ def is_allowed(relative_path: Path, file_size: int) -> bool:
         return False
     if relative_path.parts[0].startswith(".git-recovery-"):
         return False
-    if "参考资料" in relative_path.parts and relative_path.parts[0] == "学习资料":
+    if "本地资料" in relative_path.parts:
+        return False
+    if "参考资料" in relative_path.parts and relative_path.parts[0] == "4-学习资料":
         return False
     if relative_path.name in EXCLUDED_NAMES:
         return False
@@ -109,8 +111,9 @@ def main() -> None:
                 or
                 (relative_directory == Path(".") and name in EXCLUDED_ROOTS)
                 or name.startswith(".git-recovery-")
+                or name == "本地资料"
                 or (
-                    relative_directory.parts[:1] == ("学习资料",)
+                    relative_directory.parts[:1] == ("4-学习资料",)
                     and name == "参考资料"
                 )
             )
