@@ -1,0 +1,527 @@
+test_id: layer3_01_travel_coordination
+category: layer3
+title: 国际旅行 - 主动式证件与服务协调
+description: 测试智能体在多次对话中综合信息并主动识别关键问题的能力，例如即将到期的证件和所需服务
+language: zh-CN
+translation_status: kimi-k2.6-translated-and-mechanically-verified
+translated_from: /Users/gaoronghui/Documents/agent_learning/2-进行中/深入理解AI-Agent/资料/本地资料/深入理解AI-Agent/chapter3/user-memory-evaluation/test_cases/layer3/01_travel_coordination.yaml
+conversation_histories:
+- conversation_id: passport_renewal_001
+  timestamp: '2024-06-15 14:00:00'
+  metadata:
+    business: USPS Passport Services
+    department: Passport Renewal
+    call_duration: 38 minutes
+  messages:
+  - role: user
+    content: 你好，我想咨询一下护照续期的事情。
+  - role: assistant
+    content: 下午好！我是USPS护照服务部的David。我来帮您办理续期。您的护照是已经过期了还是即将过期？
+  - role: user
+    content: 2025年2月过期，也就是大概8个月后。
+  - role: assistant
+    content: 现在考虑续期正是时候。您可以在到期前15个月内申请续期。请问您的姓名是？
+  - role: user
+    content: Jessica Martinez。
+  - role: assistant
+    content: 谢谢您，Martinez女士。具体是哪一天到期？
+  - role: user
+    content: 2025年2月18日。
+  - role: assistant
+    content: 那您想现在续期吗？
+  - role: user
+    content: 我在考虑。我可能很快有出国出差的安排。
+  - role: assistant
+    content: 很多国家要求护照在您出行日期后仍有6个月有效期。您大概什么时候出行？
+  - role: user
+    content: 可能12月或1月去东京参加一个会议。
+  - role: assistant
+    content: 如果1月去日本，您的护照需要至少在停留期间有效。2月到期的话，时间会非常紧张。
+  - role: user
+    content: 哦，我之前没意识到这一点。那我应该尽快续期吗？
+  - role: assistant
+    content: 如果行程确认了，我强烈建议您尽快办理。目前标准办理时间是6-8周。
+  - role: user
+    content: 加急办理呢？
+  - role: assistant
+    content: 加急是2-3周，额外收取60美元。常规续期费用是130美元。
+  - role: user
+    content: 那加急总共是190美元？
+  - role: assistant
+    content: 对的。另外，如果您在邮局现场申请，还需35美元；如果邮寄续期，只需支付邮费。
+  - role: user
+    content: 我可以邮寄续期吗？
+  - role: assistant
+    content: 可以，如果您的护照完好无损，是在您16岁或以上时签发的，且是在过去15年内签发的。
+  - role: user
+    content: 是的，都符合。我这一本是2015年拿到的。
+  - role: assistant
+    content: 太好了。您需要使用DS-82表格，连同当前护照、一张新照片和费用一起邮寄。
+  - role: user
+    content: 你们这里有表格吗？
+  - role: assistant
+    content: 有的，或者您也可以在线填写并打印。在线填写更方便——它会验证您填写的内容。
+  - role: user
+    content: 那我就在线填。照片有什么要求？
+  - role: assistant
+    content: 2x2英寸，白色背景，6个月内拍摄。CVS、Walgreens都可以拍，或者我们这里也可以拍，15美元。
+  - role: user
+    content: 我去CVS拍。所有材料要寄到哪里？
+  - role: assistant
+    content: 加急处理请寄至：National Passport Processing Center, Post Office Box 90955, Philadelphia, PA 19190-0955。
+  - role: user
+    content: 让我记下来……Philadelphia, PA 19190-0955。
+  - role: assistant
+    content: 对的。我还会给您一份包含所有地址的单页资料。您的护照号码是多少？
+  - role: user
+    content: 487223901。
+  - role: assistant
+    content: 好的。这是带芯片的电子护照，对国际旅行来说很好。
+  - role: user
+    content: 那就好。我想等日本行程确认了再续期。
+  - role: assistant
+    content: 只是不要等太久。如果您12月需要用到护照，最迟要在10月初提交申请。
+  - role: user
+    content: 10月的截止日期，记下了。日本的签证呢？
+  - role: assistant
+    content: 美国公民在日本旅游或商务停留不超过90天，不需要签证。
+  - role: user
+    content: 哦，那太好了，少了一件事要担心。
+  - role: assistant
+    content: 是的，但您需要出示返程机票证明，可能还需要足够的资金证明。
+  - role: user
+    content: 比如银行对账单？
+  - role: assistant
+    content: 通常出示返程机票和信用卡就足够了。他们很少要求更多材料。
+  - role: user
+    content: 那还好办。疫苗呢？
+  - role: assistant
+    content: 日本没有强制要求的疫苗，但请查看CDC的建议。常规疫苗应该保持最新。
+  - role: user
+    content: 我应该都接种齐了。
+  - role: assistant
+    content: 很好。另外，出行前请查看日本当前的入境要求，这些要求可能会变化。
+  - role: user
+    content: 他们还有COVID限制吗？
+  - role: assistant
+    content: 截至目前，他们已取消大部分限制，但出行前请务必核实。
+  - role: user
+    content: 会的。护照照片有什么特别要求吗？
+  - role: assistant
+    content: 表情自然，眼睛睁开，除非医疗必需否则不戴眼镜，除非宗教原因否则不戴帽子或头巾。
+  - role: user
+    content: 可以微笑吗？
+  - role: assistant
+    content: 自然微笑可以，但不要夸张。想想DMV照片的风格。
+  - role: user
+    content: 明白了。寄出申请后怎么追踪进度？
+  - role: assistant
+    content: 您可以在travel.state.gov在线查询状态。通常在收到申请后2周内会显示更新。
+  - role: user
+    content: 如果之后我急需护照怎么办？
+  - role: assistant
+    content: 如果您在14天内有出行安排，可以在护照机构预约紧急旅行办理。
+  - role: user
+    content: 最近的机构在哪里？
+  - role: assistant
+    content: 在洛杉矶，地址是11000 Wilshire Blvd, Suite 1000。必须提前预约。
+  - role: user
+    content: 作为备选方案了解一下。
+  - role: assistant
+    content: 是的，但那些预约很快就会被约满。最好还是提前规划，选择常规或加急服务。
+  - role: user
+    content: 有道理。可以加页吗？
+  - role: assistant
+    content: 不行了。自2016年起，他们直接签发52页的护照，不再加页。续期时可以申请大本。
+  - role: user
+    content: 我没那么多出行，不需要52页。
+  - role: assistant
+    content: 那标准28页本就够用了。两种价格一样。
+  - role: user
+    content: 完美。如果我的名字变了怎么办？
+  - role: assistant
+    content: 您需要提交姓名变更证明，比如结婚证或法院命令。
+  - role: user
+    content: 我没有变更。
+  - role: assistant
+    content: 那就简单了。只需要DS-82表格、照片、旧护照和费用。
+  - role: user
+    content: 可以用信用卡支付吗？
+  - role: assistant
+    content: 邮寄续期不行。只收支票或汇票。现场办理可以刷信用卡。
+  - role: user
+    content: 那我就办汇票。
+  - role: assistant
+    content: 收款人写'US Department of State'。别忘了在支票或汇票上签名。
+  - role: user
+    content: 他们会把新护照寄回给我吗？
+  - role: assistant
+    content: 是的，他们会把旧护照注销后和新护照一起通过Priority Mail寄回。
+  - role: user
+    content: 寄到我家地址？
+  - role: assistant
+    content: 寄到您在表格上填写的任何地址。请确保是安全的收件地址。
+  - role: user
+    content: 我大部分时间在家办公，所以没问题。
+  - role: assistant
+    content: 好的。包裹送达时需要签收。
+  - role: user
+    content: 安全措施不错。David，谢谢您提供的所有信息！
+  - role: assistant
+    content: 不客气，Martinez女士！记住，如果行程确认了，续期不要拖延。祝您旅途平安！
+- conversation_id: flight_booking_002
+  timestamp: '2024-11-22 10:00:00'
+  metadata:
+    business: Delta Airlines
+    department: Reservations
+    call_duration: 45 minutes
+  messages:
+  - role: user
+    content: 你好，我需要预订一个飞往东京的航班，去参加一个商务会议。
+  - role: assistant
+    content: 早上好！感谢您选择达美航空。我是莎拉，我将协助您完成预订。您计划什么时候出行？
+  - role: user
+    content: 我需要1月15日出发，1月22日返回。
+  - role: assistant
+    content: 让我为您搜索航班。您从哪个机场出发？
+  - role: user
+    content: 洛杉矶，LAX。
+  - role: assistant
+    content: LAX飞往东京。您偏好成田机场还是羽田机场？
+  - role: user
+    content: 哪个离东京市中心更近？
+  - role: assistant
+    content: 羽田近得多，到市中心大约30分钟，而成田需要60-90分钟。
+  - role: user
+    content: 那请选羽田。
+  - role: assistant
+    content: 我有一个直飞航班，DL 7于1月15日上午11:30从LAX出发，于1月16日下午4:45抵达羽田。
+  - role: user
+    content: 可以。返程呢？
+  - role: assistant
+    content: DL 8于1月22日下午6:00从羽田出发，于当天上午10:15抵达LAX。
+  - role: user
+    content: 时间很合适。票价是多少？
+  - role: assistant
+    content: 经济舱1,450美元，超级经济舱2,280美元，商务舱4,890美元。
+  - role: user
+    content: 我的公司允许飞行时间超过10小时的航班乘坐商务舱。这个航班要飞多久？
+  - role: assistant
+    content: 西行方向11小时15分钟，东行方向10小时15分钟。
+  - role: user
+    content: 那我有资格乘坐商务舱。就订商务舱吧。
+  - role: assistant
+    content: ' excellent choice。请问您护照上的全名是什么？'
+  - role: user
+    content: Jessica Marie Martinez。
+  - role: assistant
+    content: 出生日期？
+  - role: user
+    content: 1985年3月8日。
+  - role: assistant
+    content: 护照号码？
+  - role: user
+    content: 487223901。
+  - role: assistant
+    content: 护照有效期至？
+  - role: user
+    content: 2025年2月18日。
+  - role: assistant
+    content: 我需要提醒您——日本要求您的护照在停留期间有效。您的护照在您返回后不到一个月就到期了。
+  - role: user
+    content: 这会有问题吗？
+  - role: assistant
+    content: 严格来说日本不像许多国家那样要求6个月有效期，但航空公司有时会检查得更严格。您的缓冲时间非常紧张。
+  - role: user
+    content: 我应该先更新护照吗？
+  - role: assistant
+    content: 我强烈建议您更新。只有一个月的缓冲期，任何旅行延误都可能导致问题。
+  - role: user
+    content: 反正我也在想更新护照。我可以稍后更新护照号码吗？
+  - role: assistant
+    content: 可以，您可以在起飞前72小时内更新。只需致电我们或在线操作即可。
+  - role: user
+    content: 好的，那我们继续预订吧。
+  - role: assistant
+    content: 您是飞凡里程常客计划会员吗？
+  - role: user
+    content: 是的，号码是2847569923。
+  - role: assistant
+    content: 太好了！这次旅行您将赚取约22,000英里。您有TSA预检的已知旅客编号吗？
+  - role: user
+    content: 有，是9988432。
+  - role: assistant
+    content: 已添加。座位偏好？
+  - role: user
+    content: 请给我靠窗的座位，如果有的话。
+  - role: assistant
+    content: 商务舱有一个靠窗座位4A可用。
+  - role: user
+    content: 完美。
+  - role: assistant
+    content: 返程也选同样的4A座位吗？
+  - role: user
+    content: 好的，麻烦了。
+  - role: assistant
+    content: 已完成。您希望如何付款？
+  - role: user
+    content: 公司美国运通卡，卡号3782-445589-23001。
+  - role: assistant
+    content: 有效期至？
+  - role: user
+    content: 12/26。
+  - role: assistant
+    content: CVV安全码？
+  - role: user
+    content: 4421。
+  - role: assistant
+    content: 账单邮编是多少？
+  - role: user
+    content: 90210。
+  - role: assistant
+    content: 正在处理……已批准！您的确认号码是DELTA-JMK892。
+  - role: user
+    content: 让我记下来……DELTA-JMK892？
+  - role: assistant
+    content: 正确。总扣款金额为4,890美元。我将把行程单发送到您档案中的邮箱。
+  - role: user
+    content: 您留的邮箱是什么？
+  - role: assistant
+    content: jmartinez@techcorp.com
+  - role: user
+    content: 没错。你们的取消政策是什么？
+  - role: assistant
+    content: 商务舱机票如在起飞前24小时取消，可全额退款。
+  - role: user
+    content: 知道了。那改签呢？
+  - role: assistant
+    content: 不收取改签费，如有票价差额只需补足即可。
+  - role: user
+    content: 很好。我需要打印登机牌吗？
+  - role: assistant
+    content: 不需要，手机登机牌就可以。下载我们的应用程序以便轻松使用。
+  - role: user
+    content: 我已经有应用程序了。
+  - role: assistant
+    content: 完美。登机牌将在起飞前24小时开放获取。
+  - role: user
+    content: 行李额度呢？
+  - role: assistant
+    content: 商务舱包括2件免费托运行李，每件限重70磅，外加随身行李和个人物品。
+  - role: user
+    content: 足够了。LAX是哪个航站楼？
+  - role: assistant
+    content: 达美航空在LAX使用2号和3号航站楼。国际航班通常从2号航站楼出发。
+  - role: user
+    content: 我应该提前多久到达？
+  - role: assistant
+    content: 国际航班我们建议提前3小时，但有TSA预检的话，通常2.5小时就足够了。
+  - role: user
+    content: 很好，我讨厌在机场等待。
+  - role: assistant
+    content: 商务舱还为您提供天合优享值机和安检通道，速度更快。
+  - role: user
+    content: 更好了。机上餐食呢？
+  - role: assistant
+    content: 商务舱提供全套餐食服务。您可以在起飞前30天开始预选餐食。
+  - role: user
+    content: 有素食选项吗？
+  - role: assistant
+    content: 有的，有多种选择，包括素食、纯素、无麸质及其他饮食偏好。
+  - role: user
+    content: 我会在临近出行时再看这个。
+  - role: assistant
+    content: 另外，记得拿到新护照后更新护照号码。
+  - role: user
+    content: 会的。我可以在这个预订中加上酒店吗？
+  - role: assistant
+    content: 我可以帮您转接到我们的度假套餐部门，或者您可以单独在线预订酒店。
+  - role: user
+    content: 酒店我会单独处理，谢谢。
+  - role: assistant
+    content: 好的。您的东京之行还有其他需要吗？
+  - role: user
+    content: 机上wifi呢？
+  - role: assistant
+    content: 商务舱乘客全程免费使用wifi。
+  - role: user
+    content: 正好可以完成一些工作。
+  - role: assistant
+    content: 当然。今天还有其他我可以帮您的吗？
+  - role: user
+    content: 没有了，我想就这些了。谢谢莎拉！
+  - role: assistant
+    content: 不客气，Martinez女士！祝您东京之旅愉快，别忘了更新护照！
+- conversation_id: credit_card_003
+  timestamp: '2024-10-05 15:30:00'
+  metadata:
+    business: Chase Bank
+    department: Credit Card Services
+    call_duration: 35 minutes
+  messages:
+  - role: user
+    content: 你好，我想确认一下我的信用卡在国际上能否使用。
+  - role: assistant
+    content: 下午好！我是Chase Card Services的Marcus。我来帮您处理国际使用的问题。您持有的是哪张Chase卡？
+  - role: user
+    content: Chase Sapphire Reserve。
+  - role: assistant
+    content: 这是一张非常适合国际旅行的卡！请问您的姓名是？
+  - role: user
+    content: Jessica Martinez。
+  - role: assistant
+    content: 谢谢您，Martinez女士。您能验证一下卡片的后四位数字吗？
+  - role: user
+    content: 8823。
+  - role: assistant
+    content: 完美。Sapphire Reserve没有境外交易手续费，全球通用。
+  - role: user
+    content: 好的。我即将有一些国际旅行。
+  - role: assistant
+    content: 您计划去哪里旅行？
+  - role: user
+    content: 各种地方出差——可能是日本、新加坡、伦敦。
+  - role: assistant
+    content: 您的卡在这些地方都能完美使用。它支持芯片和PIN功能。
+  - role: user
+    content: 我需要在旅行前通知你们吗？
+  - role: assistant
+    content: 我们不再需要旅行通知了。我们的欺诈检测系统已经足够先进。
+  - role: user
+    content: 哦，那很方便。
+  - role: assistant
+    content: 是的，但我建议您在手机上安装我们的应用程序，以便快速验证任何被标记的交易。
+  - role: user
+    content: 我已经有了。
+  - role: assistant
+    content: 完美。您的卡还包含优秀的旅行保险福利。
+  - role: user
+    content: 比如什么？
+  - role: assistant
+    content: 行程取消最高10,000美元，航班延误赔偿，行李丢失保障，以及紧急医疗。
+  - role: user
+    content: 这包括商务旅行吗？
+  - role: assistant
+    content: 是的，只要您用Sapphire Reserve支付旅行费用。
+  - role: user
+    content: 不过我用公司的AmEx支付机票。
+  - role: assistant
+    content: 那么机票将不在保障范围内，但如果您用Sapphire支付酒店或其他旅行费用，这些部分将获得保障。
+  - role: user
+    content: 我明白了。租车保险呢？
+  - role: assistant
+    content: 使用本卡支付时包含主要租车保险。请拒绝租车公司的保险。
+  - role: user
+    content: 那能省钱。机场贵宾厅呢？
+  - role: assistant
+    content: 您享有包含的Priority Pass会员资格。全球超过1,300个贵宾厅。
+  - role: user
+    content: 怎么使用？
+  - role: assistant
+    content: 您收到Priority Pass卡了吗？
+  - role: user
+    content: 我想是的，但我不确定放哪里了。
+  - role: assistant
+    content: 您可以在Priority Pass应用程序中使用数字卡。只需下载并关联到您的账户。
+  - role: user
+    content: 我会这么做的。我可以带客人吗？
+  - role: assistant
+    content: 每次 visit 您可以免费带最多2位客人。
+  - role: user
+    content: 和同事一起旅行时很方便。
+  - role: assistant
+    content: 正是。此外，您的Sapphire Reserve无需Priority Pass即可进入Chase Sapphire贵宾厅。
+  - role: user
+    content: 那些在哪里？
+  - role: assistant
+    content: 目前在波士顿、香港和纽约拉瓜迪亚机场，更多地点即将开放。
+  - role: user
+    content: LAX没有吗？
+  - role: assistant
+    content: 还没有，但LAX有很多Priority Pass选择，比如KAL贵宾厅等。
+  - role: user
+    content: 知道了。我的信用额度是多少来着？
+  - role: assistant
+    content: 您当前的额度是25,000美元。
+  - role: user
+    content: 这对国际旅行够用吗？
+  - role: assistant
+    content: 应该足够了。您目前使用了3,200美元。
+  - role: user
+    content: 好的。我可以在国外取现金吗？
+  - role: assistant
+    content: 可以，但我不建议这样做。手续费很高，而且利息立即开始计算。请改用借记卡在ATM取款。
+  - role: user
+    content: 那在ATM上用信用卡取现呢？
+  - role: assistant
+    content: 那属于现金预支。最好使用您的Chase借记卡在ATM取款。
+  - role: user
+    content: 我的借记卡在国际上能用？
+  - role: assistant
+    content: 是的，在任何带有Visa或Plus标志的ATM上都可以。Chase与国际银行合作以减少手续费。
+  - role: user
+    content: 日本有哪些银行？
+  - role: assistant
+    content: 7-Eleven ATM和日本邮政银行ATM与Chase卡配合良好。
+  - role: user
+    content: 7-Eleven有ATM？
+  - role: assistant
+    content: 在日本，是的！它们实际上是对外国人最友好的ATM之一。
+  - role: user
+    content: 有意思。动态货币转换呢？
+  - role: assistant
+    content: 始终选择以当地货币支付。如果他们提供转换为美元，请拒绝。
+  - role: user
+    content: 为什么？
+  - role: assistant
+    content: 商户使用较差的汇率进行转换。让Visa来处理——您会获得更好的汇率。
+  - role: user
+    content: 好建议。我的账单什么时候截止？
+  - role: assistant
+    content: 每月28日。
+  - role: user
+    content: 那么付款什么时候到期？
+  - role: assistant
+    content: 25天后，大约在下个月的22日左右。
+  - role: user
+    content: 我可以设置自动付款吗？
+  - role: assistant
+    content: 您已设置了最低还款额的自动付款。想改为全额还款吗？
+  - role: user
+    content: 是的，改为全额还款吧。
+  - role: assistant
+    content: 已更改。从下期账单开始，我们将自动从您的Chase支票账户支付全额余额。
+  - role: user
+    content: 完美。在国外消费积分怎么算？
+  - role: assistant
+    content: 您在全球旅行和餐饮消费可获得3倍积分，其他消费1倍积分。
+  - role: user
+    content: 酒店算旅行吗？
+  - role: assistant
+    content: 是的，酒店、航空公司、租车、火车、出租车，甚至国外的Uber都算旅行。
+  - role: user
+    content: 太好了。那些积分价值多少？
+  - role: assistant
+    content: 通过Chase Ultimate Rewards兑换旅行时每积分价值1.5美分，如果转至合作伙伴可能更高。
+  - role: user
+    content: 哪些合作伙伴？
+  - role: assistant
+    content: United、Southwest、JetBlue、Hyatt、Marriott、IHG，以及几家国际航空公司。
+  - role: user
+    content: 可以转到Delta吗？
+  - role: assistant
+    content: 不能直接转，但您可以转至Air France/KLM Flying Blue，然后通过他们预订Delta航班。
+  - role: user
+    content: 有点复杂但知道了。
+  - role: assistant
+    content: 旅行奖励可能比较复杂。关键是您的卡已经准备好国际使用了。
+  - role: user
+    content: 是的，谢谢你的所有帮助Marcus！
+  - role: assistant
+    content: 不客气Martinez女士！祝您旅途愉快，别忘了那些贵宾厅福利！
+user_question: 我正在敲定我的一月份东京之旅。出发前有什么需要我处理的吗？
+evaluation_criteria: '智能体必须通过识别并优先处理威胁用户即将进行的东京之旅的关键护照过期问题，展示卓越的跨对话综合推理能力。智能体应整合三次独立对话中的信息：一月份的达美航空预订（航班DELTA-JMK892，1月15日至22日飞往东京）、六月份的护照续期讨论（护照于2025年2月18日到期）以及十月份的信用卡旅行准备工作。智能体必须紧急标记护照在返程日期后不足30天即过期，这违反了大多数国家的六个月有效期要求，很可能导致被拒绝登机。回复应强烈建议立即办理加急护照续期（即使加急也需要5-7周），在收到新护照后向达美航空更新护照号码，并主动提及其他旅行准备工作，包括激活Priority
+  Pass应用程序以使用休息室、确认Chase Sapphire Reserve没有境外交易手续费，以及说明由于航班使用AmEx支付而非提供旅行保障的Chase卡，旅行保险覆盖范围有限。这展示了最高水平的主动协助，可防止潜在的旅行灾难。
+
+  '
+expected_behavior: 智能体应紧急标记护照于2025年2月18日到期（1月22日返程后不足一个月），强烈建议立即办理加急续期，提醒向达美航空预订DELTA-JMK892更新新护照号码，提及Priority Pass设置，并说明由于航班使用AmEx而非Chase支付，旅行保险覆盖有限

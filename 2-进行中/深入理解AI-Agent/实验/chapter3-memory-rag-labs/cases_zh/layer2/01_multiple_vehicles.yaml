@@ -1,0 +1,416 @@
+test_id: layer2_01_multiple_vehicles
+category: layer2
+title: 多车辆服务——需要消歧
+description: 测试智能体在用户对多辆车发出模糊请求时消除歧义的能力，需要检索所有相关车辆信息
+language: zh-CN
+translation_status: kimi-k2.6-translated-and-mechanically-verified
+translated_from: /Users/gaoronghui/Documents/agent_learning/2-进行中/深入理解AI-Agent/资料/本地资料/深入理解AI-Agent/chapter3/user-memory-evaluation/test_cases/layer2/01_multiple_vehicles.yaml
+conversation_histories:
+- conversation_id: auto_insurance_001
+  timestamp: '2024-10-15 11:00:00'
+  metadata:
+    business: State Farm Insurance
+    department: Auto Insurance
+    call_duration: 58 minutes
+  messages:
+  - role: user
+    content: 嗨，我需要把我的新车加到保险单上。
+  - role: assistant
+    content: 早上好！我是 State Farm 的 Jennifer。我来帮您添加新车。首先，请提供您的保单号？
+  - role: user
+    content: 是 SF-789234501。
+  - role: assistant
+    content: 谢谢您，先生...让我查一下...是 William Chen 先生吗？
+  - role: user
+    content: 是的，是我。
+  - role: assistant
+    content: 好的。我看到您目前在保单上有一辆 2019 年的本田雅阁。请告诉我您的新车信息。
+  - role: user
+    content: 我刚买了一辆 2023 年的特斯拉 Model 3。
+  - role: assistant
+    content: 恭喜您购买特斯拉！这是替换本田还是额外增加的车辆？
+  - role: user
+    content: 是额外增加的。我把本田留给我妻子开。
+  - role: assistant
+    content: 明白了。所以您的保单上将有两辆车。让我记录一下特斯拉的详细信息。车辆识别码是多少？
+  - role: user
+    content: 5YJ3E7EB8PF445892。
+  - role: assistant
+    content: 配置级别是哪一个？标准续航版、长续航版，还是高性能版？
+  - role: user
+    content: 是长续航全轮驱动版。
+  - role: assistant
+    content: 好的。车身颜色是什么？
+  - role: user
+    content: 珍珠白配黑色内饰。
+  - role: assistant
+    content: 购买日期是哪天？
+  - role: user
+    content: 10月10日，就在五天前。
+  - role: assistant
+    content: 您是购买的还是租赁的？
+  - role: user
+    content: 我通过特斯拉金融贷款购买的。
+  - role: assistant
+    content: 我们需要将特斯拉金融列为抵押权人。那么，这辆车主要停放在哪里？
+  - role: user
+    content: 在我家，和保单上的地址一样，奥斯汀的橡树街4421号。
+  - role: assistant
+    content: 停在车库还是车道上？
+  - role: user
+    content: 停在车库里。本田现在停在车道上。
+  - role: assistant
+    content: 好的，停放在车库的车辆通常可以享受折扣。谁是特斯拉的主要驾驶员？
+  - role: user
+    content: 是我。
+  - role: assistant
+    content: 您妻子仍然是本田的主要驾驶员吗？
+  - role: user
+    content: 是的，没错。
+  - role: assistant
+    content: 特斯拉的日常通勤距离是多少？
+  - role: user
+    content: 上班单程大约15英里，所以每天30英里。
+  - role: assistant
+    content: 年行驶里程估计是多少？
+  - role: user
+    content: 大概一年12,000英里。
+  - role: assistant
+    content: 现在来确定保险范围。您的本田有10万/30万/10万美元的责任险（原文紧凑记法：100/300/100）、综合险和碰撞险，免赔额都是500美元。特斯拉想要同样的保障吗？
+  - role: user
+    content: 对于新特斯拉您有什么建议？
+  - role: assistant
+    content: 对于新的豪华电动车，我建议保持相同的保障水平，但可以考虑选择1000美元的免赔额来降低保费，因为特斯拉的保险费用可能较高。
+  - role: user
+    content: 保费差额是多少？
+  - role: assistant
+    content: 选择500美元免赔额的话，特斯拉每年增加1,847美元。选择1000美元免赔额的话，每年是1,592美元。
+  - role: user
+    content: 特斯拉选1000美元免赔额吧。本田保持不变。
+  - role: assistant
+    content: 明智的选择。那么特斯拉的综合险和碰撞险免赔额都是1000美元。因为是贷款购买，您需要购买差额保险吗？
+  - role: user
+    content: 有必要吗？
+  - role: assistant
+    content: 考虑到电动车贬值较快，而且您有贷款，差额保险可以在车辆全损时覆盖差额。每年89美元。
+  - role: user
+    content: 好的，加上这个。
+  - role: assistant
+    content: 已添加。您本田目前的保费是每年924美元。加上特斯拉后，您的总保费是每年2,605美元。
+  - role: user
+    content: 这个价格合理。什么时候生效？
+  - role: assistant
+    content: 我可以立即生效，今天就生效，10月15日。
+  - role: user
+    content: 太好了。
+  - role: assistant
+    content: 我会把更新后的保险卡通过邮件发给您。特斯拉的保单号后缀是-02，所以是 SF-789234501-02。
+  - role: user
+    content: 本田还是保持-01吗？
+  - role: assistant
+    content: 对的。本田是 SF-789234501-01，特斯拉是 SF-789234501-02。
+  - role: user
+    content: 太好了，这样容易记住。
+  - role: assistant
+    content: 您新的六个月保费是1,302.50美元。您想继续使用自动付款吗？
+  - role: user
+    content: 是的，用档案里的同一张信用卡。
+  - role: assistant
+    content: 好的。还有其他需要吗？
+  - role: user
+    content: 其实，等等。我十几岁的儿子怎么办？他刚拿到学车许可证。
+  - role: assistant
+    content: 他多大了？
+  - role: user
+    content: 他16岁，上个月刚满16岁。
+  - role: assistant
+    content: 持有学车许可证期间，在有执照的成年人陪同下驾驶时，他在您的保单下是受保的。等他拿到正式驾照后，我们需要正式将他加入保单。
+  - role: user
+    content: 那样会增加多少保费？
+  - role: assistant
+    content: 对于16岁男性驾驶员，有两辆车的情况下，预计每年增加约2,200-2,800美元。
+  - role: user
+    content: 哇，这么多！
+  - role: assistant
+    content: 有一些折扣可以用。如果他保持B以上的平均成绩，好学生折扣可以节省15%。
+  - role: user
+    content: 他是全A学生，所以有帮助。
+  - role: assistant
+    content: 太好了。另外，如果他参加防御性驾驶课程，还可以再享受10%的折扣。
+  - role: user
+    content: 他能开特斯拉吗？
+  - role: assistant
+    content: 我强烈建议不要。青少年驾驶员驾驶高性能车辆会大幅增加保费。
+  - role: user
+    content: 那就只开本田？
+  - role: assistant
+    content: 那样会便宜得多。让本田成为他的主要车辆，加上折扣后每年大约增加1,800美元。
+  - role: user
+    content: 还是很贵，但更容易承受了。哦，还有一个问题——如果我偶尔用特斯拉开优步呢？
+  - role: assistant
+    content: 个人汽车保险不涵盖网约车驾驶。您需要添加网约车附加条款。
+  - role: user
+    content: 那个多少钱？
+  - role: assistant
+    content: 每年大约额外250美元，它覆盖个人保险和优步商业保险之间的保障缺口。
+  - role: user
+    content: 我考虑一下。不确定我是否真的会做网约车。
+  - role: assistant
+    content: 没问题。您可以随时添加。只是在没有附加条款的情况下不要开优步。
+  - role: user
+    content: 明白了。租车保障呢？
+  - role: assistant
+    content: 您的两辆车辆都有租车补偿保障，每天40美元，每次索赔最高1,200美元。
+  - role: user
+    content: 好的。拖车服务呢？
+  - role: assistant
+    content: 紧急道路救援包括最高100英里的拖车服务，以及搭电、换胎和开锁服务。
+  - role: user
+    content: 特斯拉通过自己的应用程序提供道路救援服务。
+  - role: assistant
+    content: 是的，但我们的服务涵盖您驾驶的任何车辆，不仅仅是特斯拉。
+  - role: user
+    content: 有道理。如果我开别人的车呢？
+  - role: assistant
+    content: 您的责任险保障延伸到您经允许驾驶的任何车辆。物理损坏保障跟随车辆所有人的保单。
+  - role: user
+    content: 明白了。哦，我忘了问——未投保驾驶员保障呢？
+  - role: assistant
+    content: 您有未投保/投保不足驾驶员保障，额度为10万/30万（原文紧凑记法：100/300），与您的责任险限额一致。
+  - role: user
+    content: 这在德克萨斯州很重要，有那么多未投保的驾驶员。
+  - role: assistant
+    content: 确实如此。德克萨斯州大约20%的驾驶员没有保险，所以这项保障至关重要。
+  - role: user
+    content: 如果我的特斯拉在公共充电站充电时受损怎么办？
+  - role: assistant
+    content: 如果是被人破坏，属于综合险保障范围；如果是被其他车辆碰撞，属于碰撞险保障范围。
+  - role: user
+    content: 1000美元免赔额会适用吗？
+  - role: assistant
+    content: 是的，除非我们能从事故责任方的保险公司获得赔偿。
+  - role: user
+    content: 我主要在家充电。这有什么影响吗？
+  - role: assistant
+    content: 家庭充电被认为更安全，这已计入您的费率中。公共充电站的事故正在增加。
+  - role: user
+    content: 知道了。特斯拉的自动驾驶呢？保障方面有什么问题吗？
+  - role: assistant
+    content: 保障方面没有问题，但即使使用自动驾驶，您仍然要对事故负责。
+  - role: user
+    content: 当然。那只是驾驶辅助，不是完全自动驾驶。
+  - role: assistant
+    content: 没错。有些人对此有误解。还有其他问题吗？
+  - role: user
+    content: 如果我需要提出索赔怎么办？
+  - role: assistant
+    content: 拨打我们的24/7索赔热线或使用移动应用程序。平均索赔处理时间为7-10天。
+  - role: user
+    content: 你们有特斯拉的优选维修店吗？
+  - role: assistant
+    content: 有的，我们在奥斯汀与几家特斯拉认证的车身修理厂合作。我会在邮件中附上那份名单。
+  - role: user
+    content: 太好了。我想就这些了。
+  - role: assistant
+    content: 好的！欢迎加入双车家庭，Chen 先生。安全驾驶！
+- conversation_id: auto_service_001
+  timestamp: '2024-11-20 09:30:00'
+  metadata:
+    business: Firestone Auto Care
+    department: Service Scheduling
+    call_duration: 51 minutes
+  messages:
+  - role: user
+    content: 你好，我需要为我的车预约保养服务。
+  - role: assistant
+    content: 早上好！我是 Firestone Auto Care 的 Mike。我来帮您预约保养服务。您需要什么类型的服务？
+  - role: user
+    content: 我需要换机油和 30,000 英里保养服务。
+  - role: assistant
+    content: 没问题。您的车辆是哪一年、什么品牌和型号？
+  - role: user
+    content: 是一辆 2019 年的本田雅阁。
+  - role: assistant
+    content: 好的。请问您的姓名？
+  - role: user
+    content: William Chen。
+  - role: assistant
+    content: 谢谢您，Chen 先生。本田目前的里程数是多少？
+  - role: user
+    content: 刚达到 31,500 英里。
+  - role: assistant
+    content: 正是做 30K 保养的好时机。内容包括换机油、轮胎换位、刹车检查、空气滤清器、空调滤清器和变速箱保养。
+  - role: user
+    content: 这要多少钱？
+  - role: assistant
+    content: 完整的 30K 保养套餐是 $389.99。如果您只想单独换机油，价格是 $44.99。
+  - role: user
+    content: 我们做全套吧。你们什么时候能安排我进店？
+  - role: assistant
+    content: 本周五 11 月 24 日上午 8 点，或者周六 25 日上午 10 点有空位。
+  - role: user
+    content: 周五 8 点可以。
+  - role: assistant
+    content: 好的。这项服务大约需要 2-3 小时。您是在店里等还是需要接送服务？
+  - role: user
+    content: 我在店里等。你们等候室有 WiFi 吗？
+  - role: assistant
+    content: 有的，免费 WiFi 和咖啡。确认用的电话号码？
+  - role: user
+    content: 512-555-8823。
+  - role: assistant
+    content: 服务记录用的邮箱？
+  - role: user
+    content: wchen@techcompany.com
+  - role: assistant
+    content: 车牌号？
+  - role: user
+    content: 德州车牌 JFK-8821。
+  - role: assistant
+    content: 我们记录用的车辆识别码（VIN）？
+  - role: user
+    content: 我手头没有。
+  - role: assistant
+    content: 没问题，您来的时候我们再获取。车辆有什么特别需要注意的问题吗？
+  - role: user
+    content: 刹车最近有点吱吱响。
+  - role: assistant
+    content: 我们会作为服务的一部分进行彻底的刹车检查。如果需要刹车维修，我们会在动工前先给您报价。
+  - role: user
+    content: 听起来不错。你们用什么类型的机油？
+  - role: assistant
+    content: 对于您的雅阁，我们推荐全合成 0W-20。这是本田指定的规格。
+  - role: user
+    content: 这包含在价格里吗？
+  - role: assistant
+    content: 是的，全合成机油包含在 $389.99 的套餐价格中。
+  - role: user
+    content: 好的。换机油能管多久？
+  - role: assistant
+    content: 使用全合成机油，本田建议每 7,500 英里或 6 个月更换一次，以先到者为准。
+  - role: user
+    content: 变速箱保养呢？
+  - role: assistant
+    content: 我们会放掉并重新加注变速箱油，使用本田兼容的 ATF。
+  - role: user
+    content: 是全套冲洗还是只是放油和加注？
+  - role: assistant
+    content: 对于本田车，我们做放油和加注。全套冲洗有时会对本田变速箱造成问题。
+  - role: user
+    content: 我也听说过。刹车检查呢？
+  - role: assistant
+    content: 我们测量刹车片厚度，检查刹车盘是否变形，检查卡钳，并测试刹车油。
+  - role: user
+    content: 如果我需要新刹车片，费用是多少？
+  - role: assistant
+    content: 前刹车片含人工费大约 $179。如果需要更换刹车盘，再加 $250。
+  - role: user
+    content: 那还不算太贵。空调滤清器呢？
+  - role: assistant
+    content: 空调滤清器更换包含在内。有助于空气质量和空调效率。
+  - role: user
+    content: 好的。我最近过敏很严重。
+  - role: assistant
+    content: 新的空调滤清器肯定能有所帮助。我们使用优质 HEPA 滤清器。
+  - role: user
+    content: 发动机空气滤清器呢？
+  - role: assistant
+    content: 这也包含在内。我们会检查并在需要时更换。
+  - role: user
+    content: 你们也检查其他油液吗？
+  - role: assistant
+    content: 是的，我们会加满所有油液——冷却液、刹车油、助力转向油、挡风玻璃清洗液。
+  - role: user
+    content: 电瓶呢？
+  - role: assistant
+    content: 我们作为免费检查的一部分，会测试电瓶和充电系统。
+  - role: user
+    content: 我的电瓶可能是 2019 年原装的。
+  - role: assistant
+    content: 那大约 5 年了。快到更换年限了。我们会测试并告知您情况。
+  - role: user
+    content: 如果需要新电瓶，多少钱？
+  - role: assistant
+    content: 您雅阁的电瓶价格在 $159-189 之间，取决于品牌，包含安装。
+  - role: user
+    content: 好的。你们提供任何保修吗？
+  - role: assistant
+    content: 是的，我们的服务提供 12 个月/12,000 英里的零件和人工保修。
+  - role: user
+    content: 这让人放心。哦，我还有一辆特斯拉需要轮胎换位。
+  - role: assistant
+    content: 我们肯定可以做。什么型号的特斯拉？
+  - role: user
+    content: 2023 款 Model 3 长续航版。
+  - role: assistant
+    content: 特斯拉目前的里程数是多少？
+  - role: user
+    content: 大约 8,000 英里。
+  - role: assistant
+    content: 特斯拉轮胎换位是 $29.99。如果您愿意，我们可以同一天做两辆车。
+  - role: user
+    content: 其实，我现在先专注于本田吧。我妻子主要用特斯拉。
+  - role: assistant
+    content: 没问题。那么就只预约周五上午 8 点的本田雅阁。
+  - role: user
+    content: 是的。你们怎么付款？
+  - role: assistant
+    content: 我们接受现金、支票、所有主要信用卡。服务完成后付款。
+  - role: user
+    content: 你们提供任何折扣吗？
+  - role: assistant
+    content: 如果您注册我们的邮件列表，首次服务可减 $20。
+  - role: user
+    content: 好的，帮我注册吧。
+  - role: assistant
+    content: 太好了！这样您的 30K 保养就是 $369.99 了。
+  - role: user
+    content: 能省一点是一点。如果发现有其他问题怎么办？
+  - role: assistant
+    content: 我们会在进行任何超出预约服务范围的工作之前先打电话给您。不会有意外费用。
+  - role: user
+    content: 这正是我想听到的。有些地方不询问就直接干活。
+  - role: assistant
+    content: 我们这里绝不会。我们信奉透明和客户确认。
+  - role: user
+    content: 你们周五几点开门？
+  - role: assistant
+    content: 我们 7:30 AM 开门，但您的预约是 8 AM。
+  - role: user
+    content: 我可以早点把车放下吗？
+  - role: assistant
+    content: 当然可以。我们有早鸟放车服务。只需把钥匙放进我们的安全投递箱。
+  - role: user
+    content: 那很方便。你们的地址再告诉我一下？
+  - role: assistant
+    content: 我们在 Austin 的 North Lamar Boulevard 4455 号。就在 Target 旁边。
+  - role: user
+    content: 哦对了，我知道在哪。很好找。
+  - role: assistant
+    content: 没错。停车位也很充足。您的预约已确认在 11 月 24 日周五上午 8 点。
+  - role: user
+    content: 等等，那是黑色星期五。你们确定营业吗？
+  - role: assistant
+    content: 提醒得好！是的，黑色星期五我们营业，但缩短营业时间，上午 8 点到下午 3 点。
+  - role: user
+    content: 那我应该早点来确保能做完？
+  - role: assistant
+    content: 您约的是上午 8 点，会是我们的第一位客户。应该能在 11 点前完成。
+  - role: user
+    content: 完美。我可以在等待的时候去黑色星期五购物。
+  - role: assistant
+    content: 旁边的 Target 肯定会很忙！您的确认号码是 FS-447291。
+  - role: user
+    content: 让我记下来……FS-447291？
+  - role: assistant
+    content: 正确。我们也会在周四晚上发送短信提醒。
+  - role: user
+    content: 好的。周五早上见！
+  - role: assistant
+    content: 到时候见，Chen 先生。祝您感恩节快乐！
+user_question: 我需要给我的车安排保养。你能告诉我目前已经安排了哪些服务吗？
+evaluation_criteria: '智能体必须识别用户请求中的关键歧义——用户拥有两辆车：一辆2019 Honda Accord和一辆2023 Tesla Model 3。当被问及为"我的车"安排服务时，智能体应通过确认两辆车并提供每辆车的完整服务状态来展示情境感知能力。具体而言，智能体应回忆Honda
+  Accord已确认的服务预约安排在11月24日星期五上午8点，地点为Firestone，服务内容为30K服务包，折扣后费用为$369.99（确认号FS-447291），而Tesla Model 3在第二次对话中被提及但实际未安排服务——仅提到了一般维护时间线。理想的回应应呈现两辆车的信息，然后询问用户希望为哪辆车安排服务，展示适当的消歧技能，而非假设或仅提供一辆车的部分信息。
+
+  '
+expected_behavior: 智能体应识别歧义，提及用户同时拥有已安排11月24日服务的Honda Accord和未安排服务的Tesla Model 3，然后询问哪辆车需要服务

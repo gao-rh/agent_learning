@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 1,
+  "source": "confirmed-plan-2026-08-16",
+  "status": "weekly-framework-confirmed-daily-drafts-unconfirmed",
+  "weekStart": "2026-08-17",
+  "weekEnd": "2026-08-23",
+  "planConfirmedOn": "2026-08-16",
+  "inputCutoffAt": "2026-08-16T22:51:21+08:00",
+  "weeklyGoals": [
+    {
+      "title": "完成《深入理解 AI Agent》",
+      "successCriteria": "完成第3至10章正文、全书主动回忆和3个关键实验"
+    },
+    {
+      "title": "验收灰记第一版",
+      "successCriteria": "记录、轻规划和健身场次摘要完成走查，未通过项有证据"
+    },
+    {
+      "title": "保持算法手感",
+      "successCriteria": "完成约10道Hot 100和2道Agent场景题"
+    }
+  ],
+  "weeklyQuotas": {
+    "gymSessions": 4,
+    "longRides": 1,
+    "lowLoadHalfDays": 1,
+    "datesAreFlexible": true
+  },
+  "dailyTracking": [
+    "morningWeight",
+    "sleep",
+    "subjectiveEnergy",
+    "roughMeals",
+    "morningEveningBrushing",
+    "basicSkincare"
+  ],
+  "workoutRecord": {
+    "fields": [
+      "startedAt",
+      "endedAt",
+      "durationMinutes",
+      "theme",
+      "content"
+    ],
+    "themes": [
+      "胸",
+      "背",
+      "腿",
+      "肩",
+      "手臂",
+      "全身",
+      "有氧",
+      "其他"
+    ],
+    "excludedFields": [
+      "动作",
+      "组数",
+      "次数",
+      "重量"
+    ]
+  },
+  "days": [
+    {
+      "date": "2026-08-17",
+      "outcomes": [
+        "完成第2章主动回忆并读完第3章",
+        "冻结灰记第一版验收清单",
+        "完成Hot 100两题"
+      ],
+      "blocks": [
+        {
+          "title": "Agent主动回忆与第3章",
+          "expectedResult": "不看笔记回答第2章7题并读完用户记忆和知识库",
+          "estimatedMinutes": 135,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "灰记第一版验收清单",
+          "expectedResult": "只保留记录、轻规划和健身摘要的明确验收项",
+          "estimatedMinutes": 60,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "Hot 100",
+          "expectedResult": "完成两题并记录卡点",
+          "estimatedMinutes": 45,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        }
+      ]
+    },
+    {
+      "date": "2026-08-18",
+      "outcomes": [
+        "读完第4章并讲清Tool、MCP、Skill边界",
+        "走查灰记记录与回顾链路",
+        "完成Hot 100两题"
+      ],
+      "blocks": [
+        {
+          "title": "Agent第4章：工具",
+          "expectedResult": "形成Tool、MCP、Skill边界说明",
+          "estimatedMinutes": 135,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "灰记记录链路走查",
+          "expectedResult": "完成入口、保存和回顾检查并留下问题证据",
+          "estimatedMinutes": 60,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "Hot 100",
+          "expectedResult": "完成两题并记录卡点",
+          "estimatedMinutes": 45,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        }
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "outcomes": [
+        "读完第5章Coding Agent",
+        "走查灰记日计划完整流程",
+        "完成Hot 100两题"
+      ],
+      "blocks": [
+        {
+          "title": "Agent第5章：Coding Agent",
+          "expectedResult": "讲清Coding Agent核心循环和可靠性边界",
+          "estimatedMinutes": 135,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "灰记日计划流程走查",
+          "expectedResult": "检查草稿、确认、开始和结束流程",
+          "estimatedMinutes": 60,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "Hot 100",
+          "expectedResult": "完成两题并记录卡点",
+          "estimatedMinutes": 45,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        }
+      ]
+    },
+    {
+      "date": "2026-08-20",
+      "outcomes": [
+        "读完第6章并产出Agent评估表",
+        "验收健身场次摘要字段",
+        "完成Hot 100两题"
+      ],
+      "blocks": [
+        {
+          "title": "Agent第6章：评估",
+          "expectedResult": "形成覆盖任务成功、轨迹和成本的评估表",
+          "estimatedMinutes": 135,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "灰记健身场次摘要验收",
+          "expectedResult": "核对起止、时长、主题、内容和去重边界",
+          "estimatedMinutes": 60,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "Hot 100",
+          "expectedResult": "完成两题并记录卡点",
+          "estimatedMinutes": 45,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        }
+      ]
+    },
+    {
+      "date": "2026-08-21",
+      "outcomes": [
+        "读完第7至8章并完成正文第一遍",
+        "检查灰记失败与数据安全边界",
+        "完成Hot 100两题"
+      ],
+      "blocks": [
+        {
+          "title": "Agent第7至8章",
+          "expectedResult": "讲清后训练与持续进化的作用和适用边界",
+          "estimatedMinutes": 135,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "灰记异常边界检查",
+          "expectedResult": "检查离线、失败和数据安全并留下证据",
+          "estimatedMinutes": 60,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "Hot 100",
+          "expectedResult": "完成两题并记录卡点",
+          "estimatedMinutes": 45,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        }
+      ]
+    },
+    {
+      "date": "2026-08-22",
+      "outcomes": [
+        "完成第9至10章重点阅读",
+        "完成三类关键实验并走查灰记真机",
+        "完成嵌套JSON场景题"
+      ],
+      "blocks": [
+        {
+          "title": "Agent第9至10章与关键实验",
+          "expectedResult": "完成多模态、多Agent重点和记忆、工具、多Agent三类实验",
+          "estimatedMinutes": 210,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "灰记真机完整走查",
+          "expectedResult": "完成第一版真实流程走查并保存证据",
+          "estimatedMinutes": 90,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "Agent场景算法：嵌套JSON",
+          "expectedResult": "完成解析与校验题并总结边界",
+          "estimatedMinutes": 45,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "当日复盘",
+          "expectedResult": "记录实验失败原因和次日补缺项",
+          "estimatedMinutes": 15,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        }
+      ]
+    },
+    {
+      "date": "2026-08-23",
+      "outcomes": [
+        "完成全书主动回忆和学习总结",
+        "完成灰记第一版验收并记录未通过项",
+        "完成流式JSON/SSE题并选择下周课程"
+      ],
+      "blocks": [
+        {
+          "title": "Agent全书主动回忆与总结",
+          "expectedResult": "不看材料讲清十章主线并补齐关键缺口",
+          "estimatedMinutes": 210,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "灰记第一版验收",
+          "expectedResult": "形成通过项、未通过项和后续边界清单",
+          "estimatedMinutes": 90,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "Agent场景算法：流式JSON/SSE",
+          "expectedResult": "完成拼接题并总结错误处理",
+          "estimatedMinutes": 45,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        },
+        {
+          "title": "周复盘与课程选择",
+          "expectedResult": "核对本周完成边界并确定下周课程",
+          "estimatedMinutes": 15,
+          "isFixed": false,
+          "fixedStartAt": null,
+          "fixedEndAt": null
+        }
+      ]
+    }
+  ]
+}

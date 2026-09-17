@@ -1,0 +1,243 @@
+test_id: layer1_04_airline_booking
+category: layer1
+title: 航空预订：航班细节与乘客信息
+description: 测试 Agent 能否从一次详细的订票通话中，准确回忆航班预订信息、座位和乘客偏好。
+language: zh-CN
+translation_status: manually_reviewed_teaching_copy
+translated_from: chapter3/user-memory-evaluation/test_cases/layer1/04_airline_booking.yaml
+conversation_histories:
+- conversation_id: airline_booking_001
+  timestamp: '2024-11-10 16:30:00'
+  metadata:
+    business: 太平洋航空
+    department: 预订部
+    call_duration: 48 分钟
+  messages:
+  - role: user
+    content: 你好，我要订一张从西雅图到迈阿密的往返机票，去参加一场商务会议。
+  - role: assistant
+    content: 下午好！感谢您选择太平洋航空。我叫马库斯，今天由我帮您办理预订。您计划什么时候出行？
+  - role: user
+    content: 我需要 12 月 5 日出发，12 月 9 日返回。
+  - role: assistant
+    content: 我来查一下可用航班。您对出发时段有偏好吗？
+  - role: user
+    content: 5 日最好是早班机，回程最好是下午或晚上。
+  - role: assistant
+    content: 好的。只有一位乘客吗？
+  - role: user
+    content: 是的，就我自己。
+  - role: assistant
+    content: 请告诉我您证件上的完整姓名。
+  - role: user
+    content: Rebecca Anne Sullivan。
+  - role: assistant
+    content: 谢谢您，Sullivan 女士。12 月 5 日有几个选择。PA 234 航班早上 7:15 从西雅图出发，下午 3:45 到达迈阿密，中途在达拉斯转机一次。
+  - role: user
+    content: 在达拉斯转机要等多久？
+  - role: assistant
+    content: 转机时间是 1 小时 30 分钟。
+  - role: user
+    content: 时间有点紧。还有别的吗？
+  - role: assistant
+    content: 还有 PA 567，早上 9:30 出发，下午 6:20 到达，在凤凰城中转。转机时间是 2 小时 15 分钟。
+  - role: user
+    content: 这个听起来好一些。有直飞航班吗？
+  - role: assistant
+    content: 有一班直飞 PA 890，上午 10:45 出发，晚上 7:10 到达。这是我们的高端航线，所以贵大约 200 美元。
+  - role: user
+    content: 具体差价是多少？
+  - role: assistant
+    content: 经凤凰城转机的经济舱是 487 美元，直飞经济舱是 685 美元。
+  - role: user
+    content: 商务舱呢？
+  - role: assistant
+    content: 直飞航班的商务舱是 1,450 美元，经凤凰城转机的商务舱是 980 美元。
+  - role: user
+    content: 选直飞的经济舱吧。相比多花的钱，我更看重时间。
+  - role: assistant
+    content: 很好的选择。这是 12 月 5 日上午 10:45 从西雅图出发的 PA 890。现在来看 12 月 9 日的回程吗？
+  - role: user
+    content: 下午或晚上有哪些选择？
+  - role: assistant
+    content: 有一班直飞 PA 891，下午 2:35 从迈阿密出发，下午 5:55 到达西雅图。
+  - role: user
+    content: 这个正合适。
+  - role: assistant
+    content: 好的！这一程经济舱也是 685 美元。您现在要选座吗？
+  - role: user
+    content: 好的，我喜欢靠过道的座位。
+  - role: assistant
+    content: 去程航班的 12、18、24 和 31 排都有靠过道的座位。您想选哪一排？
+  - role: user
+    content: 我想离前面近一点。12 排不错。
+  - role: assistant
+    content: 12C 可以选，是飞机右侧靠过道的座位。可以吗？
+  - role: user
+    content: 完美。
+  - role: assistant
+    content: 回程航班呢？
+  - role: user
+    content: 如果可以，也选类似的座位。
+  - role: assistant
+    content: 可以给您安排 14C，也是右侧靠过道的座位。
+  - role: user
+    content: 很好。
+  - role: assistant
+    content: 好的。您是太平洋奖励计划的会员吗？
+  - role: user
+    content: 不是。
+  - role: assistant
+    content: 您想加入吗？加入是免费的，这次行程还能累积里程。
+  - role: user
+    content: 可以，那就加入吧。
+  - role: assistant
+    content: 好的。办理会员需要您的出生日期。
+  - role: user
+    content: 1982 年 1 月 18 日。
+  - role: assistant
+    content: 还需要您的电子邮箱。
+  - role: user
+    content: rsullivan82@techmail.com。
+  - role: assistant
+    content: 电话号码呢？
+  - role: user
+    content: 206-555-4412。
+  - role: assistant
+    content: 还需要邮寄地址。
+  - role: user
+    content: 华盛顿州西雅图市常青路 8923 号 14B 公寓，邮编 98101。
+  - role: assistant
+    content: 好的。您的太平洋奖励计划会员号是 PR-4478829。这次往返行程大约可以累积 5,400 英里。
+  - role: user
+    content: 很好。行李呢？机票里包含哪些行李？
+  - role: assistant
+    content: 经济舱机票包含一件随身小件和一件手提行李。第一件托运行李收费 35 美元，第二件收费 45 美元。
+  - role: user
+    content: 我可能要托运一件行李。
+  - role: assistant
+    content: 您要现在预付吗？每件可以便宜 5 美元。
+  - role: user
+    content: 所以会从 35 美元变成 30 美元？
+  - role: assistant
+    content: 是的。现在预付是每程 30 美元，往返共 60 美元。
+  - role: user
+    content: 好，现在预付吧。
+  - role: assistant
+    content: 已添加。您对机上餐食有忌口吗？
+  - role: user
+    content: 我吃素。
+  - role: assistant
+    content: 已记录，我们会为您提供素食选择。您有 TSA PreCheck 或 Global Entry 吗？
+  - role: user
+    content: 我有 TSA PreCheck，号码是 842756931。
+  - role: assistant
+    content: 已添加到您的预订中，它会显示在登机牌上。现在请问您想怎样支付？
+  - role: user
+    content: 我用 Visa 卡。
+  - role: assistant
+    content: 准备好后请告诉我卡号。
+  - role: user
+    content: 卡号是 4532-8876-9901-3345。
+  - role: assistant
+    content: 有效期呢？
+  - role: user
+    content: 10/26。
+  - role: assistant
+    content: CVV 安全码呢？
+  - role: user
+    content: 338。
+  - role: assistant
+    content: 账单邮编呢？
+  - role: user
+    content: 98101，和我的地址一样。
+  - role: assistant
+    content: 卡上姓名是 Rebecca A Sullivan 吗？
+  - role: user
+    content: 是的。
+  - role: assistant
+    content: 好的。总金额是 1,430 美元：两段航班各 685 美元，再加上 60 美元托运行李费。现在正在处理支付……
+  - role: user
+    content: 金额没问题。
+  - role: assistant
+    content: 支付已通过。您的确认号是 PAC-778K4M。
+  - role: user
+    content: 我记一下……PAC-778K4M，对吗？
+  - role: assistant
+    content: 对的。我现在正把行程单发送到 rsullivan82@techmail.com。
+  - role: user
+    content: 好的。对了，座位升级呢？有额外腿部空间的座位吗？
+  - role: assistant
+    content: 有。我们的舒适加座位多 4 英寸腿部空间。您要升级吗？
+  - role: user
+    content: 多少钱？
+  - role: assistant
+    content: 每段航班 89 美元，往返共 178 美元。
+  - role: user
+    content: 暂时不升级。如果我改变主意，以后还能升级吗？
+  - role: assistant
+    content: 当然。在值机前，您随时都可以通过我们的网站或手机应用升级。
+  - role: user
+    content: 知道了。我应该提前多久到机场？
+  - role: assistant
+    content: 国内航班建议提前 2 小时到达。因此，您 12 月 5 日的航班应在上午 8:45 前到机场。
+  - role: user
+    content: 我可以在线值机吗？
+  - role: assistant
+    content: 可以。在线值机在起飞前 24 小时开放，您可以使用手机应用或网站。
+  - role: user
+    content: 可以在手机上获取登机牌吗？
+  - role: assistant
+    content: 可以。我们支持手机登机牌，也可以添加到 Apple Wallet 或 Google Pay。
+  - role: user
+    content: 很好。太平洋航空在西雅图塔科马国际机场使用哪个航站楼？
+  - role: assistant
+    content: 我们使用 B 航站楼。
+  - role: user
+    content: 在迈阿密呢？
+  - role: assistant
+    content: 我们在迈阿密国际机场使用 D 航站楼。
+  - role: user
+    content: 退票政策是什么？
+  - role: assistant
+    content: 经济舱机票不可退款，但可以支付 200 美元改签费和票价差额来更改航班。
+  - role: user
+    content: 如果我因为医疗原因需要取消呢？
+  - role: assistant
+    content: 如果有医生证明，我们可以提供一年内有效的未来旅行信用额度，但要扣除 100 美元处理费。
+  - role: user
+    content: 希望用不上。旅行保险呢？
+  - role: assistant
+    content: 我们和 TravelGuard 合作。您需要了解保障范围吗？
+  - role: user
+    content: 多少钱？
+  - role: assistant
+    content: 您这次行程的综合保障需要 89 美元，覆盖行程取消、紧急医疗、行李丢失和延误。
+  - role: user
+    content: 我考虑一下。以后还能添加吗？
+  - role: assistant
+    content: 从今天起 14 天内添加，仍可获得既往病症保障。
+  - role: user
+    content: 好的，我会尽快决定。还有一件事：我可以在西雅图使用贵宾室吗？
+  - role: assistant
+    content: 太平洋贵宾室只向商务舱乘客或奖励计划金卡会员开放，也可以购买 59 美元的单日通行证。
+  - role: user
+    content: 也许回程时会用。还有其他需要知道的吗？
+  - role: assistant
+    content: 请记得在每段航班起飞前 24 小时值机。您办理机场服务时使用的记录编号是 PAC-778K4M。两段航班都使用波音 737-900，可付费使用 WiFi。
+  - role: user
+    content: WiFi 多少钱？
+  - role: assistant
+    content: 国内航线使用一小时是 8 美元，全航程是 15 美元。
+  - role: user
+    content: 知道了。应该没有别的了。
+  - role: assistant
+    content: 好的，我再汇总一下：Rebecca Sullivan 乘坐太平洋航空，12 月 5 日搭乘 PA 890，上午 10:45 从西雅图飞往迈阿密，座位 12C；12 月 9 日下午 2:35 搭乘 PA 891 返程，座位 14C。确认号 PAC-778K4M，已支付总额 1,430 美元。所有信息都办好了！
+  - role: user
+    content: 太好了，非常感谢你，马库斯！
+  - role: assistant
+    content: 不客气，Sullivan 女士。祝您迈阿密之行愉快，感谢您选择太平洋航空！
+user_question: 能提醒我一下航班确认号和我选的座位吗？我需要把它们加到日历里。
+evaluation_criteria: |
+  Agent 应准确找到并回答订票确认号 PAC-778K4M，以及两个座位：去程航班为 12C，回程航班为 14C。回答必须精确回忆确认号和两段航班对应的座位。Agent 可以额外说明两个都是靠过道座位，或补充去程航班号 PA 890 和回程航班号 PA 891。Agent 不得把订票确认号与奖励计划会员号等其他代码混淆，也不得张冠李戴两段航班的座位。
+expected_behavior: Agent 应回答确认号 PAC-778K4M，去程座位 12C，回程座位 14C。
