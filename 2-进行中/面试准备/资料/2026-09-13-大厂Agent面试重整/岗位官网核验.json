@@ -1,0 +1,211 @@
+{
+  "verified_at": "2026-09-13",
+  "note": "本次研究的官方来源核验记录。J01—J06 为公开接口原字段摘取；J07—J08 为已读取官网页面的结构化摘录，并非 API 原始响应。B01 为方向补充，X01 为年份不符的排除项。是否纳入与判定理由详见来源核验.md；未写回招聘追踪状态。",
+  "records": [
+    {
+      "id": "J01",
+      "company": "腾讯",
+      "verified_at": "2026-09-13",
+      "official_url": "https://careers.tencent.com/jobdesc.html?postId=1934984932162117632",
+      "api_url": "https://careers.tencent.com/tencentcareer/api/post/ByPostId?postId=1934984932162117632&language=zh-cn",
+      "date_kind": "官方最近更新时间",
+      "official_data": {
+        "PostId": "1934984932162117632",
+        "RecruitPostName": "WeTalk-大模型应用研发工程师-（Agent Harness）",
+        "LocationName": "北京",
+        "BGName": "WXG",
+        "ProductName": "wetalk",
+        "Responsibility": "1.负责 WeTalk Agent Harness 的设计与开发，包括 Agent Loop、编排和运行环境等核心能力；\r\n2.建设 Context Engineering 能力，包括上下文压缩、Skill、跨会话 Memory、检索和长任务状态管理；\r\n3.搭建 Agent 评测体系，通过评测数据、运行 Trace 和用户反馈定位问题，推动模型、Prompt、Context、Tool 等策略持续优化；\r\n4.参与 WeTalk AI 能力的探索与落地，并将业务实践沉淀为稳定、通用的工程能力。",
+        "Requirement": "1.岗位要求；\r\n2.熟悉 Go、Python、Node.js 中至少一种语言，具备扎实的编码和系统设计能力；\r\n3.熟悉常见后端技术和基础设施，如 MySQL、Redis、Pulsar 等；\r\n4.了解 LLM、Agent、Tool Use、MCP、Memory 等技术，对大模型应用有实践或浓厚兴趣；\r\n5.具备良好的工程素养、沟通能力和责任心，能够在快速探索中推进项目落地。",
+        "LastUpdateTime": "2026年09月11日",
+        "RequireWorkYearsName": "两年以上工作经验",
+        "ImportantItem": "1.有 Agent Framework、工作流、Context Engineering 或复杂 AI 应用开发经验；\r\n2.有大模型评测、LLM-as-a-Judge、自动化回归或效果分析经验；\r\n3.有模型服务、推理性能或系统稳定性优化经验；\r\n4.我们不要求你覆盖所有方向，但看重扎实的工程能力、对 Agent 的理解，以及把新技术做成真实产品的热情。"
+      },
+      "use": "核心岗位依据"
+    },
+    {
+      "id": "J02",
+      "company": "腾讯",
+      "verified_at": "2026-09-13",
+      "official_url": "https://careers.tencent.com/jobdesc.html?postId=2026845083588001792",
+      "api_url": "https://careers.tencent.com/tencentcareer/api/post/ByPostId?postId=2026845083588001792&language=zh-cn",
+      "date_kind": "官方最近更新时间",
+      "official_data": {
+        "PostId": "2026845083588001792",
+        "RecruitPostName": "AI应用开发工程师-Agent方向",
+        "LocationName": "深圳",
+        "BGName": "PCG",
+        "ProductName": "QQ",
+        "Responsibility": "1.设计并实现社交产品中的 AI Agent 核心系统，包括：任务规划（Planning）、长期记忆系统（Long-term Memory）、意图识别与多 Agent 协同、RAG 架构与效果优化；\r\n2.构建 Agent 基础设施，包括：Durable Execution 长任务执行框架、沙箱与安全执行环境、Skills 编排与 MCP 协议集成；\r\n3.建立模型效果评测与优化飞轮，推动效果持续迭代；\r\n4.跟进主流 Agent 框架并结合业务落地；\r\n5.参与模型推理加速、微调与强化学习等性能优化工作。",
+        "Requirement": "1.深刻理解 Transformer 与 LLM 原理；\r\n2.有Agent实战项目经验；\r\n3.有扎实的编程能力，并熟练使用 AI 进行研发；\r\n4.具备良好的系统设计与工程能力。",
+        "LastUpdateTime": "2026年08月26日",
+        "RequireWorkYearsName": "一年以上工作经验",
+        "ImportantItem": "1.精通主流 Agent SDK 或多 Agent 框架；\r\n2.有模型微调 / 强化学习 / 推理优化经验；\r\n3.有高并发或分布式系统经验。"
+      },
+      "use": "核心岗位依据"
+    },
+    {
+      "id": "J03",
+      "company": "腾讯",
+      "verified_at": "2026-09-13",
+      "official_url": "https://careers.tencent.com/jobdesc.html?postId=2074485449791029248",
+      "api_url": "https://careers.tencent.com/tencentcareer/api/post/ByPostId?postId=2074485449791029248&language=zh-cn",
+      "date_kind": "官方最近更新时间",
+      "official_data": {
+        "PostId": "2074485449791029248",
+        "RecruitPostName": "腾讯AI协作工具- AI Agent研发工程师",
+        "LocationName": "深圳",
+        "BGName": "CSIG",
+        "ProductName": "腾讯文档C端",
+        "Responsibility": "1.负责腾讯AI协作工具中 AI Agent 核心能力的全链路研发与迭代：Agent 编排框架、工具/技能（Tool/Skill）调用、多轮对话与上下文管理、任务规划与执行闭环，保障多端体验一致；\r\n2.主导 AI 能力与编辑器的深度集成：将生成、改写、总结、问答、自动排版、数据分析等能力无缝嵌入文档/表格/幻灯片的编辑与协作流程；\r\n3.设计并落地 Agent 工程化体系：Prompt 工程、RAG/上下文检索、模型调用链路、效果评测与回归、稳定性与成本优化，持续提升 Agent 的可用性与质量；\r\n4.协同产品、设计、算法及后端团队深度参与需求评审与技术方案设计，推动 AI 功能高质量端到端交付与问题闭环，对核心方向具备 owner 意识；\r\n5.跟踪并落地前沿技术（大模型 Function Calling、MCP、端侧推理、WebAssembly/WebGPU 加速、多模态等），在文档高要求业务场景中完成技术原型验证与规模化落地；\r\n6.牵头协作工具中 AI Agent 的中长期技术规划与架构演进，定义技术标准与评测基线，攻坚体系性难题，培养团队技术梯队并建立技术影响力。",
+        "Requirement": "1.本科及以上学历，计算机/软件工程相关专业；经验不限，有大型工具类/协作办公/文档类产品经验者优先；\r\n2.扎实的前端基础，精通 HTML5/CSS3/JavaScript/TypeScript，熟练掌握 React 或 Vue 及其生态，具备良好的工程化能力；\r\n3.对 AI 应用开发有实践或浓厚兴趣：熟悉大模型 API 调用、Prompt 工程、Function Calling / 工具调用、RAG、Agent 编排等至少一类技术，有 LLM 应用落地经验者优先；\r\n4.良好的工程素养与逻辑思维，能独立承担有挑战性的技术任务，跨团队沟通协作能力强，自驱力强、有主人翁意识。",
+        "LastUpdateTime": "2026年08月27日",
+        "RequireWorkYearsName": "不限",
+        "ImportantItem": "1.有 Electron 桌面端开发经验；\r\n2.有文档类、协作办公、富文本编辑器相关工作经验；\r\n3.有 AI Agent / LLM 应用（如 Agent 框架、MCP、RAG、智能体编排）的实际落地经验；\r\n4.熟悉 Node.js / Python 等后端能力，能独立打通 Agent 全链路；\r\n5.对模型效果评测、Prompt 优化、推理成本控制有体系化方法。"
+      },
+      "use": "核心岗位依据"
+    },
+    {
+      "id": "J04",
+      "company": "腾讯",
+      "verified_at": "2026-09-13",
+      "official_url": "https://careers.tencent.com/jobdesc.html?postId=2095441701685608448",
+      "api_url": "https://careers.tencent.com/tencentcareer/api/post/ByPostId?postId=2095441701685608448&language=zh-cn",
+      "date_kind": "官方最近更新时间",
+      "official_data": {
+        "PostId": "2095441701685608448",
+        "RecruitPostName": "Agent开发工程师",
+        "LocationName": "深圳",
+        "BGName": "IEG",
+        "ProductName": "",
+        "Responsibility": "团队介绍\n腾讯游戏商务部的主旨是建立腾讯与全球优质厂商的桥梁，服务与全球100+投资伙伴和重要厂商。持续扩大腾讯在全球互联网生态和游戏行业的影响力，利用敏锐的嗅觉捕捉高潜力商业合作机会，并帮助投资伙伴持续的成长。深耕亚太、欧美和新兴市场，与日本、韩国、美国、英国、法国、芬兰、德国等成熟市场和东南亚、中东、土耳其等新区域的伙伴建立了深度的战略合作关系，实现商业上的共赢。\n商务部期待全球的优秀人才一同加入，通过全球的优质人才网络巩固和扩大腾讯与全球合作伙伴的合作关系，并为市场孵化更多优质的游戏产品。\n\n岗位职责\n1.负责部门 Agent 产品研发，与业务、Agent 产品及运营团队紧密合作，将业务需求转化为可实现、可验证、可量化的技术方案，承担架构设计、前后端开发、测试、部署及持续迭代的完整闭环。2.负责 Agent 核心能力建设，包括企业知识库、RAG、记忆系统、工具调用、业务 Agent、MCP，以及 Multi-Agent 与人机协作流程的设计和实施。\n3.负责 Agent 与腾讯内部基础设施及产品的集成，包括模型与 Agent 平台、权限身份体系、知识库及数据平台，并通过 API、SDK、MCP等方式建设稳定、可复用的连接能力。\n4.建设部门 Agent Benchmark、评测与可观测体系，通过自动化评测、回归测试、Tracing、日志监控和反馈闭环，持续优化任务成功率、生成质量、稳定性、响应速度及成本。\n5.建设生产级工程与安全保障体系，包括 CI/CD、自动化测试、灰度发布、故障恢复、权限控制、操作审计和数据隔离，保障 Agent 产品安全稳定运行。\n\n岗位要求\n1.本科及以上学历，5 年以上软件研发经验，具备复杂系统或产品从0到1交付经验；能力和作品突出者可适当放宽。2.熟练掌握 JavaScript/TypeScript，熟悉 React 或 Vue 中至少一种主流前端框架。熟练使用 Python、Go、Java或基于 Node.js 的服务端开发技术，熟悉 API、数据库、缓存及异步任务，具备独立全栈交付能力。3.理解 Agent Loop、Memory、Tool Calling、RAG、MCP、Planning及 Multi-Agent 等技术，并具备实际 Agent 项目开发或生产落地经验。4.具备良好的工程、产品和跨团队协作能力，重视代码质量、测试、可观测性、安全性及上线结果，能够熟练使用 AI Coding 工具提升研发效率。加分项\n生产级 Agent、开发者工具或企业知识助手的落地经验。\n企业知识图谱、agent/LLM评测或反馈数据闭环经验。\n企业数据库系统建设，多来源数据库治理经验。\n\n腾讯致力于提供平等就业机会\n在腾讯，我们始终秉承平等就业机会的原则，致力于为每一位员工打造公平、包容的工作环境。我们坚信，多元的声音能够激发出无限的创新活力，推动我们为用户和社会提供更优质的服务。我们用心营造一个充满支持与激励的氛围，帮助每一位员工找到属于自己的舞台，以实现个人及共同的发展目标。\r\nWork Location: China-Shenzhen",
+        "Requirement": "岗位要求详情请见上方岗位职责内说明",
+        "LastUpdateTime": "2026年09月03日",
+        "RequireWorkYearsName": "",
+        "ImportantItem": ""
+      },
+      "use": "核心岗位依据"
+    },
+    {
+      "id": "J05",
+      "company": "腾讯",
+      "verified_at": "2026-09-13",
+      "official_url": "https://careers.tencent.com/jobdesc.html?postId=2074111273825648640",
+      "api_url": "https://careers.tencent.com/tencentcareer/api/post/ByPostId?postId=2074111273825648640&language=zh-cn",
+      "date_kind": "官方最近更新时间",
+      "official_data": {
+        "PostId": "2074111273825648640",
+        "RecruitPostName": "腾讯云DataBuddy-Agent研发专家",
+        "LocationName": "深圳",
+        "BGName": "CSIG",
+        "ProductName": "腾讯云-大数据",
+        "Responsibility": "1.负责DataBuddy整体Agent运行框架的设计、开发与技术演进,并构建Agent整体的可观测性体系、评测体系；\r\n2.深度结合AI能力，建设AI原生的数据智能平台,探索和落地GenAI+大数据的融合场景；\r\n3.负责Agent运行框架、上下文工程、记忆、agent自进化等模块,优化DataBuddy的效果、执行效率；\r\n4.负责DataBuddy底层图谱构建,并构建知识挖掘体系。",
+        "Requirement": "1.具有扎实的基础知识、系统功底和编程能力，熟练掌握至少一门面向对象编程语言(Java/Python//GO),具备优秀的算法实现和代码优化能力；\r\n2.具备 Data Infra/AI Infra方向的从业经验，参与过一定规模的相关项目研发和运维优先；\r\n3.了解 Data+AI 方向最新前沿动态，了解业界新技术和新方案；\r\n4.具备良好的团队协作能力，沟通能力，以及优秀的分析与解决问题的能力；\r\n5.在同等条件下，通过腾讯云认证或取得同等资格认证的，优先考虑。",
+        "LastUpdateTime": "2026年07月15日",
+        "RequireWorkYearsName": "五年以上工作经验",
+        "ImportantItem": ""
+      },
+      "use": "核心岗位依据"
+    },
+    {
+      "id": "J06",
+      "company": "字节跳动",
+      "verified_at": "2026-09-13",
+      "official_url": "https://jobs.bytedance.com/experienced/position/7601812921946491189/detail",
+      "api_url": "https://jobs.bytedance.com/api/v1/job/posts/7601812921946491189",
+      "date_kind": "官方publish_time",
+      "official_data": {
+        "id": "7601812921946491189",
+        "title": "豆包大模型Agent算法工程师 - 火山方舟",
+        "description": "团队介绍：火山方舟是火山引擎推出的一站式大模型服务平台，是中国大模型市场产品和份额领跑者。平台提供模型推理、评测、精调等全流程服务。方舟搭载了豆包及业界主流大模型，提供丰富的插件生态和AI应用开发服务，并通过稳定可靠的安全互信方案、专业的算法技术服务，全方位保障企业级AI应用落地。\n\n1、参与火山方舟Managed-Agent相关的算法研发工作，参与方舟自有Harness的技术架构选型、设计、优化；\n2、优化方舟自有Harness，包括但不限于Harness的运行模式、Built-in Tools、Context机制、multi-Agent协作调度、智能的辅助能力（模型选择、Advisor、Grader、Ralph loop等等）；\n3、和评测团队一起构建面向Harness迭代的Agent评测，构建全面、有效的Agent Harness端到端评测；\n4、定义和实现Harness领域的前沿创新，与模型团队深度合作，参与实现模型与Harness的共同进化，从Harness的角度实现Seed Model和Harness与模型的深度适配。",
+        "requirement": "1、对Agent Harness有技术热情和优化经验，对大模型和Agent有较深入的理解，对模型行为有品味有判断力，对开发者体验有强感知；\n2、熟练使用AI Agent工具进行软件开发；在软件开发领域具有学习能力；能够在AI辅助下进行有质量保证的编程工作；\n3、熟悉模型和Agent Harness的基本机制及其技术原理（如LLM API、Reasoning、KV Cache、ToolUse、Skills、ReAct、Multi-Agent、MCP、A2A、FunctionCalling）；\n4、熟悉Agent评估方法、构建、RAG检索技术，了解流行的各类Agent应用的原理和实现细节（如OpenClaw、HermesAgent、Codex、ClaudeCode、Managed-Agents）；\n5、对Harness Evolving有实践，包括但不限于AutoPE,Memory Evolve,Harness代码Evolve，如AlphaEvolve、Hyper-Agents等；\n6、Agent产品的用户，深度使用过各类Agent产品，将相关产品的使用融入到工作和生活。",
+        "publish_time": 1769935147315,
+        "code": "A69288",
+        "channel_online_status": 1,
+        "publish_date_shanghai": "2026-02-01"
+      },
+      "use": "核心岗位依据"
+    },
+    {
+      "id": "B01",
+      "company": "字节跳动",
+      "verified_at": "2026-09-13",
+      "official_url": "https://jobs.bytedance.com/experienced/position/7599598898747656453/detail",
+      "api_url": "https://jobs.bytedance.com/api/v1/job/posts/7599598898747656453",
+      "date_kind": "官方publish_time",
+      "official_data": {
+        "id": "7599598898747656453",
+        "title": "Agent算法工程师-AI Platform",
+        "description": "1、负责Agent的设计与效果优化，通过Agent架构优化（工具、上下文管理、编排等）和模型优化（Agentic RL等具体任务的Post-Training），产出效果领先的Agent；\n2、探索AgentArchitectures/Structures的上限，在Agent应用研究中最大程度释放模型的能力，研究Self-Evolving AI System，实现Self-Improving Agents；\n3、设计和开发领先AI应用和解决方案原型，验证产品概念和需求，构建应用评估并优化Agent效果，为智能客服场景的AI应用提供领先的Agent解决方案。",
+        "requirement": "1、熟悉Agentic RL的方法，了解Agentic RL Infra（例如CodeRL，Reward System），熟悉模型的Post-Training训练技术，能针对特定模型能力问题进行SFT、RL训练优化；\n2、精通Python的编程技能，并有构建生产应用程序的经验，具备在Linux开发环境下的开发能力，熟悉至少一种主流大模型应用框架（如LangGraph、LlamaIndex、OpenAI AgentsSDK、GoogleADK等）；\n3、对大模型和Agent有较深入的理解，熟悉常见的LLM实施模式、提示工程、评估框架、检索框架等，了解Agent Architectures/Structures（Multi-Agent、Context Engineering/Mangemant、ReAct/PlanAct/CodeAct），了解Agent相关的交互协议（MCP、A2A、FunctionCall）；\n4、具备技术沟通能力，能够创建可扩展的内容（文档、教程、示例代码），同时有项目管理能力和多团队协同能力；了解大模型服务生态，有AI算法相关领域技术背景、AI产品工作经验的优先。",
+        "publish_time": 1769419521332,
+        "code": "A190164A",
+        "channel_online_status": 1,
+        "publish_date_shanghai": "2026-01-26"
+      },
+      "use": "仅训练方向补充"
+    },
+    {
+      "id": "X01",
+      "company": "字节跳动",
+      "verified_at": "2026-09-13",
+      "official_url": "https://jobs.bytedance.com/experienced/position/7536117089481115911/detail",
+      "api_url": "https://jobs.bytedance.com/api/v1/job/posts/7536117089481115911",
+      "date_kind": "官方publish_time",
+      "official_data": {
+        "id": "7536117089481115911",
+        "title": "Agent研发工程师（数据智能体） - 创新&中台",
+        "description": "团队介绍：负责字节跳动旗下创新与中台业务方向的数据 BP 工作，业务版图覆盖今日头条、Flow、番茄系列产品及风控等板块。我们以数据高效赋能业务创新突破为使命，深度扎根各业务条线，以数据体系建设为根基、业务目标达成为导向，为业务方提供专业、稳定、高效的数据服务与架构解决方案。工作聚焦海量数据的治理与深度挖掘，需对产品全链路数据开展复杂且精细化的分析；既可以深耕大数据产品的迭代优化，探索前沿技术的落地实践；也能够凭借对产品的深度洞察，推动数据能力在业务场景中高效落地；更可以通过对产品与内容生态的深度剖析，直接参与并影响产品的未来发展方向，实现个人成长和业务价值的突破。\n\n1、支持内容质量业务侧AI数据智能产品的开发，参与产品的需求分析、技术架构设计、编码实现等工作；\n2、支持数据智能产品的架构和服务搭建，包含但不限于Prompt Engineering、Multi-Agent、RAG等；\n3、深度参与基于Agent的数据产品的架构创新与优化，熟悉语义层建设及评测体系搭建，并推动方案高效落地实施；\n4、深度参与AI新技术新方向的探索和选型。",
+        "requirement": "1、本科及以上学历，计算机相关专业，思维敏捷，沟通能力强，具有自我驱动能力；\n2、有Agent或RAG（Retrieval-Augmented Generation）项目实际落地经验，或具备NLP相关工作经验者优先；\n3、有良好的产品和业务意识，善于深入理解业务场景并抽象需求，设计高效的技术方案并推动落地；\n4、有深度学习、大模型、LLM应用等平台开发经验，或熟悉LangChain、Dify等开源Agent框架者优先；\n5、具备扎实的编程能力，热爱技术，善于钻研和学习新知识，具备良好的团队协作与沟通能力。",
+        "publish_time": 1754639335511,
+        "code": "A218008B",
+        "channel_online_status": 1,
+        "publish_date_shanghai": "2025-08-08"
+      },
+      "use": "排除：官方发布日期为2025年"
+    },
+    {
+      "id": "J07",
+      "company": "百度",
+      "verified_at": "2026-09-13",
+      "official_url": "https://talent.baidu.com/jobs/detail/GRADUATE/8683fc23-9bff-4d25-84b2-f5ddce782c5a",
+      "date_kind": "官网展示日期；页面未另拆首次发布与更新时间",
+      "extraction_method": "官网正文经 web 工具读取后的结构化摘录；职责为概括，不是逐字原文",
+      "use": "核心岗位依据",
+      "normalized_data": {
+        "title": "北京-Agent Harness研发工程师(J100815)",
+        "displayed_date": "2026-07-21",
+        "location": "北京",
+        "recruitment_type": "校招",
+        "responsibility_summary": [
+          "Harness架构设计与研发",
+          "构建可读、可控、可验证的执行环境，提供约束与反馈",
+          "长任务状态、上下文压缩与交接",
+          "模型与Harness协同优化及人机协作反馈"
+        ]
+      }
+    },
+    {
+      "id": "J08",
+      "company": "百度",
+      "verified_at": "2026-09-13",
+      "official_url": "https://talent.baidu.com/jobs/detail/SOCIAL/a5ff8d15-b547-4a87-ba55-a128dae953cd",
+      "date_kind": "官网展示日期；页面未另拆首次发布与更新时间",
+      "extraction_method": "官网正文经 web 工具读取后的结构化摘录；职责为概括，不是逐字原文",
+      "use": "核心岗位依据",
+      "normalized_data": {
+        "title": "大模型应用研发工程师(J103341)",
+        "displayed_date": "2026-08-10",
+        "location": "北京",
+        "recruitment_type": "社招",
+        "responsibility_summary": [
+          "Agent企业能力开放",
+          "API、CLI、Skill的注册、生成、发布、调用、治理和评测",
+          "API分析适配、代码及文档的质量检测",
+          "组织知识和项目上下文建设",
+          "协同落地"
+        ]
+      }
+    }
+  ]
+}

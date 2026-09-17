@@ -1,0 +1,1484 @@
+{
+  "version": "playground-v3",
+  "synthetic": true,
+  "reference_date": "2026-09-01",
+  "preset_scope": "人工模拟周预设，合计覆盖该指标在演示中支持的全部维度枚举；不是公司报表数据。基准日2026-09-01，本期08-24至08-30，前期08-17至08-23。",
+  "dimensions": {
+    "insurance_type": {
+      "name": "险种",
+      "aliases": [
+        "险种名称",
+        "保险产品",
+        "业务"
+      ],
+      "definition": "投保的保险产品。",
+      "values": [
+        {
+          "id": "food_cover",
+          "name": "放心吃",
+          "aliases": []
+        },
+        {
+          "id": "timely",
+          "name": "准时宝",
+          "aliases": []
+        },
+        {
+          "id": "cancel",
+          "name": "取消险",
+          "aliases": []
+        }
+      ]
+    },
+    "source": {
+      "name": "获客来源",
+      "aliases": [
+        "source",
+        "来源",
+        "获客方式"
+      ],
+      "definition": "从哪里获得客户；与 APP 内的栏位分开。",
+      "values": [
+        {
+          "id": "merchant_app",
+          "name": "商家端APP",
+          "aliases": [
+            "商家APP",
+            "商户端APP",
+            "商家端"
+          ]
+        },
+        {
+          "id": "telesales",
+          "name": "电销",
+          "aliases": [
+            "电话销售",
+            "电话获客"
+          ]
+        },
+        {
+          "id": "field",
+          "name": "地推",
+          "aliases": [
+            "线下地推"
+          ]
+        },
+        {
+          "id": "organic",
+          "name": "自然访问",
+          "aliases": [
+            "自然流量"
+          ]
+        }
+      ],
+      "origin": "来源层级在渠道分析原文中出现；商家端APP、电销来自本轮用户口述，其余为模拟补充"
+    },
+    "user_type": {
+      "name": "用户类型",
+      "aliases": [
+        "用户",
+        "新老客",
+        "客户类型"
+      ],
+      "definition": "新客=首次产生该指标事件的客户；老客=已有历史事件；回流客=间隔后再次产生事件。本实验为模拟标签。",
+      "values": [
+        {
+          "id": "new_user",
+          "name": "新客",
+          "aliases": [
+            "新用户",
+            "新客户"
+          ]
+        },
+        {
+          "id": "existing_user",
+          "name": "老客",
+          "aliases": [
+            "老用户",
+            "老客户"
+          ]
+        },
+        {
+          "id": "returning_user",
+          "name": "回流客",
+          "aliases": [
+            "回流用户"
+          ]
+        }
+      ],
+      "origin": "本轮用户候选“用户”的模拟分组，非已核实公司枚举"
+    },
+    "category_l1": {
+      "name": "商户经营一级品类",
+      "aliases": [
+        "经营大类",
+        "餐饮娱乐分类"
+      ],
+      "definition": "商户经营品类的第一层。",
+      "values": [
+        {
+          "id": "food",
+          "name": "餐饮",
+          "aliases": [
+            "餐饮商户",
+            "餐饮类"
+          ]
+        },
+        {
+          "id": "entertainment",
+          "name": "休闲娱乐",
+          "aliases": [
+            "娱乐",
+            "娱乐类"
+          ]
+        },
+        {
+          "id": "life",
+          "name": "生活服务",
+          "aliases": [
+            "生活服务类"
+          ]
+        }
+      ],
+      "origin": "本轮用户口述与模拟补充；不冒充外卖主营一级品类"
+    },
+    "category_l2": {
+      "name": "二级品类",
+      "aliases": [
+        "二级类目",
+        "小类",
+        "细分类目"
+      ],
+      "definition": "商户经营品类的第二层；枚举名称保留父类路径，避免同名误配。",
+      "values": [
+        {
+          "id": "hotpot",
+          "name": "餐饮/火锅",
+          "aliases": [
+            "火锅",
+            "火锅店"
+          ]
+        },
+        {
+          "id": "fast_food",
+          "name": "餐饮/快餐小吃",
+          "aliases": [
+            "快餐",
+            "小吃"
+          ]
+        },
+        {
+          "id": "ktv",
+          "name": "休闲娱乐/KTV",
+          "aliases": [
+            "KTV",
+            "ktv",
+            "卡拉OK"
+          ]
+        },
+        {
+          "id": "escape_room",
+          "name": "休闲娱乐/密室",
+          "aliases": [
+            "密室",
+            "密室逃脱"
+          ]
+        },
+        {
+          "id": "beauty",
+          "name": "生活服务/美容美发",
+          "aliases": [
+            "美容",
+            "美发"
+          ]
+        }
+      ],
+      "origin": "本轮用户候选的模拟枚举，非已核实公司枚举"
+    },
+    "region": {
+      "name": "地区",
+      "aliases": [
+        "大区",
+        "区域"
+      ],
+      "definition": "商户归属的经营区域，不支持城市或省份层级。",
+      "values": [
+        {
+          "id": "east",
+          "name": "华东",
+          "aliases": [
+            "华东区"
+          ]
+        },
+        {
+          "id": "south",
+          "name": "华南",
+          "aliases": [
+            "华南区"
+          ]
+        },
+        {
+          "id": "north",
+          "name": "华北",
+          "aliases": [
+            "华北区"
+          ]
+        }
+      ],
+      "origin": "模拟补充"
+    },
+    "merchant_age": {
+      "name": "商户新老",
+      "aliases": [
+        "新老商",
+        "场景险新老客",
+        "新老商户"
+      ],
+      "definition": "报告口径：新商=入驻不超过30天；老商=入驻超过30天。",
+      "values": [
+        {
+          "id": "new_merchant",
+          "name": "新商",
+          "aliases": [
+            "新商户",
+            "新商家",
+            "新店"
+          ]
+        },
+        {
+          "id": "existing_merchant",
+          "name": "老商",
+          "aliases": [
+            "老商户",
+            "老商家",
+            "存量商户"
+          ]
+        }
+      ]
+    },
+    "merchant_type": {
+      "name": "外卖商户类型",
+      "aliases": [
+        "商户类型",
+        "商户规模"
+      ],
+      "definition": "与新商/老商不同的经营规模分类。",
+      "values": [
+        {
+          "id": "ka",
+          "name": "KA（大连锁）",
+          "aliases": [
+            "KA",
+            "大连锁"
+          ]
+        },
+        {
+          "id": "cka",
+          "name": "CKA（小连锁）",
+          "aliases": [
+            "CKA",
+            "小连锁"
+          ]
+        },
+        {
+          "id": "city",
+          "name": "城市商家",
+          "aliases": [
+            "城市商户"
+          ]
+        }
+      ]
+    },
+    "takeaway_category": {
+      "name": "主营一级品类",
+      "aliases": [
+        "一级品类",
+        "一级类目",
+        "主营品类"
+      ],
+      "definition": "原始评测材料中的外卖品类枚举；不要与餐饮/娱乐经营大类混为一套。",
+      "values": [
+        {
+          "id": "food",
+          "name": "美食",
+          "aliases": []
+        },
+        {
+          "id": "dessert",
+          "name": "甜点",
+          "aliases": []
+        },
+        {
+          "id": "drink",
+          "name": "饮品",
+          "aliases": []
+        }
+      ]
+    },
+    "channel_l1": {
+      "name": "一级渠道",
+      "aliases": [
+        "渠道",
+        "一级入口",
+        "APP栏位",
+        "栏位"
+      ],
+      "definition": "原始材料的一级渠道分类，包含APP入口及PC等；获客source单独定义。",
+      "values": [
+        {
+          "id": "open",
+          "name": "开门营业",
+          "aliases": [
+            "营业页"
+          ]
+        },
+        {
+          "id": "wallet",
+          "name": "钱包",
+          "aliases": []
+        },
+        {
+          "id": "icon",
+          "name": "金刚位",
+          "aliases": []
+        },
+        {
+          "id": "growth",
+          "name": "商家成长",
+          "aliases": []
+        },
+        {
+          "id": "proactive",
+          "name": "主动触达",
+          "aliases": []
+        },
+        {
+          "id": "pc",
+          "name": "PC",
+          "aliases": [
+            "电脑端"
+          ]
+        },
+        {
+          "id": "other",
+          "name": "其他",
+          "aliases": []
+        }
+      ]
+    },
+    "channel_l2": {
+      "name": "二级渠道",
+      "aliases": [
+        "二级入口",
+        "细分栏位",
+        "我的页"
+      ],
+      "definition": "报告给出的钱包下二级入口示例；不是完整40多项枚举。",
+      "values": [
+        {
+          "id": "wallet_banner",
+          "name": "钱包-首页banner",
+          "aliases": [
+            "钱包banner",
+            "首页banner"
+          ]
+        },
+        {
+          "id": "wallet_cover",
+          "name": "钱包-我的保障",
+          "aliases": [
+            "我的保障"
+          ]
+        }
+      ],
+      "parent_dimension": "channel_l1",
+      "parent_values": {
+        "wallet_banner": "wallet",
+        "wallet_cover": "wallet"
+      }
+    },
+    "delivery_method": {
+      "name": "三级配送方式",
+      "aliases": [
+        "配送方式",
+        "配送类型"
+      ],
+      "definition": "维度名称来自Skill材料；以下枚举为本地模拟子集，未核实公司完整编码。",
+      "origin": "名称有原文依据，枚举为模拟补充",
+      "values": [
+        {
+          "id": "fast",
+          "name": "快送",
+          "aliases": []
+        },
+        {
+          "id": "economy",
+          "name": "经济送",
+          "aliases": []
+        },
+        {
+          "id": "self",
+          "name": "商家自配送",
+          "aliases": [
+            "自配送"
+          ]
+        }
+      ]
+    },
+    "reserved": {
+      "name": "是否预约单",
+      "aliases": [
+        "预约单",
+        "订单预约类型"
+      ],
+      "definition": "维度名称来自Skill材料，本地用是/否模拟编码。",
+      "values": [
+        {
+          "id": "yes",
+          "name": "预约单",
+          "aliases": [
+            "是"
+          ]
+        },
+        {
+          "id": "no",
+          "name": "即时单",
+          "aliases": [
+            "否",
+            "非预约"
+          ]
+        }
+      ]
+    },
+    "exit_type": {
+      "name": "退出类型",
+      "aliases": [
+        "退出方式"
+      ],
+      "definition": "WBR中区分主动退出与被动退出；模拟数据不代表真实原因。",
+      "values": [
+        {
+          "id": "active",
+          "name": "主动退出",
+          "aliases": [
+            "主动"
+          ]
+        },
+        {
+          "id": "passive",
+          "name": "被动退出",
+          "aliases": [
+            "被动"
+          ]
+        }
+      ]
+    }
+  },
+  "metrics": [
+    {
+      "id": "demo_metric_fx_net_orders",
+      "key": "fx_net_orders",
+      "name": "放心吃餐饮净投保订单量",
+      "aliases": [
+        "放心吃净投保量",
+        "放心吃净投保订单"
+      ],
+      "definition": "放心吃投保订单量减去放心吃退保订单量。",
+      "unit": "单",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "merchant_age": [
+          "new_merchant",
+          "existing_merchant"
+        ],
+        "merchant_type": [
+          "ka",
+          "cka",
+          "city"
+        ],
+        "takeaway_category": [
+          "food",
+          "dessert",
+          "drink"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 70000,
+        "current_numerator": 56000,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "eval_cases"
+      ],
+      "query": {
+        "method": "metric_platform",
+        "dataset_id": "demo_merchant_orders",
+        "platform_metric_id": "demo_platform_fx_net_orders",
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [],
+        "reference_sql_template": null
+      }
+    },
+    {
+      "id": "demo_metric_fx_eligible_orders",
+      "key": "fx_eligible_orders",
+      "name": "放心吃餐饮可投保订单量",
+      "aliases": [
+        "放心吃可投保量"
+      ],
+      "definition": "符合放心吃投保条件的餐饮订单数量。",
+      "unit": "单",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "merchant_age": [
+          "new_merchant",
+          "existing_merchant"
+        ],
+        "takeaway_category": [
+          "food",
+          "dessert",
+          "drink"
+        ],
+        "category_l2": [
+          "hotpot",
+          "fast_food"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 87500,
+        "current_numerator": 70000,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "eval_cases"
+      ],
+      "query": {
+        "method": "sql",
+        "dataset_id": null,
+        "platform_metric_id": null,
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [
+          "demo_metric_daily"
+        ],
+        "reference_sql_template": "SELECT * FROM demo_metric_daily WHERE metric_id = :metric_id AND biz_date BETWEEN :start_date AND :end_date /* 维度白名单与绑定参数 */"
+      }
+    },
+    {
+      "id": "demo_metric_takeaway_orders",
+      "key": "takeaway_orders",
+      "name": "外卖餐饮订单量",
+      "aliases": [
+        "餐饮大盘订单量",
+        "外卖餐饮单量"
+      ],
+      "definition": "统计周期内外卖餐饮支付成功订单量；取消单处理需看具体派生指标分母。",
+      "unit": "单",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "merchant_type": [
+          "ka",
+          "cka",
+          "city"
+        ],
+        "takeaway_category": [
+          "food",
+          "dessert",
+          "drink"
+        ],
+        "region": [
+          "east",
+          "south"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 100000,
+        "current_numerator": 80000,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "eval_cases"
+      ],
+      "query": {
+        "method": "metric_platform",
+        "dataset_id": "demo_merchant_orders",
+        "platform_metric_id": "demo_platform_takeaway_orders",
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [],
+        "reference_sql_template": null
+      }
+    },
+    {
+      "id": "demo_metric_fx_order_rate",
+      "key": "fx_order_rate",
+      "name": "放心吃餐饮订单渗透率",
+      "aliases": [
+        "放心吃订单渗透率",
+        "放心吃渗透率"
+      ],
+      "definition": "放心吃餐饮净投保订单量 ÷（外卖餐饮订单量 − 外卖餐饮取消订单量）。",
+      "unit": "%",
+      "aggregation": "ratio_of_sums",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "merchant_age": [
+          "new_merchant",
+          "existing_merchant"
+        ],
+        "merchant_type": [
+          "ka",
+          "cka",
+          "city"
+        ],
+        "takeaway_category": [
+          "food",
+          "dessert",
+          "drink"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 70000,
+        "current_numerator": 56000,
+        "baseline_denominator": 87500,
+        "current_denominator": 70000
+      },
+      "sources": [
+        "eval_cases"
+      ],
+      "query": {
+        "method": "sql",
+        "dataset_id": null,
+        "platform_metric_id": null,
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [
+          "demo_metric_daily"
+        ],
+        "reference_sql_template": "SELECT * FROM demo_metric_daily WHERE metric_id = :metric_id AND biz_date BETWEEN :start_date AND :end_date /* 维度白名单与绑定参数 */"
+      }
+    },
+    {
+      "id": "demo_metric_fx_eligible_rate",
+      "key": "fx_eligible_rate",
+      "name": "放心吃餐饮可投保订单渗透率",
+      "aliases": [
+        "放心吃可投保渗透率"
+      ],
+      "definition": "放心吃餐饮净投保订单量 ÷ 放心吃餐饮可投保订单量。",
+      "unit": "%",
+      "aggregation": "ratio_of_sums",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "merchant_age": [
+          "new_merchant",
+          "existing_merchant"
+        ],
+        "merchant_type": [
+          "ka",
+          "cka",
+          "city"
+        ],
+        "takeaway_category": [
+          "food",
+          "dessert",
+          "drink"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 70000,
+        "current_numerator": 56000,
+        "baseline_denominator": 87500,
+        "current_denominator": 70000
+      },
+      "sources": [
+        "eval_cases"
+      ],
+      "query": {
+        "method": "metric_platform",
+        "dataset_id": "demo_merchant_orders",
+        "platform_metric_id": "demo_platform_fx_eligible_rate",
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [],
+        "reference_sql_template": null
+      }
+    },
+    {
+      "id": "demo_metric_cancel_order_rate",
+      "key": "cancel_order_rate",
+      "name": "取消险餐饮订单渗透率",
+      "aliases": [
+        "取消险订单渗透率",
+        "取消险渗透率"
+      ],
+      "definition": "取消险餐饮净投保订单量 ÷ 外卖餐饮订单量（含取消单）。",
+      "unit": "%",
+      "aggregation": "ratio_of_sums",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "merchant_age": [
+          "new_merchant",
+          "existing_merchant"
+        ],
+        "merchant_type": [
+          "ka",
+          "cka"
+        ],
+        "takeaway_category": [
+          "food",
+          "dessert",
+          "drink"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 30000,
+        "current_numerator": 25000,
+        "baseline_denominator": 100000,
+        "current_denominator": 80000
+      },
+      "sources": [
+        "eval_cases"
+      ],
+      "query": {
+        "method": "sql",
+        "dataset_id": null,
+        "platform_metric_id": null,
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [
+          "demo_metric_daily"
+        ],
+        "reference_sql_template": "SELECT * FROM demo_metric_daily WHERE metric_id = :metric_id AND biz_date BETWEEN :start_date AND :end_date /* 维度白名单与绑定参数 */"
+      }
+    },
+    {
+      "id": "demo_metric_timely_paid_order_rate",
+      "key": "timely_paid_order_rate",
+      "name": "准时宝餐饮订单渗透率（商家付费）",
+      "aliases": [
+        "准时宝商家付费渗透率",
+        "准时宝订单渗透率"
+      ],
+      "definition": "准时宝餐饮净投保订单量（商家付费）÷（外卖餐饮订单量 − 外卖餐饮取消订单量）。平台采购与商家付费不是同一指标。",
+      "unit": "%",
+      "aggregation": "ratio_of_sums",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "merchant_age": [
+          "new_merchant",
+          "existing_merchant"
+        ],
+        "merchant_type": [
+          "ka",
+          "cka",
+          "city"
+        ],
+        "takeaway_category": [
+          "food",
+          "drink"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 35000,
+        "current_numerator": 30000,
+        "baseline_denominator": 87500,
+        "current_denominator": 70000
+      },
+      "sources": [
+        "eval_cases"
+      ],
+      "query": {
+        "method": "metric_platform",
+        "dataset_id": "demo_merchant_orders",
+        "platform_metric_id": "demo_platform_timely_paid_order_rate",
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [],
+        "reference_sql_template": null
+      }
+    },
+    {
+      "id": "demo_metric_entry_uv",
+      "key": "entry_uv",
+      "name": "外部入口曝光UV",
+      "aliases": [
+        "外部曝光UV",
+        "入口曝光人数"
+      ],
+      "definition": "按日去重的外部入口曝光人数；本实验跨日输出UV日累计，不能称为周去重用户数。",
+      "unit": "人次",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "insurance_type": [
+          "food_cover",
+          "timely",
+          "cancel"
+        ],
+        "channel_l1": [
+          "open",
+          "wallet",
+          "icon",
+          "pc"
+        ],
+        "source": [
+          "merchant_app",
+          "telesales"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 140000,
+        "current_numerator": 112000,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "channel_method"
+      ],
+      "query": {
+        "method": "sql",
+        "dataset_id": null,
+        "platform_metric_id": null,
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [
+          "demo_metric_daily"
+        ],
+        "reference_sql_template": "SELECT * FROM demo_metric_daily WHERE metric_id = :metric_id AND biz_date BETWEEN :start_date AND :end_date /* 维度白名单与绑定参数 */"
+      }
+    },
+    {
+      "id": "demo_metric_entry_click_uv",
+      "key": "entry_click_uv",
+      "name": "外部入口点击UV",
+      "aliases": [
+        "入口点击UV",
+        "外部点击人数"
+      ],
+      "definition": "按日去重的外部入口点击人数；跨日采用UV日累计。",
+      "unit": "人次",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "insurance_type": [
+          "food_cover",
+          "timely",
+          "cancel"
+        ],
+        "channel_l1": [
+          "wallet"
+        ],
+        "channel_l2": [
+          "wallet_banner",
+          "wallet_cover"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 28000,
+        "current_numerator": 22400,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "channel_method"
+      ],
+      "query": {
+        "method": "metric_platform",
+        "dataset_id": "demo_traffic_funnel",
+        "platform_metric_id": "demo_platform_entry_click_uv",
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [],
+        "reference_sql_template": null
+      }
+    },
+    {
+      "id": "demo_metric_detail_exposure",
+      "key": "detail_exposure",
+      "name": "详情页曝光",
+      "aliases": [
+        "详情页曝光UV",
+        "详情曝光"
+      ],
+      "definition": "详情页曝光环节的模拟计数；跨日采用日计数累计，原文未给完整去重定义。",
+      "unit": "人次",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "insurance_type": [
+          "food_cover",
+          "timely",
+          "cancel"
+        ],
+        "channel_l2": [
+          "wallet_banner",
+          "wallet_cover"
+        ],
+        "source": [
+          "merchant_app",
+          "telesales",
+          "field"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 21000,
+        "current_numerator": 16800,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "channel_method"
+      ],
+      "query": {
+        "method": "sql",
+        "dataset_id": null,
+        "platform_metric_id": null,
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [
+          "demo_metric_daily"
+        ],
+        "reference_sql_template": "SELECT * FROM demo_metric_daily WHERE metric_id = :metric_id AND biz_date BETWEEN :start_date AND :end_date /* 维度白名单与绑定参数 */"
+      }
+    },
+    {
+      "id": "demo_metric_detail_click",
+      "key": "detail_click",
+      "name": "详情页点击",
+      "aliases": [
+        "详情页点击UV",
+        "详情点击"
+      ],
+      "definition": "详情页点击环节的模拟计数；跨日采用日计数累计，原文未给完整去重定义。",
+      "unit": "人次",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "insurance_type": [
+          "food_cover",
+          "timely"
+        ],
+        "source": [
+          "merchant_app",
+          "organic"
+        ],
+        "user_type": [
+          "new_user",
+          "existing_user"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 14000,
+        "current_numerator": 11200,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "channel_method"
+      ],
+      "query": {
+        "method": "metric_platform",
+        "dataset_id": "demo_traffic_funnel",
+        "platform_metric_id": "demo_platform_detail_click",
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [],
+        "reference_sql_template": null
+      }
+    },
+    {
+      "id": "demo_metric_funnel_join",
+      "key": "funnel_join",
+      "name": "外卖险加入商户数",
+      "aliases": [
+        "流量漏斗加入商户数",
+        "加入商户数"
+      ],
+      "definition": "流量漏斗的加入环节指标；按险种维度筛选。不同于险种专属的餐饮加入商户指标。本实验采用日加入计数累计。",
+      "unit": "户次",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "insurance_type": [
+          "food_cover",
+          "timely",
+          "cancel"
+        ],
+        "channel_l1": [
+          "open",
+          "wallet",
+          "growth",
+          "proactive"
+        ],
+        "source": [
+          "merchant_app",
+          "telesales",
+          "field"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 7000,
+        "current_numerator": 5600,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "eval_report"
+      ],
+      "query": {
+        "method": "sql",
+        "dataset_id": null,
+        "platform_metric_id": null,
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [
+          "demo_metric_daily"
+        ],
+        "reference_sql_template": "SELECT * FROM demo_metric_daily WHERE metric_id = :metric_id AND biz_date BETWEEN :start_date AND :end_date /* 维度白名单与绑定参数 */"
+      }
+    },
+    {
+      "id": "demo_metric_fx_dining_join",
+      "key": "fx_dining_join",
+      "name": "放心吃餐饮加入商户数",
+      "aliases": [
+        "放心吃加入商户数",
+        "加入商户数"
+      ],
+      "definition": "商户数据集中的放心吃餐饮加入指标；不同于流量漏斗的外卖险加入商户数。本实验采用日加入计数累计。",
+      "unit": "户次",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "merchant_age": [
+          "new_merchant",
+          "existing_merchant"
+        ],
+        "merchant_type": [
+          "ka",
+          "cka",
+          "city"
+        ],
+        "takeaway_category": [
+          "food",
+          "dessert",
+          "drink"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 3500,
+        "current_numerator": 2800,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "eval_report"
+      ],
+      "query": {
+        "method": "metric_platform",
+        "dataset_id": "demo_merchant_orders",
+        "platform_metric_id": "demo_platform_fx_dining_join",
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [],
+        "reference_sql_template": null
+      }
+    },
+    {
+      "id": "demo_metric_entry_click_rate",
+      "key": "entry_click_rate",
+      "name": "外部入口点击率",
+      "aliases": [
+        "入口点击率"
+      ],
+      "definition": "外部入口点击UV ÷ 外部入口曝光UV。原渠道文档中的CTR另指详情页曝光÷外部入口曝光，不能混同。",
+      "unit": "%",
+      "aggregation": "ratio_of_sums",
+      "time_basis": "Asia/Shanghai，闭区间；默认期间汇总，比率先汇总分子分母再相除",
+      "dimensions": {
+        "insurance_type": [
+          "food_cover",
+          "timely",
+          "cancel"
+        ],
+        "channel_l1": [
+          "open",
+          "wallet",
+          "pc"
+        ],
+        "source": [
+          "merchant_app",
+          "telesales"
+        ]
+      },
+      "dimension_binding_origin": "按原文出现过的关联和本轮测试需求配置的有限白名单；不代表公司完整支持矩阵",
+      "preset": {
+        "baseline_numerator": 28000,
+        "current_numerator": 22400,
+        "baseline_denominator": 140000,
+        "current_denominator": 112000
+      },
+      "sources": [
+        "channel_method"
+      ],
+      "query": {
+        "method": "sql",
+        "dataset_id": null,
+        "platform_metric_id": null,
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [
+          "demo_metric_daily"
+        ],
+        "reference_sql_template": "SELECT * FROM demo_metric_daily WHERE metric_id = :metric_id AND biz_date BETWEEN :start_date AND :end_date /* 维度白名单与绑定参数 */"
+      }
+    },
+    {
+      "id": "demo_metric_fx_premium",
+      "key": "fx_premium",
+      "name": "放心吃净保费规模",
+      "aliases": [
+        "放心吃保费",
+        "放心吃净保费",
+        "保费"
+      ],
+      "definition": "放心吃保费链路的P项：单均保费 × 餐饮订单渗透率 × 非取消餐饮订单量。",
+      "unit": "元",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；金额累计，均值按分子分母汇总后计算",
+      "dimensions": {
+        "merchant_age": [
+          "new_merchant",
+          "existing_merchant"
+        ],
+        "takeaway_category": [
+          "food",
+          "dessert",
+          "drink"
+        ],
+        "delivery_method": [
+          "fast",
+          "economy"
+        ]
+      },
+      "dimension_binding_origin": "为本轮试玩配置的有限维度及枚举白名单，不代表公司完整矩阵",
+      "preset": {
+        "baseline_numerator": 70000,
+        "current_numerator": 56000,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "premium_method"
+      ],
+      "query": {
+        "method": "metric_platform",
+        "dataset_id": "demo_premium_merchant_v3",
+        "platform_metric_id": "demo_platform_fx_premium",
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [],
+        "reference_sql_template": null
+      }
+    },
+    {
+      "id": "demo_metric_timely_paid_premium",
+      "key": "timely_paid_premium",
+      "name": "B端准时宝净实收保费（商家付费）",
+      "aliases": [
+        "准时宝商家付费保费",
+        "准时宝保费",
+        "保费"
+      ],
+      "definition": "准时宝商家付费口径的净实收保费，平台采购口径单列。",
+      "unit": "元",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；金额累计，均值按分子分母汇总后计算",
+      "dimensions": {
+        "merchant_type": [
+          "ka",
+          "cka",
+          "city"
+        ],
+        "takeaway_category": [
+          "food",
+          "drink"
+        ],
+        "source": [
+          "merchant_app",
+          "telesales"
+        ]
+      },
+      "dimension_binding_origin": "为本轮试玩配置的有限维度及枚举白名单，不代表公司完整矩阵",
+      "preset": {
+        "baseline_numerator": 42000,
+        "current_numerator": 35000,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "premium_method"
+      ],
+      "query": {
+        "method": "sql",
+        "dataset_id": null,
+        "platform_metric_id": null,
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [
+          "demo_metric_daily"
+        ],
+        "reference_sql_template": "SELECT * FROM demo_metric_daily WHERE metric_id = :metric_id AND biz_date BETWEEN :start_date AND :end_date /* 绑定维度条件 */"
+      }
+    },
+    {
+      "id": "demo_metric_timely_platform_premium",
+      "key": "timely_platform_premium",
+      "name": "B端准时宝净实收保费（平台采购）",
+      "aliases": [
+        "准时宝平台采购保费",
+        "准时宝保费",
+        "保费"
+      ],
+      "definition": "准时宝平台采购口径的净实收保费，不能与商家付费混用。",
+      "unit": "元",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；金额累计，均值按分子分母汇总后计算",
+      "dimensions": {
+        "merchant_type": [
+          "ka",
+          "cka"
+        ],
+        "region": [
+          "east",
+          "south"
+        ],
+        "reserved": [
+          "yes",
+          "no"
+        ]
+      },
+      "dimension_binding_origin": "为本轮试玩配置的有限维度及枚举白名单，不代表公司完整矩阵",
+      "preset": {
+        "baseline_numerator": 21000,
+        "current_numerator": 28000,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "premium_method"
+      ],
+      "query": {
+        "method": "metric_platform",
+        "dataset_id": "demo_premium_merchant_v3",
+        "platform_metric_id": "demo_platform_timely_platform_premium",
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [],
+        "reference_sql_template": null
+      }
+    },
+    {
+      "id": "demo_metric_cancel_premium",
+      "key": "cancel_premium",
+      "name": "取消险净实收保费",
+      "aliases": [
+        "取消险保费",
+        "保费"
+      ],
+      "definition": "取消险保费链路的P项；订单基数包含取消订单。",
+      "unit": "元",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；金额累计，均值按分子分母汇总后计算",
+      "dimensions": {
+        "merchant_age": [
+          "new_merchant",
+          "existing_merchant"
+        ],
+        "takeaway_category": [
+          "food",
+          "dessert",
+          "drink"
+        ],
+        "delivery_method": [
+          "fast",
+          "self"
+        ]
+      },
+      "dimension_binding_origin": "为本轮试玩配置的有限维度及枚举白名单，不代表公司完整矩阵",
+      "preset": {
+        "baseline_numerator": 14000,
+        "current_numerator": 17500,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "premium_method"
+      ],
+      "query": {
+        "method": "sql",
+        "dataset_id": null,
+        "platform_metric_id": null,
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [
+          "demo_metric_daily"
+        ],
+        "reference_sql_template": "SELECT * FROM demo_metric_daily WHERE metric_id = :metric_id AND biz_date BETWEEN :start_date AND :end_date /* 绑定维度条件 */"
+      }
+    },
+    {
+      "id": "demo_metric_fx_avg_premium",
+      "key": "fx_avg_premium",
+      "name": "【放心吃】单均保费",
+      "aliases": [
+        "放心吃单均保费",
+        "单均保费"
+      ],
+      "definition": "本地模拟口径：放心吃净保费规模 ÷ 对应净投保订单量。期间先汇总保费与订单，再相除。",
+      "unit": "元/单",
+      "aggregation": "ratio_of_sums",
+      "time_basis": "Asia/Shanghai，闭区间；金额累计，均值按分子分母汇总后计算",
+      "dimensions": {
+        "merchant_age": [
+          "new_merchant",
+          "existing_merchant"
+        ],
+        "takeaway_category": [
+          "food",
+          "dessert",
+          "drink"
+        ],
+        "delivery_method": [
+          "fast",
+          "economy"
+        ]
+      },
+      "dimension_binding_origin": "为本轮试玩配置的有限维度及枚举白名单，不代表公司完整矩阵",
+      "preset": {
+        "baseline_numerator": 70000,
+        "current_numerator": 56000,
+        "baseline_denominator": 70000,
+        "current_denominator": 56000
+      },
+      "sources": [
+        "premium_method"
+      ],
+      "query": {
+        "method": "metric_platform",
+        "dataset_id": "demo_premium_merchant_v3",
+        "platform_metric_id": "demo_platform_fx_avg_premium",
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [],
+        "reference_sql_template": null
+      }
+    },
+    {
+      "id": "demo_metric_fx_exit",
+      "key": "fx_exit",
+      "name": "放心吃退出商户数",
+      "aliases": [
+        "放心吃退出商户",
+        "退出商户数"
+      ],
+      "definition": "WBR记录的退出商户指标；本地输出期间日退出事件累计，不声称为跨日去重商户。",
+      "unit": "户次",
+      "aggregation": "sum",
+      "time_basis": "Asia/Shanghai，闭区间；金额累计，均值按分子分母汇总后计算",
+      "dimensions": {
+        "exit_type": [
+          "active",
+          "passive"
+        ],
+        "merchant_type": [
+          "ka",
+          "cka",
+          "city"
+        ],
+        "merchant_age": [
+          "new_merchant",
+          "existing_merchant"
+        ]
+      },
+      "dimension_binding_origin": "为本轮试玩配置的有限维度及枚举白名单，不代表公司完整矩阵",
+      "preset": {
+        "baseline_numerator": 700,
+        "current_numerator": 840,
+        "baseline_denominator": null,
+        "current_denominator": null
+      },
+      "sources": [
+        "wbr"
+      ],
+      "query": {
+        "method": "sql",
+        "dataset_id": null,
+        "platform_metric_id": null,
+        "business_line_id": "demo_biz_scene_insurance",
+        "source_tables": [
+          "demo_metric_daily"
+        ],
+        "reference_sql_template": "SELECT * FROM demo_metric_daily WHERE metric_id = :metric_id AND biz_date BETWEEN :start_date AND :end_date /* 绑定维度条件 */"
+      }
+    }
+  ],
+  "sources": [
+    {
+      "id": "eval_cases",
+      "title": "指标口径与维度拆解测试问题原文",
+      "path": "/Users/gaoronghui/Documents/agent_learning/5-归档/智能经分与智能质检/2026-09-08/智能经营分析/资料/本地资料/2026-08-30-智能经分原始资料/02-测试问题标准答案与评测标注-原始附件.txt",
+      "lines": "15–93、125–179、213–215、295–333"
+    },
+    {
+      "id": "eval_report",
+      "title": "数分skill v4测评分析报告",
+      "path": "/Users/gaoronghui/Documents/agent_learning/5-归档/智能经分与智能质检/2026-09-08/智能经营分析/资料/本地资料/2026-08-30-智能经分原始资料/03-数分Skill-v4测评分析报告-原始附件.txt",
+      "lines": "553–597、765–789"
+    },
+    {
+      "id": "channel_method",
+      "title": "202605 流量渠道归因分析思路沉淀",
+      "path": "/Users/gaoronghui/Documents/agent_learning/5-归档/智能经分与智能质检/2026-09-08/智能经营分析/资料/本地资料/2026-08-30-智能经分原始资料/05-流量渠道归因分析思路沉淀-原始附件.txt",
+      "lines": "29–37、831–895、905–969"
+    },
+    {
+      "id": "new_merchants",
+      "title": "新入驻商户渗透率分析报告",
+      "path": "/Users/gaoronghui/.codex/attachments/91d9f021-8669-4d87-9a01-a6934818bcbc/pasted-text.txt",
+      "lines": "1–29"
+    },
+    {
+      "id": "premium_method",
+      "title": "保费链路分析逻辑拆解",
+      "path": "/Users/gaoronghui/Documents/agent_learning/5-归档/智能经分与智能质检/2026-09-08/智能经营分析/资料/本地资料/2026-08-30-智能经分原始资料/04-保费链路分析逻辑拆解-原始用户消息.txt",
+      "lines": "11–227"
+    },
+    {
+      "id": "wbr",
+      "title": "场景险WBR报表Skill",
+      "path": "/Users/gaoronghui/Documents/agent_learning/5-归档/智能经分与智能质检/2026-09-08/智能经营分析/资料/本地资料/2026-08-30-智能经分原始资料/12-场景险WBR报表Skill-原始用户消息.txt",
+      "lines": "29–69、301–373"
+    },
+    {
+      "id": "skill_arch",
+      "title": "场景险智能经分Skill架构介绍",
+      "path": "/Users/gaoronghui/Documents/agent_learning/5-归档/智能经分与智能质检/2026-09-08/智能经营分析/资料/本地资料/2026-08-30-智能经分原始资料/13B-场景险智能经分Skill架构介绍-原始文件.md",
+      "lines": "64–88、195–206"
+    },
+    {
+      "id": "skill_dev",
+      "title": "场景险智能经分Skill开发分享",
+      "path": "/Users/gaoronghui/Documents/agent_learning/5-归档/智能经分与智能质检/2026-09-08/智能经营分析/资料/本地资料/2026-08-30-智能经分原始资料/13C-场景险智能经分Skill开发分享-原始文件.md",
+      "lines": "159–169"
+    }
+  ],
+  "identity_note": "demo_指标、维度枚举编码、数据集及业务线ID均为本地映射，未接公司平台。原材料报告过个别真实ID，本实验不把未经平台核实的ID当权威。",
+  "topic_notes": {
+    "保费分析": "保费=P=A×R×Q；A单均保费，R订单渗透率，Q订单基数。放心吃/准时宝的Q不含取消单，取消险的Q含取消单。原文有Shapley与目标Gap分析，本次试玩只执行固定期间比较和维度拆解。",
+    "商户留存": "WBR包含投保后当日留存、新商/老商签约后留存率；本次尚未构建留存cohort模拟数据，不输出虚构留存结果。",
+    "渠道分析": "原文区分一级渠道、二级渠道、漏斗环节、source；不要把APP栏位和获客来源互相替代。"
+  }
+}

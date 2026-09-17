@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>执行路线 · Data Agent</title><link rel="stylesheet" href="/flow_trace.css"></head>
+<body>
+<header><div><p class="eyebrow">DATA AGENT · 实际执行记录</p><h1>这次问题，是怎样完成的</h1></div><nav><a id="conversation">返回对话</a><a id="raw" target="_blank" rel="noopener">完整日志 ↗</a></nav></header>
+<main>
+<section class="intro"><div class="intro-line"><label>执行轮次 <select id="run" aria-label="选择执行轮次"></select></label><span id="status" class="badge"></span><span id="connection" role="status"></span></div><p id="question"></p><p id="stats"></p><div id="stop-events" aria-label="停止记录"></div></section>
+<section class="controls" aria-label="回放控制"><div class="buttons"><button id="play">逐步回放</button><button id="back">上一步</button><button id="next">下一步</button><button id="end">全部路线 / 跟随最新</button></div><label class="slider">执行位置 <input id="cursor" type="range" min="0" max="1" value="1"><output id="position"></output></label><p id="now" aria-live="polite"></p><p class="muted">回放按真实事件先后高亮，每步约 0.6 秒；耗时显示原始记录。绿＝完成，橙＝执行中，浅灰＝尚未到达。点击方框查看该节点。</p></section>
+<div class="workspace"><section aria-label="实际执行路线"><div id="flow"></div><section class="timing"><h2>分支时间对照</h2><p class="muted">所有时间条共用同一时间轴，重叠部分才表示实际并发。仅展示本轮已记录的指标分支。</p><div id="timeline"></div></section></section>
+<aside id="inspector" aria-label="节点详情"><p class="eyebrow">节点详情</p><h2 id="node-title">选择一个节点</h2><p id="node-purpose">点击左侧任意方框，查看它处理了什么、调用了谁，以及输入和输出。</p><div id="node-meta"></div><div id="node-detail"></div></aside></div>
+<footer>图来自 Trace 的实际调用记录。分支中的分析 / 取数是 Python 函数；模型节点会明确标注 Kimi。父图顺序与内部调用分层展示，不把所有方框都当成 LangGraph 节点。</footer>
+</main><script src="/flow_trace.js"></script></body></html>

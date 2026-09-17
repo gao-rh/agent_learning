@@ -1,0 +1,529 @@
+{
+  "date": "2026-09-16",
+  "scope": "面试准备目录结构整理；保留原文、当前事实和用户确认状态",
+  "moves": [
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Agent开发简历-v0.1.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Agent开发简历-v0.1.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "5df285249b4e05f24531e97cb11ee8cee66b975931067b596e0ca2ba7e6c6edd",
+      "bytes_before": 10780,
+      "sha256_after": "5df285249b4e05f24531e97cb11ee8cee66b975931067b596e0ca2ba7e6c6edd",
+      "bytes_after": 10780,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Agent开发简历-v0.2.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Agent开发简历-v0.2.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "c8dd337e52312ab08fb21fc9f681498def5f8e39f46dd0e1ad1c5069bd818859",
+      "bytes_before": 8129,
+      "sha256_after": "c8dd337e52312ab08fb21fc9f681498def5f8e39f46dd0e1ad1c5069bd818859",
+      "bytes_after": 8129,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Agent简历-V1.0.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Agent简历-V1.0.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "38d68bcc98bf5c0cda510a0c2627a7114036c31457aea01056655bafbbfb3317",
+      "bytes_before": 7192,
+      "sha256_after": "38d68bcc98bf5c0cda510a0c2627a7114036c31457aea01056655bafbbfb3317",
+      "bytes_after": 7192,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Agent简历-V1.1.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Agent简历-V1.1.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "5ca387eeb03ef57e3393a5749dc52bbba9aa80c8b7c036b3cbb76c0c27b23b90",
+      "bytes_before": 7048,
+      "sha256_after": "5ca387eeb03ef57e3393a5749dc52bbba9aa80c8b7c036b3cbb76c0c27b23b90",
+      "bytes_after": 7048,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data Agent简历- V1.0.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data Agent简历- V1.0.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "bd18dd3e653dba35896a0e5898d3f87cb9d1440d590e37be03fdab96285937e6",
+      "bytes_before": 7290,
+      "sha256_after": "bd18dd3e653dba35896a0e5898d3f87cb9d1440d590e37be03fdab96285937e6",
+      "bytes_after": 7290,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-V1.1.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-V1.1.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "46647ddb56816be4bbc4e2721df79ca2189ce0bd2ab8229e502abaab266048f9",
+      "bytes_before": 7131,
+      "sha256_after": "46647ddb56816be4bbc4e2721df79ca2189ce0bd2ab8229e502abaab266048f9",
+      "bytes_after": 7131,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.10-重要初稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.10-重要初稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "2911e3e2ea9fbc83185342d7edd5066d06917f428b07607a31137a4dfce6b2ad",
+      "bytes_before": 8210,
+      "sha256_after": "2911e3e2ea9fbc83185342d7edd5066d06917f428b07607a31137a4dfce6b2ad",
+      "bytes_after": 8210,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.11-可编辑内容稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.11-可编辑内容稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "65f3df1904b553b90e4674c8005752f3ea78a8e59012bff13e3d2c210b404961",
+      "bytes_before": 7976,
+      "sha256_after": "65f3df1904b553b90e4674c8005752f3ea78a8e59012bff13e3d2c210b404961",
+      "bytes_after": 7976,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.12-可编辑内容稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.12-可编辑内容稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "931e7efb71c2d0db7eac879b1e0711e2047d1edf963f20a8d386654be23e78f9",
+      "bytes_before": 7259,
+      "sha256_after": "931e7efb71c2d0db7eac879b1e0711e2047d1edf963f20a8d386654be23e78f9",
+      "bytes_after": 7259,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.13-可编辑内容稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.13-可编辑内容稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "d0d91d62314cf6de43f909afc12655596a694b39e5618f7b883aa00543eca8f4",
+      "bytes_before": 7242,
+      "sha256_after": "d0d91d62314cf6de43f909afc12655596a694b39e5618f7b883aa00543eca8f4",
+      "bytes_after": 7242,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.14-可编辑内容稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.14-可编辑内容稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "cda947a1d2080ff1baa1bc31d7a99e33a3a4dc21db114cca37560430b84731b1",
+      "bytes_before": 7193,
+      "sha256_after": "cda947a1d2080ff1baa1bc31d7a99e33a3a4dc21db114cca37560430b84731b1",
+      "bytes_after": 7193,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.15-可编辑内容稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.15-可编辑内容稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "6fca8e0c0fa7cc29fa45bd2f1d18e39ed610cc2075479b3d4af5b70b8da5dfa2",
+      "bytes_before": 7293,
+      "sha256_after": "6fca8e0c0fa7cc29fa45bd2f1d18e39ed610cc2075479b3d4af5b70b8da5dfa2",
+      "bytes_after": 7293,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.16-可编辑内容稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.16-可编辑内容稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "74fab153e105c18cd61335890e494e87d1f5dcd805c067e8cb658b785091c38d",
+      "bytes_before": 7016,
+      "sha256_after": "74fab153e105c18cd61335890e494e87d1f5dcd805c067e8cb658b785091c38d",
+      "bytes_after": 7016,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.18-可编辑内容稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.18-可编辑内容稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "0ef081c77daeee5f353e2a225dc43d8376fe02105e835bd7f613dc4bf7c720f3",
+      "bytes_before": 7183,
+      "sha256_after": "0ef081c77daeee5f353e2a225dc43d8376fe02105e835bd7f613dc4bf7c720f3",
+      "bytes_after": 7183,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.19-可编辑内容稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.19-可编辑内容稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "0ef081c77daeee5f353e2a225dc43d8376fe02105e835bd7f613dc4bf7c720f3",
+      "bytes_before": 7183,
+      "sha256_after": "0ef081c77daeee5f353e2a225dc43d8376fe02105e835bd7f613dc4bf7c720f3",
+      "bytes_after": 7183,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.20-可编辑内容稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.20-可编辑内容稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "90d87bb670856bd89aae99d9523e24f2d6b55cbdd19bd723b4729b55a39a437d",
+      "bytes_before": 7213,
+      "sha256_after": "90d87bb670856bd89aae99d9523e24f2d6b55cbdd19bd723b4729b55a39a437d",
+      "bytes_after": 7213,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.21-可编辑内容稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.21-可编辑内容稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "a395e3c7529f1160a48b0610278de9df8668c1ff735ff80f4884297dae600923",
+      "bytes_before": 7371,
+      "sha256_after": "a395e3c7529f1160a48b0610278de9df8668c1ff735ff80f4884297dae600923",
+      "bytes_after": 7371,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.3-内容初稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.3-内容初稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "32b97ae50aea68dcbbe241927605d923181f92f692bc36d333077f89d30ee629",
+      "bytes_before": 8262,
+      "sha256_after": "32b97ae50aea68dcbbe241927605d923181f92f692bc36d333077f89d30ee629",
+      "bytes_after": 8262,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-v0.9-可编辑内容稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-v0.9-可编辑内容稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "3062bb3a6890af9472b52ea4a2409bd5e1715aadf91cce48bfa823772f7e483e",
+      "bytes_before": 8225,
+      "sha256_after": "3062bb3a6890af9472b52ea4a2409bd5e1715aadf91cce48bfa823772f7e483e",
+      "bytes_after": 8225,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data-Agent简历-可编辑内容稿.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data-Agent简历-可编辑内容稿.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "46647ddb56816be4bbc4e2721df79ca2189ce0bd2ab8229e502abaab266048f9",
+      "bytes_before": 7131,
+      "sha256_after": "46647ddb56816be4bbc4e2721df79ca2189ce0bd2ab8229e502abaab266048f9",
+      "bytes_after": 7131,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/高荣徽-Data简历-V1.1.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/简历历史版本/高荣徽-Data简历-V1.1.md",
+      "reason": "旧版或已被 Data/Agent 主编辑稿替代的版本；保留历史正文",
+      "sha256_before": "da7b199efbb2e9cc4205e32c41f3418dfc579951f4d62dee07c12decec0ac31b",
+      "bytes_before": 7448,
+      "sha256_after": "da7b199efbb2e9cc4205e32c41f3418dfc579951f4d62dee07c12decec0ac31b",
+      "bytes_after": 7448,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/记录/2026-09-07-Agent简历后续会话交接.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/旧交接/2026-09-07-Agent简历后续会话交接.md",
+      "reason": "V1.0 阶段交接已被同日 V1.2 确认记录替代",
+      "sha256_before": "86dd17e723902b9f84c8dafaf571d60df46f311a4bd0c4acf127a09a4c67a222",
+      "bytes_before": 11623,
+      "sha256_after": "d20f0e4bebb6c7c9e1b6434a1a90d3bc7ff2206aed0085808acbcaf904927c91",
+      "bytes_after": 11693,
+      "byte_identical": false,
+      "change": "迁移并机械修复路径；正文语义与代码不变"
+    },
+    {
+      "source": "2-进行中/面试准备/简历/资料/国内互联网Agent开发简历调研-2026-08-15.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/旧调研/国内互联网Agent开发简历调研-2026-08-15.md",
+      "reason": "原入口明确第一轮范围过宽，已有专项调研替代",
+      "sha256_before": "888b1a7e67074a125aee1741a293bf82e114e6df0317640f72821e552344c708",
+      "bytes_before": 18780,
+      "sha256_after": "8cb361cb6b10ff970cb1d3f3e9ba2f0b0202b3b3ed3d121a1e8754eeff158888",
+      "bytes_after": 18882,
+      "byte_identical": false,
+      "change": "迁移并机械修复路径；正文语义与代码不变"
+    },
+    {
+      "source": "2-进行中/面试准备/资料/2026-09-09-字节数据开发SQL重点题与参考答案.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/旧题库/2026-09-09-字节数据开发SQL重点题与参考答案.md",
+      "reason": "新版 SQL 第 11—16 类已明确整合六类题，保留来源与旧解法",
+      "sha256_before": "29a51b832a1e3b6c55694241fc4639d10e6d6a549cf6592718e58d05e8b41ee5",
+      "bytes_before": 29591,
+      "sha256_after": "29a51b832a1e3b6c55694241fc4639d10e6d6a549cf6592718e58d05e8b41ee5",
+      "bytes_after": 29591,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/资料/2026-09-05-DataAgent学习路线与架构研究三图.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/旧规划与岗位资料/2026-09-05-DataAgent学习路线与架构研究三图.md",
+      "reason": "入口明确学习顺序为历史草案，架构解释保留供追溯",
+      "sha256_before": "94a8c8726299f5b57af24a28bef865c64d197d0908554e41e05faa73677ecc08",
+      "bytes_before": 10896,
+      "sha256_after": "313ca315f120d856ebde1a46dafb5d70e6a9fd135a9fd3284677461895965036",
+      "bytes_after": 10998,
+      "byte_identical": false,
+      "change": "迁移并机械修复路径；正文语义与代码不变"
+    },
+    {
+      "source": "2-进行中/面试准备/资料/关键面试岗位描述.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/旧规划与岗位资料/关键面试岗位描述.md",
+      "reason": "保留 8 月 30 日原始 JD 与历史优先级，不作为当前岗位或项目口径",
+      "sha256_before": "39ec145ea33f93a4496ef3cbc9241ed947eed1eb18c91f92488889bf8d992e45",
+      "bytes_before": 16172,
+      "sha256_after": "97c4dd11320672247034cf7ade540fd34553e84759ef17468cb3aa8e86867ca7",
+      "bytes_after": 16240,
+      "byte_identical": false,
+      "change": "迁移并机械修复路径；正文语义与代码不变"
+    },
+    {
+      "source": "2-进行中/面试准备/资料/Agent开发面经全景摘要-2026-08-27.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/宽口径面经/Agent开发面经全景摘要-2026-08-27.md",
+      "reason": "当前入口已标记历史宽范围，统计不代表当前 Agent 核心岗位",
+      "sha256_before": "111935b22178139cb56401eaf2cf2958b4b8a53a62eac7cf5bac27f5b3a633dd",
+      "bytes_before": 20224,
+      "sha256_after": "111935b22178139cb56401eaf2cf2958b4b8a53a62eac7cf5bac27f5b3a633dd",
+      "bytes_after": 20224,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/资料/Agent开发面试题与来源明细-2026-08-27.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/宽口径面经/Agent开发面试题与来源明细-2026-08-27.md",
+      "reason": "保留原来源与去重记录，退出日常默认上下文",
+      "sha256_before": "61dbaa334e911f641e19b324a8f72a003599707d254aa275f6d8087d4d7832dc",
+      "bytes_before": 102473,
+      "sha256_after": "61dbaa334e911f641e19b324a8f72a003599707d254aa275f6d8087d4d7832dc",
+      "bytes_after": 102473,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    },
+    {
+      "source": "2-进行中/面试准备/资料/Agent开发面试题分类索引-2026-08-27.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/宽口径面经/Agent开发面试题分类索引-2026-08-27.md",
+      "reason": "195 题为历史宽范围索引，当前核心答案使用 9 月 13 日材料",
+      "sha256_before": "2007aa202b96f72d21e88ed93b1f0c3b2bdbb3e759a5aafce621a72dd6be0804",
+      "bytes_before": 26507,
+      "sha256_after": "990948f40807d66b28adb89a40f68be1e526873c1180697369125bc0dbf9732d",
+      "bytes_after": 26585,
+      "byte_identical": false,
+      "change": "迁移并机械修复路径；正文语义与代码不变"
+    },
+    {
+      "source": "2-进行中/面试准备/记录/2026-08-27-Agent开发面经整理与外部调研.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/宽口径面经/2026-08-27-Agent开发面经整理与外部调研.md",
+      "reason": "配套历史调研记录与原始过程保留",
+      "sha256_before": "019eebe39231abd4712c22e2ec10774622c9c0cca8184f1e3e34265be2609371",
+      "bytes_before": 4659,
+      "sha256_after": "f441900ca8553733402da9298c6ce3f6e7d63d4f06c2e4dd0ce038a4972780bb",
+      "bytes_after": 4639,
+      "byte_identical": false,
+      "change": "迁移并机械修复路径；正文语义与代码不变"
+    },
+    {
+      "source": "2-进行中/面试准备/记录/2026-08-30-Agent开发面经来源审计与2026增补.md",
+      "destination": "5-归档/面试准备旧清单/2026-09-16-结构整理/宽口径面经/2026-08-30-Agent开发面经来源审计与2026增补.md",
+      "reason": "配套历史来源审计保留",
+      "sha256_before": "96edf55837000a2c2addf0a5999c143ac7d1e511bdbfc153d1a95f7b04075c5b",
+      "bytes_before": 3778,
+      "sha256_after": "96edf55837000a2c2addf0a5999c143ac7d1e511bdbfc153d1a95f7b04075c5b",
+      "bytes_after": 3778,
+      "byte_identical": true,
+      "change": "仅迁移，字节不变"
+    }
+  ],
+  "mechanical_link_updates": [
+    {
+      "file": "5-归档/面试准备旧清单/2026-09-07/面经反推的Data-Agent简历梳理清单-2026-08-27.md",
+      "sha256_before": "c0bb00e71403c499f8506d3fedbc5fc0862c6011652c9a3ef0abb89191b61716",
+      "sha256_after": "db9026aa301c32929e122764230dcd4ecc61c94b18db3ccd3f8ed2987867c4b5"
+    },
+    {
+      "file": "2-进行中/面试准备/常见问题回答准备/技术八股.md",
+      "sha256_before": "b767d996010c36bedcb2c3114e588c83b76dd1eb1e8399cd8c1d6052092c71df",
+      "sha256_after": "a0867cca7e956f53e3fa5aa4d310cec3556ace9625d2903542900620513751a9"
+    },
+    {
+      "file": "2-进行中/面试准备/README.md",
+      "sha256_before": "6781fe7f178dac690ac8cfe6079f651c53da5d7d0f1f7b0de1d9b55ebdba5f40",
+      "sha256_after": "c435725c4973565d7d0e445fa29611d1ad853fc63a5820b2755c3564e7a79ede",
+      "sha256_after_path_repair": "7b53a871c1c2f7c73544e1525319e4185b60fd84daaea761de418988e0de7fae",
+      "additional_change": "本轮另行重写导航入口，原入口已保存为字节快照"
+    },
+    {
+      "file": "5-归档/面试准备旧清单/2026-09-16-结构整理/宽口径面经/2026-08-27-Agent开发面经整理与外部调研.md",
+      "sha256_before": "019eebe39231abd4712c22e2ec10774622c9c0cca8184f1e3e34265be2609371",
+      "sha256_after": "f441900ca8553733402da9298c6ce3f6e7d63d4f06c2e4dd0ce038a4972780bb"
+    },
+    {
+      "file": "5-归档/面试准备旧清单/2026-09-16-结构整理/旧规划与岗位资料/2026-09-05-DataAgent学习路线与架构研究三图.md",
+      "sha256_before": "94a8c8726299f5b57af24a28bef865c64d197d0908554e41e05faa73677ecc08",
+      "sha256_after": "313ca315f120d856ebde1a46dafb5d70e6a9fd135a9fd3284677461895965036"
+    },
+    {
+      "file": "2-进行中/面试准备/项目准备/双项目口径与待确认事项.md",
+      "sha256_before": "eddac9b9e3cbdb420c6df8112fae05d01408c3c0233658c95e2a49ac5295b3f6",
+      "sha256_after": "61f505addb1cbdec441538282d8027bbb04abc6fad97032d566eb5f5dafdd9b4"
+    },
+    {
+      "file": "2-进行中/面试准备/简历/README.md",
+      "sha256_before": "a3047aa7c62cc16a87012f5bdfa184ce0a7348455f6becc495cfc0e93ede752e",
+      "sha256_after": "d074cbb0a06069358ad170e3b3a2497b9d5380a3e33026f61787ab52424757ce",
+      "sha256_after_path_repair": "a012749554af6600f04de0158579c79295e4153767b36eb0929ce848284fb6fe",
+      "additional_change": "本轮另行重写导航入口，原入口已保存为字节快照"
+    },
+    {
+      "file": "2-进行中/面试准备/资料/2026-09-15-SQL常规面试19类题目与参考答案.md",
+      "sha256_before": "9785a1cdd27547379df89a0167a72d60fead7906045d9922c02cac823f2ec977",
+      "sha256_after": "0dc0f86664c648ad0048ff5b753fc215be6b5102264483b329c0d731fcb7da2e"
+    },
+    {
+      "file": "2-进行中/面试准备/简历/记录/2026-09-07-Data简历V1.1确认文案与生成验收.md",
+      "sha256_before": "cb31ca83b9a9a3cd28b28ee1d0e32f0b6ead96697fe970e662f89b847a0a119b",
+      "sha256_after": "4340e9be7dc0128f4646ec16ec4359d72ea52214f2dc672a9058b37791606158"
+    },
+    {
+      "file": "5-归档/面试准备旧清单/2026-09-16-结构整理/宽口径面经/Agent开发面试题分类索引-2026-08-27.md",
+      "sha256_before": "2007aa202b96f72d21e88ed93b1f0c3b2bdbb3e759a5aafce621a72dd6be0804",
+      "sha256_after": "990948f40807d66b28adb89a40f68be1e526873c1180697369125bc0dbf9732d"
+    },
+    {
+      "file": "5-归档/面试准备旧清单/2026-09-16-结构整理/旧调研/国内互联网Agent开发简历调研-2026-08-15.md",
+      "sha256_before": "888b1a7e67074a125aee1741a293bf82e114e6df0317640f72821e552344c708",
+      "sha256_after": "8cb361cb6b10ff970cb1d3f3e9ba2f0b0202b3b3ed3d121a1e8754eeff158888"
+    },
+    {
+      "file": "5-归档/面试准备旧清单/2026-09-07/README.md",
+      "sha256_before": "8947eceb04a8fa88da43edaa8451685ba7023e839ec788c50d3d8fce3c28938f",
+      "sha256_after": "6b78d2e97330ba0d47b0d3becf9d1af8341a3cea09ddca62c9863a4fdd332f20"
+    },
+    {
+      "file": "2-进行中/面试准备/AI数据面试准备.md",
+      "sha256_before": "5f6240278a647e05b3219e4e15c76f595b38fada3752e0af3af3220ffe7eaebb",
+      "sha256_after": "99d287af2933947f5d2f1b87216a369fce27bfe212deb0e8afac51b56bf43fe3"
+    },
+    {
+      "file": "2-进行中/面试准备/常见问题回答准备/README.md",
+      "sha256_before": "d3936e98b76d67a8d8520e694544abf05763f702d47f3f34339fb73a1bf35d73",
+      "sha256_after": "ecd498e74961b0165033cc37eaf32ce45fc26e9ca5768405b1c4b284e5b24f37",
+      "sha256_after_path_repair": "cc987092e754f561c00065d5cb20e54c426734ff748daa479add8db36141a08d",
+      "additional_change": "本轮另行重写导航入口，原入口已保存为字节快照"
+    },
+    {
+      "file": "2-进行中/面试准备/常见问题回答准备/AI草案-候选问题清单/README.md",
+      "sha256_before": "2f3e99c390ff39fff950270fe55f433dd244839713cfbbf67dcbf38a58c862fa",
+      "sha256_after": "c396b19e533bbe90804e056715131790b287d9e1278426995bdf990b3d7c515b"
+    },
+    {
+      "file": "5-归档/面试准备旧清单/2026-09-16-结构整理/旧规划与岗位资料/关键面试岗位描述.md",
+      "sha256_before": "39ec145ea33f93a4496ef3cbc9241ed947eed1eb18c91f92488889bf8d992e45",
+      "sha256_after": "97c4dd11320672247034cf7ade540fd34553e84759ef17468cb3aa8e86867ca7"
+    },
+    {
+      "file": "5-归档/面试准备旧清单/2026-09-16-结构整理/旧交接/2026-09-07-Agent简历后续会话交接.md",
+      "sha256_before": "86dd17e723902b9f84c8dafaf571d60df46f311a4bd0c4acf127a09a4c67a222",
+      "sha256_after": "d20f0e4bebb6c7c9e1b6434a1a90d3bc7ff2206aed0085808acbcaf904927c91"
+    },
+    {
+      "file": "2-进行中/面试准备/资料/2026-09-13-大厂Agent面试重整/README.md",
+      "sha256_before": "3114dd93eb7af0d978f4468578749e9ef39c3bd409d2a24e2c29489c2b2a9328",
+      "sha256_after": "8092c78b60b95bb016a1f9673c98fc908aad92dea068fb6f22e6fb2f32d44487"
+    },
+    {
+      "file": "2-进行中/面试准备/项目准备/理赔客服风险质检/项目手册.md",
+      "sha256_before": "81eb8587177ae215a6dd55a860ae1f005c4cc69df888d2959fd66a0aaa32bfda",
+      "sha256_after": "ff670b3cb61d4e6eda5762e8c217401b1085919a36c58d10129e30d2cb068f3e"
+    },
+    {
+      "file": "2-进行中/面试准备/简历/记录/2026-09-07-双方向简历V1.1审校与证据说明.md",
+      "sha256_before": "db8f448159655b4c4c276221a46d21af26a8102e3c8084cb76566892d07b038d",
+      "sha256_after": "e92843108e4a9471cd773bd8edc13093457e632019dc5ecd86cdee1951e9b1c1"
+    },
+    {
+      "file": "2-进行中/招聘投递记录/资料/阿里平台技术部/2026-09-04-面经来源与核验.md",
+      "sha256_before": "3bff147891ea72b2e509317ec9987aff7493294ec8f23bcd24c2b29a004119ac",
+      "sha256_after": "33e39b3382611efbcc483cb37b4b0150ca7088d96d3de74bb792be3bd6a7d9ac"
+    }
+  ],
+  "structure_files": [
+    {
+      "file": "2-进行中/面试准备/README.md",
+      "sha256": "c435725c4973565d7d0e445fa29611d1ad853fc63a5820b2755c3564e7a79ede"
+    },
+    {
+      "file": "2-进行中/面试准备/AGENTS.md",
+      "sha256": "7a102e38374e89acccd9551c1f0fb604f0a923ba057d87d4971a9b0e9b1920d3"
+    },
+    {
+      "file": "2-进行中/面试准备/资料/README.md",
+      "sha256": "71561c1faef85854d080232f2a7ec273432e052815a54a440a3d58b0dc03b5c7"
+    },
+    {
+      "file": "2-进行中/面试准备/岗位准备/README.md",
+      "sha256": "fb809dbaf39e5d4510ceaca3b510d7f1e18dfde487dc6a3a4f2b709abefb33f0"
+    },
+    {
+      "file": "2-进行中/面试准备/简历/README.md",
+      "sha256": "d074cbb0a06069358ad170e3b3a2497b9d5380a3e33026f61787ab52424757ce"
+    },
+    {
+      "file": "2-进行中/面试准备/常见问题回答准备/README.md",
+      "sha256": "ecd498e74961b0165033cc37eaf32ce45fc26e9ca5768405b1c4b284e5b24f37"
+    },
+    {
+      "file": "5-归档/面试准备旧清单/2026-09-16-结构整理/README.md",
+      "sha256": "6e88a34903b31ef0c241a6c12aabd5b9e225569c58056fa7dca39cadd35b97be"
+    },
+    {
+      "file": "5-归档/面试准备旧清单/README.md",
+      "sha256": "47cbb15b2a7e138abf6e6996193fa10bbdadc33ea954f58897c32fc945205f85"
+    },
+    {
+      "file": ".agents/skills/resume-builder/references/data-agent-resume.md",
+      "sha256": "b724c0980e82d34f6f12198e99e08fd6aafaaf138147d92a5f84b323202b6682"
+    }
+  ],
+  "preserved_entry_snapshots": [
+    {
+      "original": "2-进行中/面试准备/README.md",
+      "snapshot": "5-归档/面试准备旧清单/2026-09-16-结构整理/原入口快照/README.md.txt",
+      "sha256": "6781fe7f178dac690ac8cfe6079f651c53da5d7d0f1f7b0de1d9b55ebdba5f40"
+    },
+    {
+      "original": "2-进行中/面试准备/简历/README.md",
+      "snapshot": "5-归档/面试准备旧清单/2026-09-16-结构整理/原入口快照/简历__README.md.txt",
+      "sha256": "a3047aa7c62cc16a87012f5bdfa184ce0a7348455f6becc495cfc0e93ede752e"
+    },
+    {
+      "original": "2-进行中/面试准备/常见问题回答准备/README.md",
+      "snapshot": "5-归档/面试准备旧清单/2026-09-16-结构整理/原入口快照/常见问题回答准备__README.md.txt",
+      "sha256": "d3936e98b76d67a8d8520e694544abf05763f702d47f3f34339fb73a1bf35d73"
+    }
+  ],
+  "verification": {
+    "markdown_files_checked": 51,
+    "broken_links": 0,
+    "moved_files": 31,
+    "byte_identical_moved_files": 25,
+    "path_rebased_moved_files": 6,
+    "archived_code_blocks_unchanged": 10,
+    "question_ids_preserved": 99,
+    "groups_preserved": 48,
+    "latest_answers_equal": true,
+    "reader_matches_source": true,
+    "reader_css_script_ids_preserved": true,
+    "scope": "本次迁移和结构入口；不代表全仓、浏览器交互或真实面试流程验收"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "business_analysis": "./business_analysis_repro/clarification_graph.py:graph"
+  },
+  "env": ".env"
+}

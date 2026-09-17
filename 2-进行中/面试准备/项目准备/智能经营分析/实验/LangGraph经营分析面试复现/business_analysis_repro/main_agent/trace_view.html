@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Data Agent · 执行回放</title>
+<style>
+:root{color-scheme:light;--ink:#26332d;--sub:#66726a;--line:#dce3db;--paper:#f5f6f0;--white:#fff;--green:#206347;--pale:#edf5ed;--amber:#94601c;--amber-bg:#fff5df;--red:#a04436}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif}button{font:inherit;color:inherit;cursor:pointer}button:focus-visible,summary:focus-visible{outline:3px solid #7dac93;outline-offset:3px}button:disabled{cursor:default;opacity:.35}button:hover:not(:disabled){filter:brightness(.97)}[hidden]{display:none!important}.shell{max-width:1240px;padding:30px 32px 42px;margin:auto}.mast{display:flex;justify-content:space-between;align-items:center;gap:16px}.brand{font-size:12px;font-weight:750;letter-spacing:1.4px;color:var(--green)}.run-meta{font-size:12px;color:var(--sub);overflow-wrap:anywhere}.question-block{padding:24px 0 22px;border-bottom:1px solid var(--line)}.eyebrow{font-size:12px;color:var(--sub);margin:0 0 6px}h1{font-size:27px;line-height:1.4;letter-spacing:-.4px;margin:0;max-width:920px}h2{font-size:23px;line-height:1.4;margin:5px 0 0}h3{font-size:16px;margin:0 0 12px}p{margin:0 0 12px}p:last-child{margin-bottom:0}.meta-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px;font-size:13px;color:var(--sub)}.badge{display:inline-flex;align-items:center;border-radius:4px;padding:2px 8px;background:var(--pale);color:var(--green);font-size:12px;font-weight:650}.badge.warn,.badge.wait{background:var(--amber-bg);color:var(--amber)}.badge.bad{background:#fff0eb;color:var(--red)}.tabs{display:flex;gap:26px;margin:16px 0 24px;border-bottom:1px solid var(--line)}.tab{border:0;border-bottom:3px solid transparent;padding:10px 0;background:none;color:var(--sub)}.tab[aria-selected="true"]{border-bottom-color:var(--green);color:var(--green);font-weight:700}.layout{display:grid;grid-template-columns:246px minmax(0,1fr);gap:26px;align-items:start}.aside-label{font-size:12px;color:var(--sub);display:flex;justify-content:space-between;margin:0 0 12px;padding:0 8px}.step-list{display:grid;gap:5px}.step-button{position:relative;display:grid;grid-template-columns:27px 1fr;gap:12px;text-align:left;padding:13px 11px;border:1px solid transparent;border-radius:8px;background:transparent;width:100%;line-height:1.5}.step-button.active{background:var(--white);border-color:#bad1c0;box-shadow:0 2px 5px #24433306}.step-number{width:26px;height:26px;border:1px solid #c9d5cb;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--sub)}.active .step-number{background:var(--green);color:white;border-color:var(--green)}.step-name{font-size:14px;font-weight:600}.step-status{font-size:12px;color:var(--sub);display:block;margin-top:3px}.warn .step-status,.wait .step-status{color:var(--amber)}.bad .step-status{color:var(--red)}.rail-note{font-size:12px;color:var(--sub);margin:18px 8px 0}.panel,.metric-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:26px}.step-top{display:flex;justify-content:space-between;gap:15px;align-items:flex-start;margin-bottom:22px}.step-kicker{font-size:12px;color:var(--sub)}.step-body{font-size:16px;line-height:1.85}.step-body>p:first-child{font-weight:600}.small{font-size:13px;color:var(--sub)}.callout{border-left:3px solid #92b49b;padding:10px 16px;margin:18px 0;background:#f5f8f3;white-space:pre-wrap;overflow-wrap:anywhere}.callout.warn{border-color:#dba655;background:#fffaf0}.facts{margin:18px 0;border-top:1px solid var(--line)}.fact{display:grid;grid-template-columns:115px minmax(0,1fr);gap:16px;border-bottom:1px solid #edf0e9;padding:10px 0;overflow-wrap:anywhere}.fact dt{font-size:13px;color:var(--sub)}.fact dd{margin:0;font-size:14px}.next-line{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-top:24px;padding-top:20px;border-top:1px solid var(--line)}.next-label{font-size:13px;color:var(--sub)}.next-label b{display:block;color:var(--ink);font-size:14px}.nav-buttons{display:flex;gap:8px}.nav-buttons button{border:1px solid var(--line);border-radius:6px;background:white;padding:7px 12px;font-size:13px}.nav-buttons .primary{background:var(--green);color:white;border-color:var(--green)}details{border-top:1px solid var(--line);margin-top:18px;padding-top:14px}summary{cursor:pointer;font-size:13px;color:var(--sub)}details[open]>summary{margin-bottom:14px;color:var(--ink)}pre{font:12px/1.7 ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:8px 0;background:#f5f7f3;border:1px solid #e2e8df;border-radius:6px;padding:14px;color:#38483d}code{font:12px ui-monospace,SFMono-Regular,Menlo,monospace;overflow-wrap:anywhere}table{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed}th,td{text-align:left;vertical-align:top;padding:10px 8px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}th{font-weight:500;color:var(--sub);font-size:12px}.change-before{color:var(--sub)}.change-after{color:var(--green)}.model-call{border-left:2px solid #cbdccb;padding-left:15px;margin:20px 0}.model-call h4{font-size:14px;margin:0 0 10px}.model-role{font-size:12px;color:var(--sub);margin-top:12px}.conversation{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;background:#f7f8f4;padding:12px;border-radius:6px;max-height:430px;overflow-y:auto}.metric-intro{margin-bottom:20px;max-width:860px;color:var(--sub)}.metric-heading{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;margin-bottom:18px}.metric-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.metric-card{margin-bottom:18px}.metric-card .facts{margin-bottom:0}.metric-card h2{font-size:22px;margin:0}.section-label{font-size:12px;font-weight:650;color:var(--green);letter-spacing:1px;margin-bottom:8px}.query-instance{margin-top:16px;padding:18px;background:#f7f9f5;border-radius:8px;border:1px solid #e2e8df}.query-instance h3{font-size:15px;margin:0 0 8px}.result-panel{max-width:900px}.answer{white-space:pre-wrap;font-size:17px;line-height:1.95;overflow-wrap:anywhere;margin-top:18px}.footer{font-size:12px;color:var(--sub);margin-top:28px}.empty{padding:18px;background:var(--amber-bg);color:#7a5a2d;border-radius:8px}.summary-stats{font-size:13px;color:var(--sub);margin:16px 0}.raw{margin-top:28px}.warn-text{color:var(--amber)}
+@media(max-width:760px){.shell{padding:20px 16px 30px}.mast{align-items:flex-start}.run-meta{max-width:48%;font-size:11px}.question-block{padding:18px 0}h1{font-size:23px}.tabs{gap:22px;margin-bottom:18px}.layout{grid-template-columns:1fr;gap:15px}.step-list{display:flex;overflow-x:auto;padding-bottom:5px;gap:8px}.step-button{min-width:174px;width:174px;flex:0 0 auto;padding:10px;gap:8px;background:#f0f3ec}.step-name{font-size:12px}.step-status{font-size:11px}.rail-note{display:none}.aside-label{padding:0}.panel,.metric-card{padding:20px 17px}.step-top{margin-bottom:16px}h2{font-size:21px}.step-body{font-size:15px}.fact{grid-template-columns:90px 1fr;gap:12px}.metric-grid{grid-template-columns:1fr;gap:0}.next-line{align-items:flex-end}.nav-buttons button{padding:7px 10px}.query-instance{padding:14px}.answer{font-size:16px}th,td{padding:8px 4px;font-size:12px}}
+.layout>aside,.layout>main{min-width:0}.step-list{max-width:100%}
+</style>
+</head>
+<body>
+<div class="shell">
+  <div class="mast"><div class="brand">DATA AGENT / 执行回放</div><div class="run-meta" id="run-id"></div></div>
+  <header class="question-block"><p class="eyebrow">你提出的问题</p><h1 id="question"></h1><div class="meta-row"><span id="status" class="badge"></span><span>真实模型调用 · 模拟业务数据</span><span id="run-summary"></span></div></header>
+  <nav class="tabs" role="tablist" aria-label="回放内容">
+    <button class="tab" id="tab-process" role="tab" aria-selected="true" aria-controls="view-process" data-tab="process">执行过程</button>
+    <button class="tab" id="tab-metric" role="tab" aria-selected="false" aria-controls="view-metric" data-tab="metric">指标与取数</button>
+    <button class="tab" id="tab-answer" role="tab" aria-selected="false" aria-controls="view-answer" data-tab="answer">最终回答</button>
+  </nav>
+  <section id="view-process" role="tabpanel" aria-labelledby="tab-process">
+    <div class="layout"><aside><div class="aside-label"><span>实际执行顺序</span><span id="step-count"></span></div><div class="step-list" id="steps"></div><p class="rail-note">只列实际执行的节点。模型调用、工具请求和状态快照收在对应步骤里。</p></aside><main class="panel" id="step-detail" aria-live="polite"></main></div>
+  </section>
+  <section id="view-metric" role="tabpanel" aria-labelledby="tab-metric" hidden></section>
+  <section id="view-answer" role="tabpanel" aria-labelledby="tab-answer" hidden><article class="panel result-panel"><p class="section-label">交付结果</p><h2 id="answer-title"></h2><div class="answer" id="answer"></div></article></section>
+  <footer class="footer"><p>展示内容由实际执行日志整理。模型判断、程序路由和真实返回值分别呈现；日志没有记录的配置不补写。</p><details class="raw"><summary>需要排查代码时：查看原始技术日志</summary><pre id="raw"></pre></details></footer>
+</div>
+<script type="application/json" id="trace-data">__TRACE_DATA_JSON__</script>
+<script>
+"use strict";
+const data=JSON.parse(document.getElementById('trace-data').textContent);
+const $=id=>document.getElementById(id);
+const esc=value=>String(value??'未记录').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pretty=value=>typeof value==='string'?value:JSON.stringify(value,null,2);
+const facts=object=>'<dl class="facts">'+Object.entries(object).map(([k,v])=>'<div class="fact"><dt>'+esc(k)+'</dt><dd>'+esc(Array.isArray(v)?v.join('、'):v)+'</dd></div>').join('')+'</dl>';
+const safeJSON=text=>{try{return JSON.parse(text)}catch{return text}};
+let current=0;
+$('run-id').textContent=data.thread_id;
+$('question').textContent=data.question;
+$('status').textContent=data.status_label;
+$('status').classList.add(data.status==='failed'?'bad':data.status==='waiting_user'?'wait':'good');
+$('run-summary').textContent=data.steps.length+' 个执行步骤 · '+data.model_calls+' 次模型调用';
+$('step-count').textContent=data.steps.length+' 步';
+$('answer-title').textContent=data.status==='completed'?'检查通过后的回答':data.status==='waiting_user'?'等待你的补充':'本次执行未完成';
+$('answer').textContent=data.answer||data.pending_question||'暂无交付内容。';
+$('raw').textContent=JSON.stringify(data.events,null,2);
+
+function selectTab(name){
+  for(const button of document.querySelectorAll('[data-tab]')){const active=button.dataset.tab===name;button.setAttribute('aria-selected',String(active));$('view-'+button.dataset.tab).hidden=!active;}
+}
+document.querySelectorAll('[data-tab]').forEach(button=>button.addEventListener('click',()=>selectTab(button.dataset.tab)));
+
+function renderStep(index){
+ current=Math.max(0,Math.min(index,data.steps.length-1));
+ $('steps').innerHTML=data.steps.map((s,i)=>'<button class="step-button '+s.tone+(i===current?' active':'')+'" data-step="'+i+'" aria-current="'+(i===current?'step':'false')+'"><span class="step-number">'+(i+1)+'</span><span class="step-name">'+esc(s.title)+'<span class="step-status">'+esc(s.outcome)+'</span></span></button>').join('');
+ document.querySelectorAll('[data-step]').forEach(button=>button.addEventListener('click',()=>renderStep(Number(button.dataset.step))));
+ const s=data.steps[current];if(!s){$('step-detail').textContent='日志中还没有完成的节点。';return;}
+ const seconds=s.elapsed_ms==null?'耗时未记录':(s.elapsed_ms/1000).toFixed(2)+' 秒';
+ const changes=s.changes.length?'<table><thead><tr><th>工作数据</th><th>之前</th><th>之后</th></tr></thead><tbody>'+s.changes.map(c=>'<tr><td>'+esc(c.field)+'</td><td class="change-before">'+esc(c.before)+'</td><td class="change-after">'+esc(c.after)+'</td></tr>').join('')+'</tbody></table>':'<p class="small">这一阶段没有改变上方摘要字段。完整返回值在原始记录中。</p>';
+ const calls=s.model_calls.map((c,i)=>'<div class="model-call"><h4>第 '+(i+1)+' 次调用 · '+esc(c.model)+'</h4>'+c.messages.map(m=>'<p class="model-role">'+(m.role==='system'?'程序给模型的要求':'本次发给模型的数据')+'</p><div class="conversation">'+esc(m.role==='human'?pretty(safeJSON(m.content)):m.content)+'</div>').join('')+'<p class="model-role">模型实际返回</p><div class="conversation">'+esc(c.response?pretty(safeJSON(c.response)):'本次调用没有返回有效响应。')+'</div><p class="small">输入 '+esc(c.usage.input_tokens??'未记录')+' Token · 输出 '+esc(c.usage.output_tokens??'未记录')+' Token</p></div>').join('');
+ $('step-detail').innerHTML='<div class="step-top"><div><div class="step-kicker">第 '+(current+1)+' 步 · '+seconds+'</div><h2>'+esc(s.title)+'</h2></div><span class="badge '+s.tone+'">'+esc(s.outcome)+'</span></div><div class="step-body">'+s.notes.map(t=>'<p>'+esc(t)+'</p>').join('')+'</div>'+(Object.keys(s.facts).length?facts(s.facts):'')+(s.text?'<div class="callout '+(s.tone==='warn'?'warn':'')+'">'+esc(s.text)+'</div>':'')+'<details id="state-changes"><summary>这一步的 State 改变了什么？</summary>'+changes+'</details><details id="model-dialogue"><summary>这一阶段的模型对话（'+s.model_calls.length+' 次）</summary>'+(calls||'<p class="small">此节点没有调用模型，由程序或工具函数完成。</p>')+'</details><details><summary>对应代码和原始记录</summary><p class="small">节点：<code>'+esc(s.node)+'</code> · 事件 '+s.event_range[0]+'–'+s.event_range[1]+'</p><pre>'+esc(JSON.stringify(s.raw_events,null,2))+'</pre></details><div class="next-line"><div class="next-label">程序接下来选择<b>'+esc(s.next)+'</b></div><div class="nav-buttons"><button id="previous" '+(current===0?'disabled':'')+'>上一步</button><button id="next" class="primary" '+(current===data.steps.length-1?'disabled':'')+'>下一步 →</button></div></div>';
+ $('previous').addEventListener('click',()=>renderStep(current-1));$('next').addEventListener('click',()=>renderStep(current+1));
+}
+
+function renderMetric(){
+ let body='<p class="metric-intro">“指标定义”说明这个指标是什么、按什么配置查；“本次查询”展示执行时实际使用的日期和参数。以下 ID、数据集与表名均为模拟配置。</p>';
+ if(!data.metrics.length){$('view-metric').innerHTML=body+'<div class="empty">这条旧 Trace 没有保存完整的指标定义和查询配置，无法从中确认别名、数据集或 SQL。请查看新版运行记录；这里不会把新配置伪装成过去实际使用的配置。</div>';return;}
+ for(const metric of data.metrics){const q=metric.query;
+  body+='<article class="metric-card"><div class="metric-heading"><div><p class="section-label">指标定义 / '+esc(metric.config_version)+'</p><h2>'+esc(metric.name)+'</h2></div><span class="badge">'+(q.method==='sql'?'SQL 取数':'指标平台取数')+'</span></div><div class="metric-grid"><div>'+facts({'标准名称':metric.name,'别名':metric.aliases,'指标 ID':metric.metric_id,'英文名':metric.english_name,'指标含义':metric.definition,'所属业务':metric.business||'本次无需指定','单位':metric.unit})+'</div><div>'+facts({'计算公式':metric.formula,'支持维度':metric.supported_dimensions,'时间口径':metric.time_basis,'底层粒度':metric.source_grain,'聚合规则':metric.aggregation,'常用分析':metric.analysis_scenarios})+'</div></div></article>';
+  const source=q.method==='sql'?{'查询方式':'SQL','执行位置':q.database,'来源表':q.source_tables,'业务线 ID':q.business_line_id||'本次未指定','数据集 ID':'不适用：本指标走 SQL'}:{'查询方式':'指标平台（本地模拟接口）','数据集 ID':q.dataset_id,'业务线 ID':q.business_line_id||'本次未指定','平台指标 ID':q.platform_metric_id,'底层来源表':'平台封装，本实验未配置底表'};
+  body+='<article class="metric-card"><p class="section-label">取数配置</p><h3>'+esc(metric.name)+'从哪里查</h3>'+facts(source)+(q.reference_sql_template?'<p class="small" style="margin-top:16px">参考 SQL 模板（版本化配置）</p><pre>'+esc(q.reference_sql_template)+'</pre>':'')+'<p class="small" style="margin-top:12px">'+esc(q.source_note)+'</p></article>';
+ }
+ body+='<article class="metric-card"><p class="section-label">本次实际查询</p><h3>'+data.queries.length+' 份已返回的查询结果</h3>';
+ for(const query of data.queries){const x=query.execution,p=x.parameters;const method=x.method==='sql'?'本地 SQLite 已执行':'本地指标平台模拟接口已返回';
+  body+='<div class="query-instance"><h3>'+esc(query.facts['期间']||'查询范围')+'</h3><span class="badge">'+method+'</span>'+facts({'标准指标 ID':x.metric_id,'业务线 ID':p.business_line_id,'开始日期':p.start_date,'结束日期':p.end_date,...(x.method==='metric_platform'?{'数据集 ID':p.dataset_id,'平台指标 ID':p.metric_id}:{}),'结果合计':query.facts['合计'],'返回行数':query.checks.row_count,'完整性检查':query.checks.complete?'通过':'未通过'})+(x.executed_sql?'<p class="small" style="margin-top:12px">实际执行的 SQL（参数独立绑定，不拼接用户文本）</p><pre>'+esc(x.executed_sql)+'</pre>':'')+'<details><summary>'+(x.method==='sql'?'查看绑定参数':'查看实际请求参数')+'</summary><pre>'+esc(JSON.stringify(p,null,2))+'</pre></details><p class="small" style="margin-top:12px">证据：<code>'+esc(query.evidence_id)+'</code></p></div>';
+ }
+ if(!data.queries.length)body+='<p class="small">这个任务没有记录取数执行。口径解释可以直接读取指标定义。</p>';
+ $('view-metric').innerHTML=body+'</article>';
+}
+renderStep(0);renderMetric();
+</script>
+</body>
+</html>

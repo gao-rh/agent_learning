@@ -1,0 +1,38 @@
+[project]
+name = "business-analysis-langgraph-repro"
+version = "0.1.0"
+description = "Interview-oriented LangChain, LangGraph, and LangSmith reproduction of a synthetic business-analysis workflow"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "langchain>=1,<2",
+    "langchain-openai>=1,<2",
+    "langgraph>=1,<2",
+    "langgraph-checkpoint-sqlite>=2,<4",
+    "langsmith>=0.3,<1",
+    "pydantic>=2,<3",
+    "python-dotenv>=1,<2",
+    "tiktoken>=0.7,<1",
+]
+
+[dependency-groups]
+dev = [
+    "langgraph-cli[inmem]>=0.4,<1",
+    "pytest>=8,<10",
+    "ruff>=0.12,<1",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["business_analysis_repro"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
