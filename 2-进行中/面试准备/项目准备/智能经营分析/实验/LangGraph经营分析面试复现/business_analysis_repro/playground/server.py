@@ -15,8 +15,13 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
+from ..case_viewer.repository import read_events as read_page_events
+from ..case_viewer.storage import RecordUnavailable
+from ..case_viewer.storage import read_text as read_page_text
 from ..main_agent.runtime import locked
 from ..settings import PROJECT_DIR
+from ..workbench import ASSETS as WORKBENCH_ASSETS
+from ..workbench import Workbench, shell
 from .business_knowledge import BASE, DOCUMENTS, SKILLS, search_business_knowledge
 from .catalog import KNOWLEDGE
 from .context_memory import history_from_conversation
@@ -397,7 +402,15 @@ def catalog_payload():
     return {**KNOWLEDGE, "metrics": metrics}
 
 
-def make_handler(store):
+def make_handler(store, workbench=None):
+    workbench = workbench or Workbench(
+        PROJECT_DIR, PROJECT_DIR / ".runs", store.root
+    )
+
+    def page_state(cid):
+        path = store.directory(cid) / "conversation.json"
+        return json.loads(read_page_text(path)) if path.exists() else store.get(cid)
+
     class Handler(BaseHTTPRequestHandler):
         def log_message(self, *_):
             pass  # 用户问题和模型消息只保存在会话及Trace，避免写到通用HTTP日志。
@@ -409,6 +422,7 @@ def make_handler(store):
                 self.send_header("Content-Type", content_type)
                 self.send_header("Cache-Control", "no-store")
                 self.send_header("Content-Length", str(len(raw)))
+                self.send_header("X-Content-Type-Options", "nosniff")
                 self.end_headers()
                 self.wfile.write(raw)
             except (BrokenPipeError, ConnectionResetError):
@@ -445,9 +459,19 @@ def make_handler(store):
         def do_GET(self):
             url = urlparse(self.path)
             try:
+                result = workbench.get(url)
+                if result is not None:
+                    data, content_type, status = result
+                    return self.respond(data, status, content_type)
                 if url.path in {"/usage", "/knowledge"}:
-                    return self.respond(Path(__file__).with_name(
-                        "usage.html" if url.path == "/usage" else "knowledge_view.html").read_bytes(),
+                    document = Path(__file__).with_name(
+                        "usage.html" if url.path == "/usage" else "knowledge_view.html").read_text()
+                    if url.path == "/knowledge":
+                        document = document.replace(
+                            "指标精确口径仍由右侧指标目录提供。",
+                            '指标精确口径见 <a href="/docs/knowledge">指标与维度</a>。'
+                        ).replace("关键词/别名检索，没有调用 embedding。", "支持关键词和别名检索。")
+                    return self.respond(shell(document, "docs", "utility").encode(),
                         content_type="text/html; charset=utf-8")
                 if url.path == "/api/knowledge":
                     q = parse_qs(url.query).get("q", [""])[0]
@@ -466,7 +490,7 @@ def make_handler(store):
                     return self.respond(capacity(**params))
                 if url.path == "/":
                     return self.respond(
-                        Path(__file__).with_name("parallel_chat.html").read_bytes(),
+                        shell((WORKBENCH_ASSETS / "chat.html").read_text(), "chat", "chat").encode(),
                         content_type="text/html; charset=utf-8",
                     )
                 if url.path in {"/stream_chat.js", "/flow_trace.js", "/flow_trace.css"}:
@@ -482,7 +506,7 @@ def make_handler(store):
                     cid, tid = query.get("id", [""])[0], query.get("task_id", [""])[0]
                     if not ID.fullmatch(tid):
                         raise ValueError("无效任务ID")
-                    events = read_events(store.directory(cid) / "tasks" / tid / "trace.jsonl")
+                    events = read_page_events(store.directory(cid) / "tasks" / tid / "trace.jsonl")
                     if url.path.endswith("flow-node"):
                         cutoff = query.get("seq", [None])[0]
                         return self.respond(
@@ -493,7 +517,7 @@ def make_handler(store):
                             )
                         )
                     return self.respond(
-                        flow_payload(events, cid, tid, store.get(cid).get("active") == tid)
+                        flow_payload(events, cid, tid, page_state(cid).get("active") == tid)
                     )
                 if url.path == "/api/events":
                     return self.stream(parse_qs(url.query))
@@ -513,6 +537,7 @@ def make_handler(store):
                             "cancellation": "cooperative-stop-and-replace",
                             "messages": "queue-and-steer",
                             "context": "budget-summary-v1",
+                            "workbench": "minimal-v1",
                         }
                     )
                 if url.path == "/api/catalog":
@@ -520,7 +545,7 @@ def make_handler(store):
                 if url.path in {"/api/conversation", "/api/progress"}:
                     cid = parse_qs(url.query).get("id", [""])[0]
                     return self.respond(
-                        store.get(cid) if url.path.endswith("conversation") else store.progress(cid)
+                        page_state(cid) if url.path.endswith("conversation") else store.progress(cid)
                     )
                 parts = url.path.strip("/").split("/")
                 if len(parts) == 3 and parts[0] == "flow" and ID.fullmatch(parts[2]):
@@ -528,22 +553,26 @@ def make_handler(store):
                     if not path.exists():
                         raise FileNotFoundError(path)
                     return self.respond(
-                        Path(__file__).with_name("flow_trace.html").read_bytes(),
+                        shell(Path(__file__).with_name("flow_trace.html").read_text(),
+                              "chat", "flow").encode(),
                         content_type="text/html; charset=utf-8",
                     )
                 if len(parts) == 3 and parts[0] == "trace" and ID.fullmatch(parts[2]):
                     path = store.directory(parts[1]) / "tasks" / parts[2] / "trace.html"
-                    events = read_events(path.with_name("trace.jsonl"))
+                    events = read_page_events(path.with_name("trace.jsonl"))
                     if any(e["kind"] == "execution_start" and e["name"] == ENGINE for e in events):
                         # 执行中也能追踪：只读日志投影，不调用模型、不写旧报告。
                         return self.respond(
-                            render_html(events, parts[2], parts[1]).encode(),
+                            shell(render_html(events, parts[2], parts[1]), "chat", "trace").encode(),
                             content_type="text/html; charset=utf-8",
                         )
-                    return self.respond(path.read_bytes(), content_type="text/html; charset=utf-8")
+                    return self.respond(shell(read_page_text(path), "chat", "trace").encode(),
+                                        content_type="text/html; charset=utf-8")
                 return self.respond({"error": "未找到页面"}, 404)
             except (ValueError, TypeError, FileNotFoundError):
                 return self.respond({"error": "未找到记录"}, 404)
+            except RecordUnavailable as error:
+                return self.respond({"error": str(error)}, 503)
 
         def do_POST(self):
             if self.path not in {"/api/message", "/api/stop", "/api/replace", "/api/inbox", "/api/insert"}:

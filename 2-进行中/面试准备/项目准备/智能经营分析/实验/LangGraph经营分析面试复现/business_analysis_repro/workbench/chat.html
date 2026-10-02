@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>对话 · Data Agent</title></head>
+<body>
+<main class="wb-main wb-chat-main">
+  <div class="wb-page-title"><h1>对话</h1><div class="wb-chat-tools">
+    <details id="conversation-history"><summary>历史对话</summary><div id="conversation-list">展开后读取已有会话。</div></details>
+    <button id="new" type="button">新对话</button>
+  </div></div>
+  <section class="chat wb-chat" aria-label="Data Agent 对话">
+    <div id="messages" aria-live="polite"></div>
+    <div class="composer">
+      <div id="progress" class="status" role="status"></div>
+      <div id="branches" aria-live="polite"></div>
+      <div id="inbox" aria-label="消息队列" aria-live="polite"></div>
+      <div id="controlHint" class="status" aria-live="polite"></div>
+      <label for="text" class="wb-muted">你的问题</label>
+      <textarea id="text" maxlength="4000" placeholder="输入问题；需要澄清时，直接在这里回答。"></textarea>
+      <div class="wb-compose-footer"><small>本地模拟数据 · 发送会调用 Kimi；查看记录不调用模型。</small>
+        <div class="run-actions"><button id="stop" hidden>停止</button><button id="replace" hidden>停止并发送</button><button id="send" type="button">发送</button></div>
+      </div>
+    </div>
+  </section>
+  <details class="wb-catalog"><summary>指标与维度 · 提问示例</summary>
+    <div class="examples"><button data-q="查询上周放心吃净保费规模">查保费</button><button data-q="分析上周四个渗透率，按各自支持的维度拆解">多指标分析</button></div>
+    <p class="wb-muted">模拟日期基准为 2026-09-01；“上周”是 08-24 至 08-30。</p>
+    <label for="search">查找指标</label><input id="search" placeholder="指标名称或别名">
+    <select id="metric" aria-label="选择指标"></select>
+    <p id="metricId"></p><div id="definition"></div>
+    <p><strong id="preset"></strong> <small id="aggregation"></small></p>
+    <div id="dimensions"></div>
+    <details><summary>来源与取数方式</summary><p id="source"></p><p id="method"></p></details>
+    <a id="usageLink" href="/usage">查看用量</a>
+  </details>
+</main>
+<script src="/stream_chat.js"></script>
+</body>
+</html>

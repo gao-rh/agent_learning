@@ -1,6 +1,8 @@
 'use strict';
 window.__viewerStarted=true;
 const $=s=>document.querySelector(s), main=$('#main');
+const workbench=window.DATA_AGENT_WORKBENCH===true;
+function tracePage(){return workbench&&location.pathname.endsWith('/trace');}
 const state={batches:[],batch:'',overview:null,data:null,filter:'all',ticket:0};
 const names={partial:'部分可继续',blocked:'阻断',active:'当前有效',gap:'能力缺口',superseded:'已替代',cancelled:'已撤销',passed:'通过',failed:'未通过',clarify:'需要补充',pending:'待人工审阅',incomplete:'未完成',not_run:'未运行',completed:'执行完成',waiting_user:'等待补充',waiting_review:'执行结束',ok:'完成',error:'异常',ready:'可执行',reply:'直接文字回复',unsupported:'能力不支持'};
 const keys={requirements:'原需求清单',tasks:'当前任务',views:'展示视图',requirement_ids:'对应需求',replacement_ids:'接受的替代需求',predicates:'指标规则',population:'统计总体',cohort_rule:'新老商分群',definition_version:'当期口径版本',baseline_version:'基期口径版本',comparison_mode:'比较方式',recompute:'是否重算',purpose:'用途',revision:'当前版本',supersedes_revision:'替代的旧版本',delivery:'交付计划',changes:'本轮变更',goal:'整体目标',questions:'待解决问题',months:'每年选取月份',note:'说明',affects:'影响的需求',op:'条件关系',label:'需求名称',metric_id:'指标',intent:'任务类型',period:'查询期间',comparison_period:'比较期间',start:'开始日期',end:'结束日期',start_date:'开始日期',end_date:'结束日期',group_by:'分组维度',filters:'筛选条件',required_predicates:'必选口径',knowledge_refs:'引用来源',outcome:'决定',question:'澄清问题',decomposition:'拆分说明',requests:'指标任务',missing_items:'待确认条件',reason:'原因',owner:'信息提供方',source:'来源',source_id:'来源ID',records:'检索到的知识',candidates:'搜索候选',allowed_values:'可用枚举',supported_dimensions:'支持的维度',definition:'指标定义',formula:'计算公式',aliases:'别名',unit:'单位',dimensions:'维度',name:'名称',id:'ID',score:'匹配分数（非正确概率）',supported:'是否支持',version:'版本',text:'内容',scope:'适用范围',query:'搜索词',dimension_id:'维度',result:'工具返回',sql:'实际 SQL',params:'SQL 参数',rows:'实际数据行',value:'数值',validation:'程序校验',accepted:'是否允许查询',errors:'阻断原因',normalized_tasks:'程序解析后的任务',model_submissions:'模型原始提交',resolver_result:'检索循环最终返回',actual_input:'实际送入模型的上下文',knowledge_observations:'工具实际返回记录',messages:'当前消息与轨迹',conversation_context:'历史对话',conversation_memory:'会话记忆',business_anchor:'上一轮业务任务',summary:'历史摘要',task:'任务条件',jobs:'指标任务',reference_date:'日期基准',timezone:'时区',mode:'时间表达类型',offset:'相对偏移',exact_date:'明确单日',field:'字段',expected:'预期',actual:'实际',type:'类型',field_id:'口径字段',operator:'条件关系',model:'模型',content:'正文',role:'角色',tools:'可调用工具定义',usage:'本次调用用量',input_tokens:'输入 Token',output_tokens:'输出 Token',total_tokens:'合计 Token',cache_read:'缓存命中输入',input_token_details:'输入细项',tool_calls:'模型提出的工具调用',arguments:'参数',args:'工具参数',semantic_only:'只做语义检查',execution_enabled:'该阶段是否执行查询',transformations:'程序转换记录',decision:'决定',status:'状态',history:'预设前文',method:'查询方式',business_line_id:'业务线',dataset_id:'数据集',query_binding:'查询绑定',synthetic:'模拟数据',mandatory_predicates:'指标必选规则',availability:'数据覆盖时间',effective_from:'生效日期',effective_to:'有效截止日',required_knowledge_cited:'是否引用必要知识',task_match:'条件是否匹配'};
@@ -18,7 +20,7 @@ async function api(path,params={}){
  catch(error){if(controller.signal.aborted)throw new Error('读取记录超时，请点击「刷新记录」重试。不会重新运行实验。');if(error instanceof TypeError)throw new Error('无法连接本地案例服务。请双击实验目录里的「启动案例查看器.command」，再点击右上角「刷新记录」。实验记录仍保存在本地，重新打开不会调用模型。');throw error;}
  finally{clearTimeout(timer);}
 }
-function route(batch,caseId,turn,step){const u=new URL(location.href);u.pathname='/case/'+encodeURIComponent(batch)+'/'+encodeURIComponent(caseId);u.search='';if(turn)u.searchParams.set('turn',turn);if(step)u.searchParams.set('step',step);return u.pathname+u.search;}
+function route(batch,caseId,turn,step,trace=tracePage()){const u=new URL(location.href);const report=u.searchParams.get('report');u.pathname='/case/'+encodeURIComponent(batch)+'/'+encodeURIComponent(caseId)+(trace?'/trace':'');u.search='';if(turn)u.searchParams.set('turn',turn);if(step)u.searchParams.set('step',step);if(report)u.searchParams.set('report',report);return u.pathname+u.search;}
 function metric(id){return state.data?.catalog?.metrics?.find(m=>m.id===id)?.name||id;}
 function dim(id){return state.data?.catalog?.dimensions?.[id]?.name||keys[id]||id;}
 function valueName(dimId,v){return state.data?.catalog?.dimensions?.[dimId]?.values?.find(x=>x.id===v)?.name??(typeof v==='boolean'?(v?'是':'否'):String(v));}
@@ -80,14 +82,18 @@ function renderSide(){
   a.onclick=e=>{e.preventDefault();loadCase(c.id,true);};box.append(a);
  }if(!box.children.length)box.append(para('没有匹配的案例。','muted'));
 }
-function showError(error){main.replaceChildren(el('h1','','暂时没有读取到记录'),para(error.message,'banner'),btn('重新读取',()=>init()));}
+function showError(error){
+ main.replaceChildren();
+ if(workbench){const report=new URL(location.href).searchParams.get('report');const back=el('a','wb-back',report?'← 本次测试报告':'← 所有测试报告');back.href=report?'/reports/'+encodeURIComponent(report):'/reports';main.append(back);}
+ main.append(el('h1','','暂时没有读取到记录'),para(error.message,'banner'),btn('重新读取',()=>init()));
+}
 function overview(){
  state.data=null;renderSide();main.replaceChildren(el('div','eyebrow','实验记录'),el('h1','','选一个案例，从头看完整过程'),para('每个案例都按「用户消息 → 中间操作 → Agent 回复」排列。','intro'));
  const grid=el('div','overview-grid');for(const c of state.overview.cases){const a=el('a','overview-card');a.href=route(state.batch,c.id);a.append(el('small','muted',c.id+' · '+c.actual_turns+' 轮对话'),el('h2','',c.title),para(cut(c.first_question,160)));a.onclick=e=>{e.preventDefault();loadCase(c.id,true);};grid.append(a);}main.append(grid);
 }
 async function loadBatch(id,cid=null){
  const ticket=++state.ticket;state.batch=id;state.data=null;$('#batch').value=id;main.replaceChildren(para('正在读取案例…','loading'));
- try{const data=await api('/api/batch',{batch:id});if(ticket!==state.ticket)return;state.overview=data;renderSide();if(cid)await loadCase(cid,false);else{history.replaceState({},'','/?batch='+encodeURIComponent(id));overview();}}catch(e){if(ticket===state.ticket)showError(e);}
+ try{const data=await api('/api/batch',{batch:id});if(ticket!==state.ticket)return;state.overview=data;renderSide();if(cid)await loadCase(cid,false);else{history.replaceState({},'',(workbench?'/cases':'/')+'?batch='+encodeURIComponent(id));overview();}}catch(e){if(ticket===state.ticket)showError(e);}
 }
 async function loadCase(id,push){
  document.body.classList.remove('cases-open');$('#toggle-cases').setAttribute('aria-expanded','false');
@@ -235,14 +241,27 @@ function technicalView(turn){
  const panel=details('技术详情 · 模型上下文、节点、Token 和原始日志',body);panel.classList.add('technical');return panel;
 }
 function scrollToTurn(number,changeUrl=true){const target=$('#turn-'+number);if(!target)return;if(changeUrl)history.replaceState({},'',route(state.batch,state.data.id,number));target.scrollIntoView({block:'start'});for(const a of document.querySelectorAll('.turn-nav a'))a.classList.toggle('current',a.dataset.turn===String(number));}
+function caseNavigation(d,selected){
+ if(!workbench)return;
+ const box=el('div');box.className='wb-case-navigation';
+ const crumbs=el('nav','wb-breadcrumb');crumbs.setAttribute('aria-label','当前位置');
+ const reports=el('a','','测试报告');reports.href='/reports';crumbs.append(reports);
+ const parent=el('a','','所属报告');parent.href='/reports';crumbs.append(el('span','','/'),parent,el('span','','/ '+d.id+(tracePage()?' / 第 '+selected+' 轮轨迹':'')));
+ const back=el('a','wb-back',tracePage()?'← 完整对话过程':'← 本次测试报告');back.href=tracePage()?route(state.batch,d.id,selected,null,false):'/reports';
+ box.append(crumbs,back);main.append(box);
+ api('/api/report-context',{batch:state.batch,report:new URL(location.href).searchParams.get('report')||''}).then(data=>{
+  if(state.data!==d)return;if(data.report){parent.textContent=data.report.title;parent.href=data.report.url;if(!tracePage())back.href=data.report.url;}
+ }).catch(()=>{parent.textContent='所有报告';});
+}
 function renderCase(){
- const d=state.data;main.replaceChildren();const head=el('header','case-head');head.append(el('div','eyebrow',d.id+' · '+d.turns.length+' 轮实际对话'),el('h1','',d.title),para('按发生顺序往下读。关键参数直接显示，细节按需展开。','intro'));main.append(head);
- const nav=el('nav','turn-nav');nav.setAttribute('aria-label','跳到某一轮');for(const t of d.turns){const a=el('a','','第 '+t.number+' 轮');a.href=route(state.batch,d.id,t.number);a.dataset.turn=t.number;a.onclick=e=>{e.preventDefault();scrollToTurn(t.number);};nav.append(a);}const copy=btn('复制链接',async()=>{try{await navigator.clipboard.writeText(location.href);notice('已复制当前链接');}catch{notice(location.href);}});nav.append(copy);main.append(nav);
+ const d=state.data;main.replaceChildren();const chosen=Number(new URL(location.href).searchParams.get('turn'))||d.turns[0]?.number;caseNavigation(d,chosen);const visible=tracePage()?d.turns.filter(t=>t.number===chosen):d.turns;const head=el('header','case-head');head.append(el('div','eyebrow',d.id+' · '+d.turns.length+' 轮实际对话'),el('h1','',tracePage()?'第 '+chosen+' 轮 · 执行轨迹':d.title),para(tracePage()?'本轮的完整输入、实际操作与回复。':'按发生顺序往下读。关键参数直接显示，细节按需展开。','intro'));main.append(head);
+ const nav=el('nav','turn-nav');nav.setAttribute('aria-label','跳到某一轮');for(const t of d.turns){const a=el('a','','第 '+t.number+' 轮');a.href=route(state.batch,d.id,t.number);a.dataset.turn=t.number;if(!tracePage())a.onclick=e=>{e.preventDefault();scrollToTurn(t.number);};nav.append(a);}const copy=btn('复制链接',async()=>{try{await navigator.clipboard.writeText(location.href);notice('已复制当前链接');}catch{notice(location.href);}});nav.append(copy);main.append(nav);
  if(d.kind==='complex')main.append(para('本案例只确认需求并提交任务参数，未执行取数或分析。','scope-note'));
  if(d.kind==='knowledge')main.append(para(d.knowledge_profile==='with_definition'?'本组工具中有相关业务定义，下面可看 Agent 是否实际检索。':'本组没有该业务别名的定义，下面保留实际检索和回复。','scope-note'));
- if(d.history?.length){const history=el('div');for(const m of d.history){if(typeof m.content==='string')history.append(chat(['user','human'].includes(m.role)?'user':'assistant',m.content));else history.append(objectView(m));}main.append(details('案例开始前的对话（预设背景）',history,true));}
- for(const turn of d.turns){
-  const section=el('section','turn');section.id='turn-'+turn.number;section.append(el('h2','turn-heading','第 '+turn.number+' 轮'));
+ if(!visible.length)main.append(para('未找到该轮记录，请从上方选择已有轮次。','banner'));
+ if(!tracePage()&&d.history?.length){const history=el('div');for(const m of d.history){if(typeof m.content==='string')history.append(chat(['user','human'].includes(m.role)?'user':'assistant',m.content));else history.append(objectView(m));}main.append(details('案例开始前的对话（预设背景）',history,true));}
+ for(const turn of visible){
+  const section=el('section','turn');section.id='turn-'+turn.number;const heading=el('h2','turn-heading','第 '+turn.number+' 轮');if(workbench&&!tracePage()){const a=el('a','wb-turn-trace','查看本轮完整轨迹 →');a.href=route(state.batch,d.id,turn.number,null,true);heading.append(a);}section.append(heading);
   if(turn.input_origin==='simulated_user')section.append(simulatedUserView(turn.simulated_user));
   const user=chat('user',turn.question);if(turn.input_origin)user.querySelector('.chat-label').textContent=turn.input_origin==='simulated_user'?'AI 模拟用户 · 实际发送':'测试初始需求';section.append(user);
   const activity=el('div','activity');activity.append(el('div','activity-label','中间发生了什么'));
@@ -250,11 +269,11 @@ function renderCase(){
   items.forEach((item,i)=>activity.append(actionCard(item,turn,i)));section.append(activity,replyView(turn));
   const extras=el('div','turn-extras');extras.append(reviewView(turn),technicalView(turn));section.append(extras);main.append(section);
  }
- if(d.simulation?.protocol){
+ if(!tracePage()&&d.simulation?.protocol){
   main.append(para(d.simulation.finished?'对话已停止：'+d.simulation.stop_reason:'AI用户多轮实验仍在进行。','scope-note'));
   const actor=d.simulation.last_user_decision;if(d.simulation.finished&&actor){main.append(para('最后一次 AI 用户决定（未再发送给被测 Agent）；停止不代表测试通过。','subtle'),simulatedUserView(actor));}
  }
- if(d.skipped?.length){const body=el('div');for(const s of d.skipped)body.append(para('第 '+s.number+' 轮（未发送）：'+s.question));main.append(details('尚未执行的后续测试消息（'+d.skipped.length+' 条）',body));}
+ if(!tracePage()&&d.skipped?.length){const body=el('div');for(const s of d.skipped)body.append(para('第 '+s.number+' 轮（未发送）：'+s.question));main.append(details('尚未执行的后续测试消息（'+d.skipped.length+' 条）',body));}
  const meta=el('div');if(d.simulation?.protocol)meta.append(fields([['合计请求',number(d.usage.calls)+' 次'],['被测助手',number(d.assistant_usage.calls)+' 次'],['AI 模拟用户',number(d.simulation.user_usage.calls)+' 次']]));meta.append(objectView({batch:d.batch,model:d.model,usage:d.usage,frozen:d.frozen,guidance:d.guidance,review_note:d.review_note}));main.append(details('关于这次实验与费用',meta),para('页面读取已有记录，浏览和刷新不会调用模型。','footnote'));
  const params=new URL(location.href).searchParams;const n=Number(params.get('turn'))||d.turns[0]?.number;const step=params.get('step');
  requestAnimationFrame(()=>{

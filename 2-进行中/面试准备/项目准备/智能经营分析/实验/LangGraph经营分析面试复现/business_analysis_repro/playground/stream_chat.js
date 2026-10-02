@@ -10,8 +10,12 @@ const completedSeen = new Map();
 const selectedId = new URLSearchParams(location.search).get('id');
 const newId = () => crypto.randomUUID().replaceAll('-', '').slice(0, 16);
 let cid = (/^[a-f0-9]{16}$/.test(selectedId || '') ? selectedId : null)
-  || localStorage.getItem('lg-playground-conversation') || newId();
-if (!selectedId) localStorage.setItem('lg-playground-conversation', cid);
+  || (/^[a-f0-9]{16}$/.test(localStorage.getItem('lg-playground-conversation') || '') ? localStorage.getItem('lg-playground-conversation') : newId());
+localStorage.setItem('lg-playground-conversation', cid);
+function persistChatView(){try{localStorage.setItem('lg-playground-draft:'+cid, $('#text').value);sessionStorage.setItem('lg-playground-scroll:'+cid,String($('#messages').scrollTop));}catch{}}
+function restoreDraft(){try{$('#text').value=localStorage.getItem('lg-playground-draft:'+cid)||'';}catch{}}
+window.addEventListener('pagehide',persistChatView);
+restoreDraft();
 const labels = {handle_inbox:'主 Agent 正在处理插入消息',reuse_evidence:'复用已取得的数据',analysis_decision:'分析 Agent 正在选择下一步',load_analysis_skill:'读取专题 Skill',analysis_followup:'分析 Agent 按假设补查',search_business_knowledge:'检索业务知识',query_agent:'取数 Agent 正在查询', analysis_agent:'分析 Agent 正在比较', 'analysis.query_agent':'分析 Agent 内部取数', validate_batch_reply:'核对回答与证据', metric_worker:'并行执行指标', gather_results:'汇总各指标', understand_request:'理解需求与搜索知识', search_metrics:'搜索指标候选', get_metric_definition:'读取精确指标定义', search_dimensions:'检查支持维度', search_dimension_values:'搜索枚举', finish_resolution:'检查查询条件', run_query:'执行模拟取数', run_analysis:'取数并计算对比', compose_batch:'Kimi 正在生成回答', compose_reply:'生成回答', validate_reply:'检查回答', validate_dates:'核对日期', resolve_batch:'理解需求与搜索知识', clarify:'等待补充'};
 const intentName = intent => ({analysis:'分析 Agent', query:'取数 Agent', knowledge:'口径查询'})[intent] || '指标任务';
 const node = (tag, className, text) => {const e=document.createElement(tag);if(className)e.className=className;if(text!==undefined)e.textContent=text;return e;};
@@ -136,6 +140,7 @@ function attach(rid){
 }
 async function load(){
   knowledge=await api('/api/catalog');filterMetrics();const s=await api('/api/conversation?id='+cid);showConversation(s);
+  if(!s.active_request_id){const saved=Number(sessionStorage.getItem('lg-playground-scroll:'+cid)||0);requestAnimationFrame(()=>{$('#messages').scrollTop=saved;});}
   if(s.active_request_id){$('#progress').textContent='正在恢复本轮流式进度…';attach(s.active_request_id);}
   await syncControl();if(controlState?.active||waitingRequest())watchControl();
 }
@@ -143,7 +148,7 @@ async function send(){
   const text=$('#text').value.trim();if(controlBusy||!text)return;
   if(busy||controlState?.active||queuedMessages().length){await queueMessage(text);return;}
   setBusy(true);const rid=newId();
-  $('#text').value='';$('#progress').textContent='正在开始本轮执行…';
+  $('#text').value='';persistChatView();$('#progress').textContent='正在开始本轮执行…';
   try{
     const old=await api('/api/conversation?id='+cid);
     if(old.active_request_id){showConversation(old);attach(old.active_request_id);$('#text').value=text;return;}
@@ -164,7 +169,7 @@ async function send(){
 }
 $('#send').onclick=send;
 $('#text').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.isComposing){e.preventDefault();send();}};
-$('#new').onclick=()=>{subscription?.close();subscription=null;currentRequest=null;history.replaceState({},'','/');cid=newId();localStorage.setItem('lg-playground-conversation',cid);showConversation({messages:[]});$('#progress').textContent='新对话已就绪';$('#branches').replaceChildren();$('#text').value='';controlState=null;renderInbox();$('#controlHint').textContent='';clearInterval(controlTimer);controlTimer=null;};
+$('#new').onclick=()=>{persistChatView();subscription?.close();subscription=null;currentRequest=null;history.replaceState({},'','/');cid=newId();localStorage.setItem('lg-playground-conversation',cid);showConversation({messages:[]});$('#progress').textContent='新对话已就绪';$('#branches').replaceChildren();$('#text').value='';persistChatView();controlState=null;renderInbox();$('#controlHint').textContent='';clearInterval(controlTimer);controlTimer=null;};
 $('#search').oninput=filterMetrics;$('#metric').onchange=chooseMetric;
 document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{$('#text').value=b.dataset.q;$('#text').focus();updateControlButtons();});
 
@@ -269,7 +274,7 @@ async function stopRun(replace=false){
 }
 $('#stop').onclick=()=>stopRun(false);
 $('#replace').onclick=()=>stopRun(true);
-$('#text').addEventListener('input',()=>{updateControlButtons();renderInbox();});
+$('#text').addEventListener('input',()=>{persistChatView();updateControlButtons();renderInbox();});
 
 function queuedMessages(){
   return (controlState?.inbox||[]).filter(r=>['queued','processing','dispatched'].includes(r.status));
@@ -306,7 +311,7 @@ async function queueMessage(text){
     await api('/api/inbox',{method:'POST',headers:{'Content-Type':'application/json'},
       body:JSON.stringify({id:cid,text,message_id:mid,expected_request_id:currentRequest})});
     if(cid!==targetCid)return;
-    if($('#text').value.trim()===text)$('#text').value='';
+    if($('#text').value.trim()===text){$('#text').value='';persistChatView();}
     watchControl();await syncControl();
   }catch(e){$('#controlHint').textContent=e.message+'；未自动重发，输入文字保留。';}
   finally{controlBusy=false;updateControlButtons();renderInbox();}

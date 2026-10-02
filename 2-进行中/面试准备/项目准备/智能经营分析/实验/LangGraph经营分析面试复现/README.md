@@ -1,9 +1,10 @@
 # LangGraph 经营分析面试复现
 
-> 当前入口更新：2026-10-02。聊天主链路为 analysis-v5：多指标并行、简易分析、真实正文流式、队列插入/停止、上下文压缩、Trace 与用量统计；另有隔离澄清实验及固定结果查看器。下文 E1/E2 等保留历史日期，不代表当前整套验收状态。业务数据模拟，LangSmith 云端追踪关闭。
+> 当前入口更新：2026-10-03。Data Agent 工作台统一对话、历次报告、案例轨迹和资料入口。聊天主链路为 analysis-v5：多指标并行、简易分析、真实正文流式、队列插入/停止、上下文压缩、Trace 与用量统计；另有隔离澄清实验及固定结果查看器。下文 E1/E2 等保留历史日期，不代表当前整套验收状态。业务数据模拟，LangSmith 云端追踪关闭。
 
 ## 当前实现入口
 
+- [Data Agent 工作台](http://127.0.0.1:8787/) · 双击 [启动DataAgent工作台.command](启动DataAgent工作台.command)；[工作台实现说明](business_analysis_repro/workbench/README.md)
 - [项目介绍：架构、能力、存储与运行](../../记录/2026-09-09-智能经营分析复现总览与能力缺口-v1.md)
 - [最新测试报告：C01 AI用户多轮试跑](测试报告-v3-2026-10-02-17-10-19.md)
 - [经营分析聊天试玩](business_analysis_repro/playground/README.md)
@@ -17,10 +18,10 @@
 .venv/bin/python -m business_analysis_repro doctor
 .venv/bin/python -m business_analysis_repro prepare
 .venv/bin/python -m business_analysis_repro demo
-.venv/bin/python -m business_analysis_repro.playground --open
+./启动DataAgent工作台.command
 ```
 
-`prepare` 提前建立固定数据；`demo` 使用真实当前主图/查询/分析/checkpoint，仅以脚本替换模型，不验证自然语言能力。它会返回四场景 Trace 路径。最后一条启动聊天服务，发送问题后才调用 Kimi。常驻进程是否加载当前源码，以 `doctor` 的指纹检查为准。
+`prepare` 提前建立固定数据；`demo` 使用真实当前主图/查询/分析/checkpoint，仅以脚本替换模型，不验证自然语言能力。它会返回四场景 Trace 路径。最后一条在后台启动工作台并打开网页，发送问题后才调用 Kimi；关掉终端后服务继续运行。原聊天启动脚本也进入工作台。常驻进程是否加载当前源码，以 `doctor` 的指纹检查为准。
 
 回归按范围执行 `python -m business_analysis_repro test mechanism|lab|viewer|all`（实际命令选择其中一项）；新实验可先 `inspect-batch <目录>` 检查冻结版本。上一版全套 282 项离线测试通过，本次相关离线回归 92 项通过，完整上一轮实模结果见[测试报告 v2](测试报告-v2-2026-10-02-02-48-37.md)，新流程 C01 试跑见[最新测试报告](测试报告-v3-2026-10-02-17-10-19.md)。以后报告统一命名为 `测试报告-v版本-YYYY-MM-DD-HH-MM-SS.md`；首页只链接最新一份，每份记录本次对错、逐题原因与建议。测试交接已结束，不继续追加。
 
