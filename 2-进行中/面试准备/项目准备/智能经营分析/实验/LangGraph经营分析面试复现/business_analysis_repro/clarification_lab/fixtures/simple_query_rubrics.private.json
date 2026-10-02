@@ -1,0 +1,915 @@
+{
+  "suite_id": "simple-query-followup-v1",
+  "model_visible": false,
+  "cases": {
+    "Q01": {
+      "focus": "多指标请求是否漏掉末尾指标。",
+      "human_review_required": true,
+      "turns": [
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_fx_gross_premium",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ]
+              },
+              "group_by": [],
+              "required_predicates": []
+            },
+            {
+              "metric_id": "lab_fx_net_premium",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ]
+              },
+              "group_by": [],
+              "required_predicates": []
+            },
+            {
+              "metric_id": "lab_takeaway_orders",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ]
+              },
+              "group_by": [],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "",
+          "must_retain": "三个指标都保留7月、安徽、整体汇总。",
+          "forbidden": "只返回前两个指标；总保费和净保费合并成一个指标。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        }
+      ]
+    },
+    "Q02": {
+      "focus": "补充句中的指标是否进入任务列表。",
+      "human_review_required": true,
+      "turns": [
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_fx_order_rate",
+              "intent": "query",
+              "period": {
+                "start": "2026-08-01",
+                "end": "2026-08-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "merchant_age": [
+                  "old"
+                ]
+              },
+              "group_by": [],
+              "required_predicates": []
+            },
+            {
+              "metric_id": "lab_fx_eligible_rate",
+              "intent": "query",
+              "period": {
+                "start": "2026-08-01",
+                "end": "2026-08-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "merchant_age": [
+                  "old"
+                ]
+              },
+              "group_by": [],
+              "required_predicates": []
+            },
+            {
+              "metric_id": "lab_cancel_order_rate",
+              "intent": "query",
+              "period": {
+                "start": "2026-08-01",
+                "end": "2026-08-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "merchant_age": [
+                  "old"
+                ]
+              },
+              "group_by": [],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "",
+          "must_retain": "三个不同指标、8月、老商，不额外分组。",
+          "forbidden": "漏掉句尾的取消险；混合两个不同分母的放心吃渗透率。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        }
+      ]
+    },
+    "Q03": {
+      "focus": "完整提取筛选维度和分组维度。",
+      "human_review_required": true,
+      "turns": [
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_fx_gross_premium",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ],
+                "delivery": [
+                  "dedicated"
+                ]
+              },
+              "group_by": [
+                "city_operation",
+                "city_tier"
+              ],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "",
+          "must_retain": "安徽、专送是筛选；经营类型和城市等级是同一张表的交叉分组。",
+          "forbidden": "漏掉任一分组或筛选；把交叉分组拆成两张单维度表。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        }
+      ]
+    },
+    "Q04": {
+      "focus": "相近维度同时出现时能否全部保留。",
+      "human_review_required": true,
+      "turns": [
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_join_funnel",
+              "intent": "query",
+              "period": {
+                "start": "2026-08-01",
+                "end": "2026-08-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "insurance_type": [
+                  "fx"
+                ]
+              },
+              "group_by": [
+                "channel_l1",
+                "source"
+              ],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "",
+          "must_retain": "放心吃筛选、一级渠道与获客来源两个交叉分组。",
+          "forbidden": "只保留渠道；把获客来源漏掉或替换成其他维度。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        }
+      ]
+    },
+    "Q05": {
+      "focus": "否定表达是否被错误识别为新增指标。",
+      "human_review_required": true,
+      "turns": [
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_fx_net_premium",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ]
+              },
+              "group_by": [],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "",
+          "must_retain": "净保费、7月、安徽。",
+          "forbidden": "选成总保费；因为文本提到总保费而额外查它。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        }
+      ]
+    },
+    "Q06": {
+      "focus": "名称相近时能否按明确分母选择正确指标。",
+      "human_review_required": true,
+      "turns": [
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_fx_eligible_rate",
+              "intent": "query",
+              "period": {
+                "start": "2026-08-01",
+                "end": "2026-08-31"
+              },
+              "comparison_period": null,
+              "filters": {},
+              "group_by": [],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "",
+          "must_retain": "可投保订单渗透率，不增加人群筛选。",
+          "forbidden": "选成放心吃餐饮订单渗透率；两个都查。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        }
+      ]
+    },
+    "Q07": {
+      "focus": "渠道和获客来源的身份、筛选与分组角色是否混淆。",
+      "human_review_required": true,
+      "turns": [
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_join_funnel",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "channel_l1": [
+                  "wallet"
+                ]
+              },
+              "group_by": [
+                "source"
+              ],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "",
+          "must_retain": "钱包绑定一级渠道筛选，获客来源仅用于分组。",
+          "forbidden": "把钱包放进source；把来源当渠道；变成按渠道分组。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        }
+      ]
+    },
+    "Q08": {
+      "focus": "两种城市维度是否错绑。",
+      "human_review_required": true,
+      "turns": [
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_fx_gross_premium",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "city_operation": [
+                  "direct"
+                ]
+              },
+              "group_by": [
+                "city_tier"
+              ],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "",
+          "must_retain": "直营绑定城市经营类型；城市等级用于分组。",
+          "forbidden": "把直营当城市等级；自行限定一线或二线城市。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        }
+      ]
+    },
+    "Q09": {
+      "focus": "用户只回复缺项时，原请求是否完整保留。",
+      "human_review_required": true,
+      "turns": [
+        {
+          "expected_outcome": "clarify",
+          "expected_tasks": [],
+          "must_ask": [
+            "查询日期"
+          ],
+          "expected_changes": "",
+          "must_retain": "总保费与净保费、安徽、专送、经营类型分组已明确。",
+          "forbidden": "重问已明确指标或维度；未经澄清就取数。",
+          "pending_scope": {
+            "metric_ids": [
+              "lab_fx_gross_premium",
+              "lab_fx_net_premium"
+            ],
+            "period": null,
+            "filters": {
+              "province": [
+                "anhui"
+              ],
+              "delivery": [
+                "dedicated"
+              ]
+            },
+            "group_by": [
+              "city_operation"
+            ]
+          }
+        },
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_fx_gross_premium",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ],
+                "delivery": [
+                  "dedicated"
+                ]
+              },
+              "group_by": [
+                "city_operation"
+              ],
+              "required_predicates": []
+            },
+            {
+              "metric_id": "lab_fx_net_premium",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ],
+                "delivery": [
+                  "dedicated"
+                ]
+              },
+              "group_by": [
+                "city_operation"
+              ],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "只补齐7月。",
+          "must_retain": "两个指标和全部已确认筛选、分组。",
+          "forbidden": "仅根据“7月”重建一个丢失指标/筛选的任务。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        }
+      ]
+    },
+    "Q10": {
+      "focus": "一次回复同时确认、补充和修改时能否正确合并。",
+      "human_review_required": true,
+      "turns": [
+        {
+          "expected_outcome": "clarify",
+          "expected_tasks": [],
+          "must_ask": [
+            "选择流量漏斗加入还是放心吃餐饮加入"
+          ],
+          "expected_changes": "",
+          "must_retain": "8月已明确。",
+          "forbidden": "擅选其中一个同名指标；重问日期；直接取数。",
+          "pending_scope": {
+            "metric_candidates": [
+              "lab_join_funnel",
+              "lab_join_fx"
+            ],
+            "period": {
+              "start": "2026-08-01",
+              "end": "2026-08-31"
+            },
+            "filters": {},
+            "group_by": []
+          }
+        },
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_join_funnel",
+              "intent": "query",
+              "period": {
+                "start": "2026-08-01",
+                "end": "2026-08-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "insurance_type": [
+                  "fx"
+                ]
+              },
+              "group_by": [
+                "source"
+              ],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "确定流量漏斗指标，增加放心吃筛选，整体汇总改为来源分组。",
+          "must_retain": "8月。",
+          "forbidden": "丢日期；忽略同一条澄清回复中的新增筛选或修改分组。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        }
+      ]
+    },
+    "Q11": {
+      "focus": "同一会话里，查询完成后的条件增删改是否可靠。",
+      "human_review_required": true,
+      "turns": [
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_active_merchants",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ]
+              },
+              "group_by": [
+                "merchant_age"
+              ],
+              "required_predicates": [
+                {
+                  "field_id": "valid",
+                  "operator": "ne",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "metric_id": "lab_active_fx_open",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ]
+              },
+              "group_by": [
+                "merchant_age"
+              ],
+              "required_predicates": [
+                {
+                  "field_id": "valid",
+                  "operator": "ne",
+                  "value": 0
+                },
+                {
+                  "field_id": "fx_open",
+                  "operator": "eq",
+                  "value": true
+                }
+              ]
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "",
+          "must_retain": "两个指标、7月、安徽、新老商分组；必选有效总体规则。",
+          "forbidden": "",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        },
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_active_merchants",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ],
+                "merchant_age": [
+                  "new"
+                ]
+              },
+              "group_by": [
+                "merchant_age"
+              ],
+              "required_predicates": [
+                {
+                  "field_id": "valid",
+                  "operator": "ne",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "metric_id": "lab_active_fx_open",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ],
+                "merchant_age": [
+                  "new"
+                ]
+              },
+              "group_by": [
+                "merchant_age"
+              ],
+              "required_predicates": [
+                {
+                  "field_id": "valid",
+                  "operator": "ne",
+                  "value": 0
+                },
+                {
+                  "field_id": "fx_open",
+                  "operator": "eq",
+                  "value": true
+                }
+              ]
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "两个任务都新增新注册商户筛选。",
+          "must_retain": "7月、安徽、双指标、新老商分组及各自必选规则。",
+          "forbidden": "从新注册商户改为全部商户；漏掉第二个指标；删分组。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        },
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_active_merchants",
+              "intent": "query",
+              "period": {
+                "start": "2026-08-01",
+                "end": "2026-08-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ],
+                "merchant_age": [
+                  "new"
+                ]
+              },
+              "group_by": [
+                "merchant_age"
+              ],
+              "required_predicates": [
+                {
+                  "field_id": "valid",
+                  "operator": "ne",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "metric_id": "lab_active_fx_open",
+              "intent": "query",
+              "period": {
+                "start": "2026-08-01",
+                "end": "2026-08-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ],
+                "merchant_age": [
+                  "new"
+                ]
+              },
+              "group_by": [
+                "merchant_age"
+              ],
+              "required_predicates": [
+                {
+                  "field_id": "valid",
+                  "operator": "ne",
+                  "value": 0
+                },
+                {
+                  "field_id": "fx_open",
+                  "operator": "eq",
+                  "value": true
+                }
+              ]
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "7月替换为8月。",
+          "must_retain": "安徽、新注册筛选、双指标、新老商分组。",
+          "forbidden": "把7月与8月同时查；删除新商条件。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        },
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_active_merchants",
+              "intent": "query",
+              "period": {
+                "start": "2026-08-01",
+                "end": "2026-08-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ]
+              },
+              "group_by": [
+                "merchant_age"
+              ],
+              "required_predicates": [
+                {
+                  "field_id": "valid",
+                  "operator": "ne",
+                  "value": 0
+                }
+              ]
+            },
+            {
+              "metric_id": "lab_active_fx_open",
+              "intent": "query",
+              "period": {
+                "start": "2026-08-01",
+                "end": "2026-08-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ]
+              },
+              "group_by": [
+                "merchant_age"
+              ],
+              "required_predicates": [
+                {
+                  "field_id": "valid",
+                  "operator": "ne",
+                  "value": 0
+                },
+                {
+                  "field_id": "fx_open",
+                  "operator": "eq",
+                  "value": true
+                }
+              ]
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "删除两个任务中的新注册商户筛选，保留新老商分组。",
+          "must_retain": "8月、安徽、双指标及有效总体规则。",
+          "forbidden": "留下新商筛选；把撤销筛选误解成撤销分组。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        }
+      ]
+    },
+    "Q12": {
+      "focus": "追加指标时按指标保留范围；切换话题时停止继承旧条件。",
+      "human_review_required": true,
+      "turns": [
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_join_funnel",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "channel_l1": [
+                  "wallet"
+                ],
+                "insurance_type": [
+                  "fx"
+                ]
+              },
+              "group_by": [
+                "source"
+              ],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "",
+          "must_retain": "",
+          "forbidden": "",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        },
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_join_funnel",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "channel_l1": [
+                  "wallet"
+                ],
+                "insurance_type": [
+                  "fx"
+                ],
+                "source": [
+                  "telesales"
+                ]
+              },
+              "group_by": [
+                "source"
+              ],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "增加电销来源筛选。",
+          "must_retain": "7月、钱包、放心吃、来源分组和原指标。",
+          "forbidden": "",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        },
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_join_funnel",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "channel_l1": [
+                  "wallet"
+                ],
+                "insurance_type": [
+                  "fx"
+                ],
+                "source": [
+                  "telesales"
+                ]
+              },
+              "group_by": [
+                "source"
+              ],
+              "required_predicates": []
+            },
+            {
+              "metric_id": "lab_takeaway_orders",
+              "intent": "query",
+              "period": {
+                "start": "2026-07-01",
+                "end": "2026-07-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "anhui"
+                ]
+              },
+              "group_by": [
+                "order_status"
+              ],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "保留上一任务，新增安徽外卖订单量按状态分组的任务。",
+          "must_retain": "原指标的7月、钱包、放心吃、电销、来源分组。",
+          "forbidden": "把钱包/放心吃/电销套到新指标；把安徽套到旧指标；丢掉旧指标。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        },
+        {
+          "expected_outcome": "ready",
+          "expected_tasks": [
+            {
+              "metric_id": "lab_takeaway_orders",
+              "intent": "query",
+              "period": {
+                "start": "2026-08-01",
+                "end": "2026-08-31"
+              },
+              "comparison_period": null,
+              "filters": {
+                "province": [
+                  "jiangsu"
+                ]
+              },
+              "group_by": [],
+              "required_predicates": []
+            }
+          ],
+          "must_ask": [],
+          "expected_changes": "新任务只保留8月、江苏、外卖订单量、整体汇总。",
+          "must_retain": "旧记录仍可追溯，但不作为新任务的有效条件。",
+          "forbidden": "继续查旧指标；沿用安徽、钱包、电销、放心吃或旧分组。",
+          "pending_scope": {},
+          "expected_time_expression": "absolute"
+        }
+      ]
+    }
+  },
+  "time_policy": "2026-09-30：这十二例明确或继承绝对年月，模型须用 exact/range；原任务条件不变。"
+}

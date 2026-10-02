@@ -22,7 +22,7 @@ from .catalog import KNOWLEDGE
 from .context_memory import history_from_conversation
 from .data import formatted, number
 from .flow_trace import flow_payload, node_payload
-from .parallel_agent import ENGINE, execute
+from .parallel_agent import ENGINE, SOURCE_REVISION, execute
 from .parallel_trace import progress_jobs, read_events, render_html
 from .run_control import ControlConflict, RunControl
 from .streaming import iter_sse
@@ -507,6 +507,7 @@ def make_handler(store):
                             "application": "langgraph-playground",
                             "ok": True,
                             "engine": ENGINE,
+                            "source_revision": SOURCE_REVISION,
                             "max_concurrency": 5,
                             "streaming": "sse",
                             "cancellation": "cooperative-stop-and-replace",

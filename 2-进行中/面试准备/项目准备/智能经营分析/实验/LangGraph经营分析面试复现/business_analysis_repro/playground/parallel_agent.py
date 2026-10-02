@@ -36,11 +36,20 @@ from .steering import RefreshReply, ReplanRequested, Steering
 
 ENGINE = "analysis-v5"
 # 记录加载时的代码哈希；不能用请求结束时磁盘上的新文件冒充已加载版本。
-SOURCE_MANIFEST = {
-    str(p.relative_to(Path(__file__).parent)): hashlib.sha256(p.read_bytes()).hexdigest()
-    for p in Path(__file__).parent.rglob("*")
-    if p.suffix in {".py", ".json", ".html", ".js"} or p.name == "SKILL.md"
-}
+def source_manifest():
+    package = Path(__file__).resolve().parents[1]
+    paths = [p for p in Path(__file__).parent.rglob("*")
+             if p.suffix in {".py", ".json", ".html", ".js"} or p.name == "SKILL.md"]
+    paths += [package / p for p in ("calendar_tools.py", "settings.py", "experiment_support.py",
+              "main_agent/model.py", "main_agent/state.py", "main_agent/runtime.py",
+              "main_agent/trace.py")]
+    return {str(p.relative_to(package)): hashlib.sha256(p.read_bytes()).hexdigest()
+            for p in sorted(paths)}
+
+
+SOURCE_MANIFEST = source_manifest()
+SOURCE_REVISION = hashlib.sha256(json.dumps(SOURCE_MANIFEST, sort_keys=True).encode()).hexdigest()
+
 
 
 def periods_for(task):

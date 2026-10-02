@@ -38,7 +38,7 @@ SOURCE_MANIFEST = {
 
 class TimeSpec(StrictModel):
     mode: Literal["calendar", "rolling", "exact", "range"] = Field(
-        description="calendar=自然日历周期（上周用calendar/week/-1，本周用calendar/week/0并截止基准日）；rolling=滚动周期（近7天用rolling/week/0）；exact=单个日期；range=明确起止日期。"
+        description="保留用户的时间表达类型。明确年月或起止日期必须用range并填start_date/end_date，明确单日用exact；禁止把绝对时间换算成offset。只有相对时间才用calendar（上周=week/-1）或rolling（近7天=week/0），由程序按基准日计算。"
     )
     unit: Literal["day", "week", "month", "year"] = "day"
     offset: int = 0

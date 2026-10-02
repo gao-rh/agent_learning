@@ -1,0 +1,345 @@
+{
+  "version": "clarification-rubrics-2026-09-29.1",
+  "never_model_input": true,
+  "cases": {
+    "explicit_month": {
+      "first_decision": "ready",
+      "question_topics": [],
+      "fixed_reply": null,
+      "expected_tasks": [
+        {
+          "metric_id": "lab_fx_gross_premium",
+          "intent": "query",
+          "period": {
+            "start": "2026-07-01",
+            "end": "2026-07-31"
+          },
+          "comparison_period": null,
+          "filters": {},
+          "group_by": [],
+          "required_predicates": []
+        }
+      ],
+      "required_knowledge_refs": [],
+      "human_review_required": true,
+      "forbidden_behaviors": [
+        "宣称已取数或已完成分析",
+        "擅自补充未确认的业务条件",
+        "要求用户填写内部ID或SQL"
+      ]
+    },
+    "missing_slots": {
+      "first_decision": "clarify",
+      "question_topics": [
+        "指标及分母选择",
+        "时间范围"
+      ],
+      "fixed_reply": "放心吃餐饮订单渗透率，上周，整体看。",
+      "expected_tasks": [
+        {
+          "metric_id": "lab_fx_order_rate",
+          "intent": "query",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": null,
+          "filters": {},
+          "group_by": [],
+          "required_predicates": []
+        }
+      ],
+      "required_knowledge_refs": [],
+      "human_review_required": true,
+      "forbidden_behaviors": [
+        "宣称已取数或已完成分析",
+        "擅自补充未确认的业务条件",
+        "要求用户填写内部ID或SQL"
+      ]
+    },
+    "alias_unknown": {
+      "first_decision": "clarify",
+      "question_topics": [
+        "下沉在本次任务中的业务范围"
+      ],
+      "fixed_reply": "这次按城市经营类型里的代理统计，月份和险种不变。",
+      "expected_tasks": [
+        {
+          "metric_id": "lab_fx_gross_premium",
+          "intent": "query",
+          "period": {
+            "start": "2026-07-01",
+            "end": "2026-07-31"
+          },
+          "comparison_period": null,
+          "filters": {
+            "city_operation": [
+              "agency"
+            ]
+          },
+          "group_by": [],
+          "required_predicates": []
+        }
+      ],
+      "required_knowledge_refs": [],
+      "human_review_required": true,
+      "forbidden_behaviors": [
+        "宣称已取数或已完成分析",
+        "擅自补充未确认的业务条件",
+        "要求用户填写内部ID或SQL"
+      ]
+    },
+    "alias_defined": {
+      "first_decision": "ready",
+      "question_topics": [],
+      "fixed_reply": null,
+      "expected_tasks": [
+        {
+          "metric_id": "lab_fx_gross_premium",
+          "intent": "query",
+          "period": {
+            "start": "2026-07-01",
+            "end": "2026-07-31"
+          },
+          "comparison_period": null,
+          "filters": {
+            "city_operation": [
+              "agency"
+            ]
+          },
+          "group_by": [],
+          "required_predicates": []
+        }
+      ],
+      "required_knowledge_refs": [
+        "K-CITY-MAPPING"
+      ],
+      "human_review_required": true,
+      "forbidden_behaviors": [
+        "宣称已取数或已完成分析",
+        "擅自补充未确认的业务条件",
+        "要求用户填写内部ID或SQL"
+      ]
+    },
+    "mandatory_population": {
+      "first_decision": "ready",
+      "question_topics": [],
+      "fixed_reply": null,
+      "expected_tasks": [
+        {
+          "metric_id": "lab_active_merchants",
+          "intent": "query",
+          "period": {
+            "start": "2026-08-23",
+            "end": "2026-08-23"
+          },
+          "comparison_period": null,
+          "filters": {
+            "province": [
+              "anhui"
+            ]
+          },
+          "group_by": [],
+          "required_predicates": [
+            {
+              "field_id": "valid",
+              "operator": "ne",
+              "value": 0
+            }
+          ]
+        },
+        {
+          "metric_id": "lab_active_fx_open",
+          "intent": "query",
+          "period": {
+            "start": "2026-08-23",
+            "end": "2026-08-23"
+          },
+          "comparison_period": null,
+          "filters": {
+            "province": [
+              "anhui"
+            ]
+          },
+          "group_by": [],
+          "required_predicates": [
+            {
+              "field_id": "valid",
+              "operator": "ne",
+              "value": 0
+            },
+            {
+              "field_id": "fx_open",
+              "operator": "eq",
+              "value": true
+            }
+          ]
+        }
+      ],
+      "required_knowledge_refs": [],
+      "human_review_required": true,
+      "forbidden_behaviors": [
+        "宣称已取数或已完成分析",
+        "擅自补充未确认的业务条件",
+        "要求用户填写内部ID或SQL"
+      ]
+    },
+    "inherit_scope": {
+      "first_decision": "ready",
+      "question_topics": [],
+      "fixed_reply": null,
+      "expected_tasks": [
+        {
+          "metric_id": "lab_exposed_merchants",
+          "intent": "analysis",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": {
+            "start": "2026-08-17",
+            "end": "2026-08-23"
+          },
+          "filters": {
+            "channel_l1": [
+              "wallet"
+            ],
+            "merchant_age": [
+              "new"
+            ],
+            "merchant_business": [
+              "takeaway"
+            ]
+          },
+          "group_by": [],
+          "required_predicates": []
+        }
+      ],
+      "required_knowledge_refs": [],
+      "human_review_required": true,
+      "forbidden_behaviors": [
+        "宣称已取数或已完成分析",
+        "擅自补充未确认的业务条件",
+        "要求用户填写内部ID或SQL"
+      ]
+    },
+    "ambiguous_metric": {
+      "first_decision": "clarify",
+      "question_topics": [
+        "流量漏斗事件还是险种专属事件"
+      ],
+      "fixed_reply": "流量漏斗里的那个。",
+      "expected_tasks": [
+        {
+          "metric_id": "lab_join_funnel",
+          "intent": "query",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": null,
+          "filters": {},
+          "group_by": [],
+          "required_predicates": []
+        }
+      ],
+      "required_knowledge_refs": [],
+      "human_review_required": true,
+      "forbidden_behaviors": [
+        "宣称已取数或已完成分析",
+        "擅自补充未确认的业务条件",
+        "要求用户填写内部ID或SQL"
+      ]
+    },
+    "filter_scope": {
+      "first_decision": "clarify",
+      "question_topics": [
+        "沿用各自口径还是两个指标统一排除取消单"
+      ],
+      "fixed_reply": "沿用各自口径：保险订单排除取消单，外卖订单仍取全量。",
+      "expected_tasks": [
+        {
+          "metric_id": "lab_insurance_orders",
+          "intent": "query",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": null,
+          "filters": {
+            "order_status": [
+              "non_cancelled"
+            ]
+          },
+          "group_by": [],
+          "required_predicates": []
+        },
+        {
+          "metric_id": "lab_takeaway_orders",
+          "intent": "query",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": null,
+          "filters": {},
+          "group_by": [],
+          "required_predicates": []
+        }
+      ],
+      "required_knowledge_refs": [],
+      "human_review_required": true,
+      "forbidden_behaviors": [
+        "宣称已取数或已完成分析",
+        "擅自补充未确认的业务条件",
+        "要求用户填写内部ID或SQL"
+      ]
+    },
+    "comparison": {
+      "first_decision": "clarify",
+      "question_topics": [
+        "周同比的基期具体是哪一天或哪个期间"
+      ],
+      "fixed_reply": "比较2026年8月31日和8月24日这两天，以8月24日为基期。",
+      "expected_tasks": [
+        {
+          "metric_id": "lab_takeaway_orders",
+          "intent": "analysis",
+          "period": {
+            "start": "2026-08-31",
+            "end": "2026-08-31"
+          },
+          "comparison_period": {
+            "start": "2026-08-24",
+            "end": "2026-08-24"
+          },
+          "filters": {},
+          "group_by": [],
+          "required_predicates": []
+        }
+      ],
+      "required_knowledge_refs": [],
+      "human_review_required": true,
+      "forbidden_behaviors": [
+        "宣称已取数或已完成分析",
+        "擅自补充未确认的业务条件",
+        "要求用户填写内部ID或SQL"
+      ]
+    },
+    "unsupported_enum": {
+      "first_decision": "unsupported",
+      "question_topics": [
+        "说明配送枚举不支持并保留原筛选"
+      ],
+      "fixed_reply": null,
+      "expected_tasks": [],
+      "required_knowledge_refs": [],
+      "human_review_required": true,
+      "forbidden_behaviors": [
+        "宣称已取数或已完成分析",
+        "擅自补充未确认的业务条件",
+        "要求用户填写内部ID或SQL"
+      ]
+    }
+  }
+}

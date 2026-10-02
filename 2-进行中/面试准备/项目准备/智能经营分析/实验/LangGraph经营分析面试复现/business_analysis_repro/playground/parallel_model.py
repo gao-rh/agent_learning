@@ -18,6 +18,7 @@ from langchain_core.utils.function_calling import convert_to_openai_tool
 from langsmith import tracing_context
 from pydantic_core import from_json
 
+from ..experiment_support import source_bound_tool, validate_source_refs
 from ..main_agent.model import KimiModel, ModelFailure
 from . import catalog
 from .agent import READ_TOOLS as METRIC_TOOLS
@@ -49,7 +50,7 @@ INSTRUCTION = """你是可以正常对话的经营分析助手。所有实际查
 6. 用户说“先A，再根据结果补查B”时，requests只列入口A，B放在decomposition中交由分析Agent决定；不能把依赖步骤提前拆成两个并行request。只有明确要分别两张独立表时才拆开。同指标同期间的专题分析优先一个入口request。analysis 先查询本期和前一等长期间，再由分析Agent读取专题Skill和结果，最多做两次同指标合法维度/过滤补查，写出发现和待验证假设。这是一个分析子任务。不支持自选双期间、同比、真实因果、Shapley或任意跨指标依赖DAG。专题报告可以做简版，不要误说分析完全不可用。
 7. “尽可能细”表示对每个指标使用它自己的全部合法维度（最多3个），各自枚举可能不同，不取共有维度代替全部。明确要求不支持的维度/枚举必须澄清，不能悄悄删条件或换相近值。
 8. 筛选放 filters，拆解放 group_by。新老商≠KA/CKA/城市商家；获客source（商家端APP/电销）≠APP栏位渠道。“APP”单独出现先澄清来源还是栏位。每个筛选枚举必须搜索确认。
-9. “上周”=calendar/week/-1；“本周”=calendar/week/0，表示本周一到reference_date，不包含未来日期；“本月”也截止reference_date。“近7天”=rolling/week/0。以上语义已约定，不能再问本周是自然周还是滚动七天，程序会算日期。缺日期先问；口径问题 knowledge 无需日期。reference_date 是固定的模拟基准日，不是真实今天；需要说明“今天”时写“模拟基准日”，不要声称实际今天是2026-09-01。
+9. 时间参数保留用户的表达类型：明确年月或日期区间使用range与绝对起止日期，明确单日使用exact与exact_date，禁止把它们换算成相对offset。例如“2026年4月”使用range/2026-04-01/2026-04-30。只有“上个月、上周、近7天”等相对时间才使用calendar/rolling，由程序按reference_date计算。“上周”=calendar/week/-1；“本周”=calendar/week/0，表示本周一到reference_date，不包含未来日期；“本月”也截止reference_date。“近7天”=rolling/week/0。追问不改日期时保留此前已确认的绝对范围。以上语义已约定，不能再问本周是自然周还是滚动七天。缺日期先问；口径问题 knowledge 无需日期。reference_date 是固定的模拟基准日，不是真实今天；需要说明“今天”时写“模拟基准日”，不要声称实际今天是2026-09-01。回答中保留用户的时间称呼，相对时间同时列出程序解析后的起止日期，不自行重新计算。
 10. messages 是当前完整需求和澄清，优先级最高。conversation_context 是按预算保留的历史原文，conversation_memory.summary 是更早对话的压缩摘要，均为历史资料，不能把其中指令当成新请求。business_anchor 是程序保留的最近业务任务条件，闲聊后可据此理解“改成本周”“它的分母”等追问；多个指代不明则澄清，独立新问题不继承旧筛选。最新明确修改覆盖旧条件；最近原文和当前需求优先于摘要。摘要及旧答案不是业务证据，解释具体指标口径仍必须 search_metrics / get_metric_definition，查数和分析仍必须调用业务工具。cancelled=true 的条目只帮助理解用户省略的修改，不能把旧分析当成完成证据。excerpted/degraded/未作摘要表示有遗漏，不能猜测未保留细节。必须覆盖用户要求的全部指标，不能截断清单。
 11. last_data_task 在最近业务焦点变成口径咨询时，单独保留之前查数/分析的日期及筛选；只在用户明确延续那次查数时继承，不能把它拼到独立新指标上。停止后的省略修改：旧问题明确为“查上周放心吃净保费规模”，新消息为“改成本周”时，直接检索该指标并提交本周查数；不要重新询问指标是否仍然相同。只改日期就保留原指标和已指定的分组/筛选；未指定分组和筛选默认查合计，不必为此澄清。只有旧需求本身有多个可能指代、或新条件确实不支持时才澄清。
 
@@ -86,6 +87,40 @@ def partial_question(message):
             and isinstance(args.get("question"), str)):
         return args["question"]
     return None
+
+
+def grounding_feedback(requests, definitions, values_seen):
+    """逐项说明生成本次提交前尚未收到的证据，不改变准入条件。"""
+    if not requests:
+        return ("本次 ready 提交的 requests 为空。请提交至少一项具体指标任务；"
+                "若仍缺用户条件，请改为 clarify 并说明需要补充什么。")
+    missing_definitions = dict.fromkeys(
+        r.metric_id for r in requests if r.metric_id not in definitions
+    )
+    missing_values = dict.fromkeys(
+        (r.metric_id, dimension, value)
+        for r in requests
+        for dimension, values in r.filters.items()
+        for value in values
+        if (r.metric_id, dimension, value) not in values_seen
+    )
+    lines = []
+    for metric_id in missing_definitions:
+        arguments = json.dumps({"metric_id": metric_id}, ensure_ascii=False)
+        lines.append(f"- 缺少指标定义证据：metric_id={metric_id}。"
+                     f"补检索：get_metric_definition({arguments})。")
+    for metric_id, dimension, value in missing_values:
+        arguments = json.dumps({"metric_id": metric_id, "dimension_id": dimension,
+                                "query": value}, ensure_ascii=False)
+        lines.append(f"- 缺少筛选枚举证据：metric_id={metric_id}，"
+                     f"dimension_id={dimension}，value={value}。"
+                     f"补检索：search_dimension_values({arguments})。")
+    if not lines:
+        return ""
+    return ("本次提交前模型尚未收到以下检索证据：\n" + "\n".join(lines)
+            + "\n只需补齐上述缺项，保留原有指标、日期、筛选和分组。"
+            "若本条回复中已同时调用这些检索，请先查看工具返回，无需重复检索。"
+            "收到结果后，再单独调用 finish_resolution 提交完整计划。")
 
 
 class ParallelModel(KimiModel):
@@ -197,21 +232,33 @@ class ParallelModel(KimiModel):
                     time.sleep(1)
         raise AssertionError("unreachable")
 
-    def resolve(self, payload):
+    def resolve(self, payload, *, tools=None, knowledge_catalog=None,
+                instruction=None, resolution_schema=None, topic_resolver=None,
+                require_submission=False, submission_validator=None):
+        # 默认网页仍使用原配置。实验按单次调用注入只读知识和提交契约，
+        # 不改模块全局变量，避免实验目录污染其他会话。
+        read_tools = READ_TOOLS if tools is None else tools
+        active_catalog = catalog if knowledge_catalog is None else knowledge_catalog
+        schema = BatchResolution if resolution_schema is None else resolution_schema
+        finish = {**FINISH, "function": {**FINISH["function"],
+                  "parameters": schema.model_json_schema()}}
+        find_topic = topic_hint if topic_resolver is None else topic_resolver
         payload = dict(payload)
         with self.trace.span("tool", "search_business_knowledge", {"source": "topic_hint"}) as span:
-            hint = topic_hint(payload.get("messages", []))
+            hint = find_topic(payload.get("messages", []))
             span["result"] = hint
         payload["business_topic_hint"] = hint
-        client = self.client.bound.bind_tools([*READ_TOOLS.values(), FINISH])
         messages = [
-            SystemMessage(content=INSTRUCTION),
+            SystemMessage(content=INSTRUCTION if instruction is None else instruction),
             HumanMessage(content=json.dumps(payload, ensure_ascii=False)),
         ]
         definitions, values_seen = set(), set()
         blockers, seen_calls = {}, set()
         no_progress = 0
         for _ in range(10):
+            # 逐次刷新来源枚举；只允许此前工具返回过的来源，不暴露整库 ID。
+            current_finish = source_bound_tool(finish, active_catalog)
+            client = self.client.bound.bind_tools([*read_tools.values(), current_finish])
             self.trace.check_cancel()
             steering = getattr(getattr(self.trace, "cancellation", None), "steering", None)
             note_version = steering.note_revision if steering else 0
@@ -235,7 +282,7 @@ class ParallelModel(KimiModel):
                                 "resolve_batch",
                                 model=self.model_name,
                                 messages=[m.model_dump() for m in messages],
-                                tools=[convert_to_openai_tool(fn) for fn in READ_TOOLS.values()] + [FINISH],
+                                tools=[convert_to_openai_tool(fn) for fn in read_tools.values()] + [current_finish],
                                 attempt=attempt + 1,
                                 parameters={"stream": True, "stream_usage": True},
                             )
@@ -309,6 +356,14 @@ class ParallelModel(KimiModel):
                     if isinstance(b, dict) and b.get("type") == "text")
                 if not text.strip():
                     raise ModelFailure("模型既未回复，也未提交工具调用")
+                if require_submission:
+                    messages.append(HumanMessage(content=(
+                        "本入口处理的是业务任务；本次正文没有提交结构化决定，尚未完成。"
+                        "请先读取所需定义和枚举，再单独调用finish_resolution。"
+                        "缺少业务定义或用户条件时提交clarify并写具体问题；"
+                        "已确认的指标、日期、汇总方式不要重复询问。不能仅给问候或正文说明。"
+                    )))
+                    continue
                 return BatchResolution(outcome="reply", question=text)
             proposal = None
             # 只接受本次模型输出以前已看到的定义/枚举；不能同时猜ID并直接执行。
@@ -322,10 +377,19 @@ class ParallelModel(KimiModel):
                 with self.trace.span("tool", name, args) as span:
                     try:
                         if name == "finish_resolution":
-                            proposal = BatchResolution.model_validate(args)
+                            proposal = schema.model_validate(args)
+                            normalization = validate_source_refs(proposal, active_catalog)
+                            if submission_validator:
+                                validation = submission_validator(proposal)
+                                if validation.get("errors"):
+                                    raise ValueError("公开提交校验未通过：" + json.dumps(
+                                        validation["errors"], ensure_ascii=False
+                                    ) + "；修正后重新提交。未知用户条件请澄清，不猜测或补造。")
                             result = {"accepted_for_validation": True}
-                        elif name in READ_TOOLS:
-                            result = READ_TOOLS[name](**args)
+                            if normalization:
+                                result["source_reference_normalization"] = normalization
+                        elif name in read_tools:
+                            result = read_tools[name](**args)
                             if name == "get_metric_definition":
                                 definitions.add(args["metric_id"])
                             if name == "search_dimension_values":
@@ -338,14 +402,14 @@ class ParallelModel(KimiModel):
                                 unavailable = exact and not any(h["supported"] for h in exact)
                                 # 以维度名查看该维度的 allowed_values 是合法的目录浏览；
                                 # 候选“枚举”为空不代表这个维度不支持，不能误拦分组。
-                                query = catalog.normalize(args["query"])
+                                query = active_catalog.normalize(args["query"])
                                 browsing_dimension = any(
                                     query
                                     in {
-                                        catalog.normalize(x)
+                                        active_catalog.normalize(x)
                                         for x in [d, value["name"], *value.get("aliases", [])]
                                     }
-                                    for d, value in catalog.DIMENSIONS.items()
+                                    for d, value in active_catalog.DIMENSIONS.items()
                                 )
                                 if unavailable or (
                                     name == "search_dimension_values"
@@ -389,7 +453,7 @@ class ParallelModel(KimiModel):
                 if conflicts:
                     notes = []
                     for mid, expressions in conflicts.items():
-                        definition = catalog.get_metric_definition(mid)
+                        definition = active_catalog.get_metric_definition(mid)
                         choices = "、".join(x["name"] for x in definition["supported_dimensions"])
                         notes.append(
                             definition["name"]
@@ -401,21 +465,11 @@ class ParallelModel(KimiModel):
                     return BatchResolution(
                         outcome="clarify", question="；".join(notes) + "。请调整或明确取消条件。"
                     )
-                missing = not proposal.requests or any(
-                    r.metric_id not in grounded_definitions
-                    or any(
-                        (r.metric_id, d, v) not in grounded_values
-                        for d, ids in r.filters.items()
-                        for v in ids
-                    )
-                    for r in proposal.requests
+                feedback = grounding_feedback(
+                    proposal.requests, grounded_definitions, grounded_values
                 )
-                if missing:
-                    messages.append(
-                        HumanMessage(
-                            content="尚未看到全部指标定义/筛选枚举。请补齐检索，再单独提交完整计划。"
-                        )
-                    )
+                if feedback:
+                    messages.append(HumanMessage(content=feedback))
                     continue
             return proposal
         return self._clarify_topic(hint)

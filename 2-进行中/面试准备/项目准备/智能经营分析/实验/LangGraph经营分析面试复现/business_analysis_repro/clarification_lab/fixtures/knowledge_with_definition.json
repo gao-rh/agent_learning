@@ -1,0 +1,18 @@
+{
+  "version": "clarification-overlay-2026-09-29.1",
+  "records": [
+    {
+      "id": "K-CITY-MAPPING",
+      "title": "本实验业务分类映射",
+      "terms": [
+        "下沉"
+      ],
+      "text": "仅本模拟业务及本版本：下沉按城市经营类型=代理统计，不按城市等级筛选。",
+      "source": "人工构造的实验知识，非生产口径",
+      "version": "2026-09-29.1",
+      "scope": "场景险澄清实验",
+      "effective_from": "2026-01-01",
+      "effective_to": "2026-09-01"
+    }
+  ]
+}

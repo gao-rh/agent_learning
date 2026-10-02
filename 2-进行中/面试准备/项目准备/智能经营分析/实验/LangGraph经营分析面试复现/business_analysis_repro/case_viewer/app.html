@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>完整案例 · Data Agent</title><link rel="stylesheet" href="/app.css"></head>
+<body>
+<header class="top"><a class="brand" href="/">Data Agent <span>实验记录</span></a><div class="topright"><button id="toggle-cases" aria-controls="case-sidebar" aria-expanded="false">选择案例</button><a href="http://127.0.0.1:8770/#combined-results" target="_blank" rel="noopener">实验汇总 ↗</a><button id="refresh">刷新记录</button></div></header>
+<div class="layout"><aside id="case-sidebar" class="sidebar"><label for="batch">选择一组实验</label><select id="batch"></select><label class="sr" for="search">查找案例</label><input id="search" type="search" placeholder="查找案例…"><details class="filter-options"><summary>按评审结果筛选</summary><div class="filters" role="group" aria-label="筛选案例"><button data-filter="all" class="active">全部</button><button data-filter="failed">未通过</button><button data-filter="passed">通过</button></div></details><nav id="cases" class="cases" aria-label="案例列表"></nav><p class="footnote">只读历史记录<br>不会重新运行实验</p></aside><main id="main"><p class="loading">正在读取实验记录…</p></main></div>
+<div id="notice" role="status"></div>
+<script nonce="__BOOTSTRAP_NONCE__">
+// 主脚本缺失或未启动时，也必须结束加载状态。
+setTimeout(function(){
+ if(window.__viewerStarted)return;
+ const main=document.getElementById('main');
+ main.replaceChildren();
+ const title=document.createElement('h1');title.textContent='回放页面脚本未能加载';
+ const text=document.createElement('p');text.textContent='本地文件可能仍在等待 iCloud 下载，或脚本加载失败。重新加载只读取已有记录，不会调用模型。';
+ const retry=document.createElement('button');retry.textContent='重新加载页面';retry.onclick=function(){location.reload();};
+ main.append(title,text,retry);
+},8000);
+</script><script src="/app.js"></script></body></html>

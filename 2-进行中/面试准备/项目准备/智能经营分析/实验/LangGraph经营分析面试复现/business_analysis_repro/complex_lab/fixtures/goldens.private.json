@@ -1,0 +1,2301 @@
+{
+  "C01": [
+    {
+      "outcome": "clarify",
+      "revision": 1,
+      "goal": "校准用人工合法任务；不进入实模",
+      "requirements": [
+        {
+          "id": "r-cx_fx_premium",
+          "label": "放心吃实收保费",
+          "metric_id": "cx_fx_premium",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_timely_merchant",
+          "label": "餐饮准时宝商家付费实收保费",
+          "metric_id": "cx_timely_merchant",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "gap",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_timely_platform",
+          "label": "餐饮准时宝平台付费实收保费",
+          "metric_id": "cx_timely_platform",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "gap",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_timely_retail",
+          "label": "闪购准时宝实收保费",
+          "metric_id": "cx_timely_retail",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_timely_pharma",
+          "label": "医药准时宝实收保费",
+          "metric_id": "cx_timely_pharma",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_cancel_premium",
+          "label": "取消险实收保费",
+          "metric_id": "cx_cancel_premium",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_total_premium",
+          "label": "三险种实收保费合计",
+          "metric_id": "cx_total_premium",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        }
+      ],
+      "tasks": [
+        {
+          "id": "t-cx_fx_premium",
+          "requirement_ids": [
+            "r-cx_fx_premium"
+          ],
+          "metric_id": "cx_fx_premium",
+          "period": {
+            "start": "2021-01-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "group_by": [],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "",
+          "comparison_mode": "none"
+        },
+        {
+          "id": "t-cx_timely_retail",
+          "requirement_ids": [
+            "r-cx_timely_retail"
+          ],
+          "metric_id": "cx_timely_retail",
+          "period": {
+            "start": "2021-01-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "group_by": [],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "",
+          "comparison_mode": "none"
+        },
+        {
+          "id": "t-cx_timely_pharma",
+          "requirement_ids": [
+            "r-cx_timely_pharma"
+          ],
+          "metric_id": "cx_timely_pharma",
+          "period": {
+            "start": "2021-01-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "group_by": [],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "",
+          "comparison_mode": "none"
+        },
+        {
+          "id": "t-cx_cancel_premium",
+          "requirement_ids": [
+            "r-cx_cancel_premium"
+          ],
+          "metric_id": "cx_cancel_premium",
+          "period": {
+            "start": "2021-01-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "group_by": [],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "",
+          "comparison_mode": "none"
+        },
+        {
+          "id": "t-cx_total_premium",
+          "requirement_ids": [
+            "r-cx_total_premium"
+          ],
+          "metric_id": "cx_total_premium",
+          "period": {
+            "start": "2021-01-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "group_by": [],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "",
+          "comparison_mode": "none"
+        }
+      ],
+      "questions": [
+        {
+          "id": "q1",
+          "text": "付费方无法拆分，是否先用餐饮准时宝合计替代？",
+          "owner": "user",
+          "affects": []
+        }
+      ],
+      "question": "付费方无法拆分，是否先用餐饮准时宝合计替代？",
+      "delivery": [
+        {
+          "type": "report",
+          "status": "planned"
+        },
+        {
+          "type": "wiki",
+          "status": "blocked"
+        }
+      ],
+      "knowledge_refs": [
+        "SYN-cx_fx_premium",
+        "SYN-cx_timely_food",
+        "SYN-cx_timely_merchant",
+        "SYN-cx_timely_platform",
+        "SYN-cx_timely_retail",
+        "SYN-cx_timely_pharma",
+        "SYN-cx_cancel_premium",
+        "SYN-cx_total_premium",
+        "SYN-cx_active_merchants",
+        "SYN-cx_active_fx",
+        "SYN-cx_fx_orders",
+        "SYN-cx_food_orders",
+        "SYN-cx_exposure",
+        "SYN-cx_click",
+        "SYN-cx_join",
+        "SYN-cx_open",
+        "SYN-cx_ctr",
+        "SYN-cx_cvr",
+        "SYN-cx_cancel_rate",
+        "K-REPORT",
+        "K-FUNNEL",
+        "K-SCOPE",
+        "K-CANCEL-V1",
+        "K-CANCEL-V2",
+        "K-RECOMPUTE"
+      ],
+      "supersedes_revision": null,
+      "changes": []
+    },
+    {
+      "outcome": "partial",
+      "revision": 2,
+      "goal": "校准用人工合法任务；不进入实模",
+      "requirements": [
+        {
+          "id": "r-cx_fx_premium",
+          "label": "放心吃实收保费",
+          "metric_id": "cx_fx_premium",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_timely_merchant",
+          "label": "餐饮准时宝商家付费实收保费",
+          "metric_id": "cx_timely_merchant",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "gap",
+          "replacement_ids": [
+            "r-cx_timely_food"
+          ]
+        },
+        {
+          "id": "r-cx_timely_platform",
+          "label": "餐饮准时宝平台付费实收保费",
+          "metric_id": "cx_timely_platform",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "gap",
+          "replacement_ids": [
+            "r-cx_timely_food"
+          ]
+        },
+        {
+          "id": "r-cx_timely_retail",
+          "label": "闪购准时宝实收保费",
+          "metric_id": "cx_timely_retail",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_timely_pharma",
+          "label": "医药准时宝实收保费",
+          "metric_id": "cx_timely_pharma",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_cancel_premium",
+          "label": "取消险实收保费",
+          "metric_id": "cx_cancel_premium",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_total_premium",
+          "label": "三险种实收保费合计",
+          "metric_id": "cx_total_premium",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_timely_food",
+          "label": "餐饮准时宝实收保费合计",
+          "metric_id": "cx_timely_food",
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        }
+      ],
+      "tasks": [
+        {
+          "id": "t-cx_fx_premium",
+          "requirement_ids": [
+            "r-cx_fx_premium"
+          ],
+          "metric_id": "cx_fx_premium",
+          "period": {
+            "start": "2021-01-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "group_by": [],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "",
+          "comparison_mode": "none"
+        },
+        {
+          "id": "t-cx_timely_retail",
+          "requirement_ids": [
+            "r-cx_timely_retail"
+          ],
+          "metric_id": "cx_timely_retail",
+          "period": {
+            "start": "2021-01-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "group_by": [],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "",
+          "comparison_mode": "none"
+        },
+        {
+          "id": "t-cx_timely_pharma",
+          "requirement_ids": [
+            "r-cx_timely_pharma"
+          ],
+          "metric_id": "cx_timely_pharma",
+          "period": {
+            "start": "2021-01-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "group_by": [],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "",
+          "comparison_mode": "none"
+        },
+        {
+          "id": "t-cx_cancel_premium",
+          "requirement_ids": [
+            "r-cx_cancel_premium"
+          ],
+          "metric_id": "cx_cancel_premium",
+          "period": {
+            "start": "2021-01-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "group_by": [],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "",
+          "comparison_mode": "none"
+        },
+        {
+          "id": "t-cx_total_premium",
+          "requirement_ids": [
+            "r-cx_total_premium"
+          ],
+          "metric_id": "cx_total_premium",
+          "period": {
+            "start": "2021-01-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "group_by": [],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "",
+          "comparison_mode": "none"
+        },
+        {
+          "id": "t-cx_timely_food",
+          "requirement_ids": [
+            "r-cx_timely_food"
+          ],
+          "metric_id": "cx_timely_food",
+          "period": {
+            "start": "2021-01-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "month",
+              "months": [],
+              "note": ""
+            },
+            {
+              "kind": "year",
+              "months": [],
+              "note": "2026年仅覆盖1至8月，未满年"
+            },
+            {
+              "kind": "annual_months",
+              "months": [
+                1,
+                2,
+                3,
+                4,
+                5,
+                6,
+                7
+              ],
+              "note": ""
+            }
+          ],
+          "group_by": [],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "",
+          "comparison_mode": "none"
+        }
+      ],
+      "questions": [],
+      "question": "已记录接受的替代与缺口",
+      "delivery": [
+        {
+          "type": "report",
+          "status": "planned"
+        },
+        {
+          "type": "wiki",
+          "status": "blocked"
+        }
+      ],
+      "knowledge_refs": [
+        "SYN-cx_fx_premium",
+        "SYN-cx_timely_food",
+        "SYN-cx_timely_merchant",
+        "SYN-cx_timely_platform",
+        "SYN-cx_timely_retail",
+        "SYN-cx_timely_pharma",
+        "SYN-cx_cancel_premium",
+        "SYN-cx_total_premium",
+        "SYN-cx_active_merchants",
+        "SYN-cx_active_fx",
+        "SYN-cx_fx_orders",
+        "SYN-cx_food_orders",
+        "SYN-cx_exposure",
+        "SYN-cx_click",
+        "SYN-cx_join",
+        "SYN-cx_open",
+        "SYN-cx_ctr",
+        "SYN-cx_cvr",
+        "SYN-cx_cancel_rate",
+        "K-REPORT",
+        "K-FUNNEL",
+        "K-SCOPE",
+        "K-CANCEL-V1",
+        "K-CANCEL-V2",
+        "K-RECOMPUTE"
+      ],
+      "supersedes_revision": 1,
+      "changes": []
+    }
+  ],
+  "C02": [
+    {
+      "outcome": "clarify",
+      "revision": 1,
+      "goal": "校准用人工合法任务；不进入实模",
+      "requirements": [
+        {
+          "id": "r-cx_exposure",
+          "label": "渠道曝光商户数",
+          "metric_id": "cx_exposure",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_join",
+          "label": "渠道新加入商户数",
+          "metric_id": "cx_join",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_ctr",
+          "label": "渠道CTR",
+          "metric_id": "cx_ctr",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_cvr",
+          "label": "渠道CVR",
+          "metric_id": "cx_cvr",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        }
+      ],
+      "tasks": [],
+      "questions": [
+        {
+          "id": "q1",
+          "text": "下降的结果指标是完成开通商户、保费还是其他？",
+          "owner": "user",
+          "affects": []
+        }
+      ],
+      "question": "下降的结果指标是完成开通商户、保费还是其他？",
+      "delivery": [],
+      "knowledge_refs": [
+        "SYN-cx_fx_premium",
+        "SYN-cx_timely_food",
+        "SYN-cx_timely_merchant",
+        "SYN-cx_timely_platform",
+        "SYN-cx_timely_retail",
+        "SYN-cx_timely_pharma",
+        "SYN-cx_cancel_premium",
+        "SYN-cx_total_premium",
+        "SYN-cx_active_merchants",
+        "SYN-cx_active_fx",
+        "SYN-cx_fx_orders",
+        "SYN-cx_food_orders",
+        "SYN-cx_exposure",
+        "SYN-cx_click",
+        "SYN-cx_join",
+        "SYN-cx_open",
+        "SYN-cx_ctr",
+        "SYN-cx_cvr",
+        "SYN-cx_cancel_rate",
+        "K-REPORT",
+        "K-FUNNEL",
+        "K-SCOPE",
+        "K-CANCEL-V1",
+        "K-CANCEL-V2",
+        "K-RECOMPUTE"
+      ],
+      "supersedes_revision": null,
+      "changes": []
+    },
+    {
+      "outcome": "ready",
+      "revision": 2,
+      "goal": "校准用人工合法任务；不进入实模",
+      "requirements": [
+        {
+          "id": "r-cx_open",
+          "label": "渠道完成开通商户数",
+          "metric_id": "cx_open",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_exposure",
+          "label": "渠道曝光商户数",
+          "metric_id": "cx_exposure",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_join",
+          "label": "渠道新加入商户数",
+          "metric_id": "cx_join",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_ctr",
+          "label": "渠道CTR",
+          "metric_id": "cx_ctr",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_cvr",
+          "label": "渠道CVR",
+          "metric_id": "cx_cvr",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        }
+      ],
+      "tasks": [
+        {
+          "id": "t-cx_open",
+          "requirement_ids": [
+            "r-cx_open"
+          ],
+          "metric_id": "cx_open",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": {
+            "start": "2026-08-17",
+            "end": "2026-08-23"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "merchant_type"
+          ],
+          "filters": {
+            "channel": [
+              "wallet"
+            ]
+          },
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition",
+          "population": "钱包渠道有曝光的外卖商户",
+          "purpose": "待检验因素，无数据不认定原因"
+        },
+        {
+          "id": "t-cx_exposure",
+          "requirement_ids": [
+            "r-cx_exposure"
+          ],
+          "metric_id": "cx_exposure",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": {
+            "start": "2026-08-17",
+            "end": "2026-08-23"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "merchant_type"
+          ],
+          "filters": {
+            "channel": [
+              "wallet"
+            ]
+          },
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition",
+          "population": "钱包渠道有曝光的外卖商户",
+          "purpose": "待检验因素，无数据不认定原因"
+        },
+        {
+          "id": "t-cx_join",
+          "requirement_ids": [
+            "r-cx_join"
+          ],
+          "metric_id": "cx_join",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": {
+            "start": "2026-08-17",
+            "end": "2026-08-23"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "merchant_type"
+          ],
+          "filters": {
+            "channel": [
+              "wallet"
+            ]
+          },
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition",
+          "population": "钱包渠道有曝光的外卖商户",
+          "purpose": "待检验因素，无数据不认定原因"
+        },
+        {
+          "id": "t-cx_ctr",
+          "requirement_ids": [
+            "r-cx_ctr"
+          ],
+          "metric_id": "cx_ctr",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": {
+            "start": "2026-08-17",
+            "end": "2026-08-23"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "merchant_type"
+          ],
+          "filters": {
+            "channel": [
+              "wallet"
+            ]
+          },
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition",
+          "population": "钱包渠道有曝光的外卖商户",
+          "purpose": "待检验因素，无数据不认定原因"
+        },
+        {
+          "id": "t-cx_cvr",
+          "requirement_ids": [
+            "r-cx_cvr"
+          ],
+          "metric_id": "cx_cvr",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": {
+            "start": "2026-08-17",
+            "end": "2026-08-23"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "merchant_type"
+          ],
+          "filters": {
+            "channel": [
+              "wallet"
+            ]
+          },
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition",
+          "population": "钱包渠道有曝光的外卖商户",
+          "purpose": "待检验因素，无数据不认定原因"
+        }
+      ],
+      "questions": [],
+      "question": "形成待检验诊断任务",
+      "delivery": [],
+      "knowledge_refs": [
+        "SYN-cx_fx_premium",
+        "SYN-cx_timely_food",
+        "SYN-cx_timely_merchant",
+        "SYN-cx_timely_platform",
+        "SYN-cx_timely_retail",
+        "SYN-cx_timely_pharma",
+        "SYN-cx_cancel_premium",
+        "SYN-cx_total_premium",
+        "SYN-cx_active_merchants",
+        "SYN-cx_active_fx",
+        "SYN-cx_fx_orders",
+        "SYN-cx_food_orders",
+        "SYN-cx_exposure",
+        "SYN-cx_click",
+        "SYN-cx_join",
+        "SYN-cx_open",
+        "SYN-cx_ctr",
+        "SYN-cx_cvr",
+        "SYN-cx_cancel_rate",
+        "K-REPORT",
+        "K-FUNNEL",
+        "K-SCOPE",
+        "K-CANCEL-V1",
+        "K-CANCEL-V2",
+        "K-RECOMPUTE"
+      ],
+      "supersedes_revision": 1,
+      "changes": []
+    },
+    {
+      "outcome": "ready",
+      "revision": 3,
+      "goal": "校准用人工合法任务；不进入实模",
+      "requirements": [
+        {
+          "id": "r-cx_open",
+          "label": "渠道完成开通商户数",
+          "metric_id": "cx_open",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_exposure",
+          "label": "渠道曝光商户数",
+          "metric_id": "cx_exposure",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_join",
+          "label": "渠道新加入商户数",
+          "metric_id": "cx_join",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_ctr",
+          "label": "渠道CTR",
+          "metric_id": "cx_ctr",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_cvr",
+          "label": "渠道CVR",
+          "metric_id": "cx_cvr",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        }
+      ],
+      "tasks": [
+        {
+          "id": "t-cx_open",
+          "requirement_ids": [
+            "r-cx_open"
+          ],
+          "metric_id": "cx_open",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": {
+            "start": "2026-08-17",
+            "end": "2026-08-23"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "merchant_type",
+            "merchant_age"
+          ],
+          "filters": {
+            "channel": [
+              "wallet"
+            ]
+          },
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition",
+          "population": "钱包渠道有曝光的外卖商户",
+          "purpose": "待检验因素，无数据不认定原因",
+          "cohort_rule": "新商为曝光当日距平台入驻不超过30天的商户，其余为老商"
+        },
+        {
+          "id": "t-cx_exposure",
+          "requirement_ids": [
+            "r-cx_exposure"
+          ],
+          "metric_id": "cx_exposure",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": {
+            "start": "2026-08-17",
+            "end": "2026-08-23"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "merchant_type",
+            "merchant_age"
+          ],
+          "filters": {
+            "channel": [
+              "wallet"
+            ]
+          },
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition",
+          "population": "钱包渠道有曝光的外卖商户",
+          "purpose": "待检验因素，无数据不认定原因",
+          "cohort_rule": "新商为曝光当日距平台入驻不超过30天的商户，其余为老商"
+        },
+        {
+          "id": "t-cx_join",
+          "requirement_ids": [
+            "r-cx_join"
+          ],
+          "metric_id": "cx_join",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": {
+            "start": "2026-08-17",
+            "end": "2026-08-23"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "merchant_type",
+            "merchant_age"
+          ],
+          "filters": {
+            "channel": [
+              "wallet"
+            ]
+          },
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition",
+          "population": "钱包渠道有曝光的外卖商户",
+          "purpose": "待检验因素，无数据不认定原因",
+          "cohort_rule": "新商为曝光当日距平台入驻不超过30天的商户，其余为老商"
+        },
+        {
+          "id": "t-cx_ctr",
+          "requirement_ids": [
+            "r-cx_ctr"
+          ],
+          "metric_id": "cx_ctr",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": {
+            "start": "2026-08-17",
+            "end": "2026-08-23"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "merchant_type",
+            "merchant_age"
+          ],
+          "filters": {
+            "channel": [
+              "wallet"
+            ]
+          },
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition",
+          "population": "钱包渠道有曝光的外卖商户",
+          "purpose": "待检验因素，无数据不认定原因",
+          "cohort_rule": "新商为曝光当日距平台入驻不超过30天的商户，其余为老商"
+        },
+        {
+          "id": "t-cx_cvr",
+          "requirement_ids": [
+            "r-cx_cvr"
+          ],
+          "metric_id": "cx_cvr",
+          "period": {
+            "start": "2026-08-24",
+            "end": "2026-08-30"
+          },
+          "comparison_period": {
+            "start": "2026-08-17",
+            "end": "2026-08-23"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "merchant_type",
+            "merchant_age"
+          ],
+          "filters": {
+            "channel": [
+              "wallet"
+            ]
+          },
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition",
+          "population": "钱包渠道有曝光的外卖商户",
+          "purpose": "待检验因素，无数据不认定原因",
+          "cohort_rule": "新商为曝光当日距平台入驻不超过30天的商户，其余为老商"
+        }
+      ],
+      "questions": [],
+      "question": "形成待检验诊断任务",
+      "delivery": [],
+      "knowledge_refs": [
+        "SYN-cx_fx_premium",
+        "SYN-cx_timely_food",
+        "SYN-cx_timely_merchant",
+        "SYN-cx_timely_platform",
+        "SYN-cx_timely_retail",
+        "SYN-cx_timely_pharma",
+        "SYN-cx_cancel_premium",
+        "SYN-cx_total_premium",
+        "SYN-cx_active_merchants",
+        "SYN-cx_active_fx",
+        "SYN-cx_fx_orders",
+        "SYN-cx_food_orders",
+        "SYN-cx_exposure",
+        "SYN-cx_click",
+        "SYN-cx_join",
+        "SYN-cx_open",
+        "SYN-cx_ctr",
+        "SYN-cx_cvr",
+        "SYN-cx_cancel_rate",
+        "K-REPORT",
+        "K-FUNNEL",
+        "K-SCOPE",
+        "K-CANCEL-V1",
+        "K-CANCEL-V2",
+        "K-RECOMPUTE"
+      ],
+      "supersedes_revision": 2,
+      "changes": []
+    }
+  ],
+  "C03": [
+    {
+      "outcome": "ready",
+      "revision": 1,
+      "goal": "校准用人工合法任务；不进入实模",
+      "requirements": [
+        {
+          "id": "r-cx_active_merchants",
+          "label": "外卖餐饮活跃商户数",
+          "metric_id": "cx_active_merchants",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_active_fx",
+          "label": "活跃商户中开通放心吃的数量",
+          "metric_id": "cx_active_fx",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_fx_premium",
+          "label": "放心吃实收保费",
+          "metric_id": "cx_fx_premium",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_fx_orders",
+          "label": "放心吃保险订单量",
+          "metric_id": "cx_fx_orders",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        },
+        {
+          "id": "r-cx_food_orders",
+          "label": "外卖餐饮订单量",
+          "metric_id": "cx_food_orders",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        }
+      ],
+      "tasks": [
+        {
+          "id": "t-cx_active_merchants",
+          "requirement_ids": [
+            "r-cx_active_merchants"
+          ],
+          "metric_id": "cx_active_merchants",
+          "period": {
+            "start": "2026-08-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": {
+            "start": "2026-07-01",
+            "end": "2026-07-31"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "province",
+            "city_operation"
+          ],
+          "filters": {
+            "province": [
+              "anhui",
+              "jiangsu"
+            ],
+            "business_segment": [
+              "food"
+            ]
+          },
+          "predicates": [
+            {
+              "field": "valid",
+              "op": "ne",
+              "value": 0
+            }
+          ],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition"
+        },
+        {
+          "id": "t-cx_active_fx",
+          "requirement_ids": [
+            "r-cx_active_fx"
+          ],
+          "metric_id": "cx_active_fx",
+          "period": {
+            "start": "2026-08-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": {
+            "start": "2026-07-01",
+            "end": "2026-07-31"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "province",
+            "city_operation"
+          ],
+          "filters": {
+            "province": [
+              "anhui",
+              "jiangsu"
+            ],
+            "business_segment": [
+              "food"
+            ]
+          },
+          "predicates": [
+            {
+              "field": "valid",
+              "op": "ne",
+              "value": 0
+            },
+            {
+              "field": "fx_open",
+              "op": "eq",
+              "value": true
+            }
+          ],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition"
+        },
+        {
+          "id": "t-cx_fx_premium",
+          "requirement_ids": [
+            "r-cx_fx_premium"
+          ],
+          "metric_id": "cx_fx_premium",
+          "period": {
+            "start": "2026-08-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": {
+            "start": "2026-07-01",
+            "end": "2026-07-31"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "province",
+            "city_operation"
+          ],
+          "filters": {
+            "province": [
+              "anhui",
+              "jiangsu"
+            ],
+            "business_segment": [
+              "food"
+            ]
+          },
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition"
+        },
+        {
+          "id": "t-cx_fx_orders",
+          "requirement_ids": [
+            "r-cx_fx_orders"
+          ],
+          "metric_id": "cx_fx_orders",
+          "period": {
+            "start": "2026-08-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": {
+            "start": "2026-07-01",
+            "end": "2026-07-31"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "province",
+            "city_operation"
+          ],
+          "filters": {
+            "province": [
+              "anhui",
+              "jiangsu"
+            ],
+            "business_segment": [
+              "food"
+            ]
+          },
+          "predicates": [
+            {
+              "field": "order_status",
+              "op": "ne",
+              "value": "cancelled"
+            }
+          ],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition"
+        },
+        {
+          "id": "t-cx_food_orders",
+          "requirement_ids": [
+            "r-cx_food_orders"
+          ],
+          "metric_id": "cx_food_orders",
+          "period": {
+            "start": "2026-08-01",
+            "end": "2026-08-31"
+          },
+          "comparison_period": {
+            "start": "2026-07-01",
+            "end": "2026-07-31"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "province",
+            "city_operation"
+          ],
+          "filters": {
+            "province": [
+              "anhui",
+              "jiangsu"
+            ],
+            "business_segment": [
+              "food"
+            ]
+          },
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "v1",
+          "comparison_mode": "same_definition"
+        }
+      ],
+      "questions": [],
+      "question": "已确认五项任务",
+      "delivery": [],
+      "knowledge_refs": [
+        "SYN-cx_fx_premium",
+        "SYN-cx_timely_food",
+        "SYN-cx_timely_merchant",
+        "SYN-cx_timely_platform",
+        "SYN-cx_timely_retail",
+        "SYN-cx_timely_pharma",
+        "SYN-cx_cancel_premium",
+        "SYN-cx_total_premium",
+        "SYN-cx_active_merchants",
+        "SYN-cx_active_fx",
+        "SYN-cx_fx_orders",
+        "SYN-cx_food_orders",
+        "SYN-cx_exposure",
+        "SYN-cx_click",
+        "SYN-cx_join",
+        "SYN-cx_open",
+        "SYN-cx_ctr",
+        "SYN-cx_cvr",
+        "SYN-cx_cancel_rate",
+        "K-REPORT",
+        "K-FUNNEL",
+        "K-SCOPE",
+        "K-CANCEL-V1",
+        "K-CANCEL-V2",
+        "K-RECOMPUTE"
+      ],
+      "supersedes_revision": null,
+      "changes": []
+    }
+  ],
+  "C04": [
+    {
+      "outcome": "clarify",
+      "revision": 1,
+      "goal": "校准用人工合法任务；不进入实模",
+      "requirements": [
+        {
+          "id": "r-cx_cancel_rate",
+          "label": "取消险订单渗透率",
+          "metric_id": "cx_cancel_rate",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "pending",
+          "replacement_ids": []
+        }
+      ],
+      "tasks": [],
+      "questions": [
+        {
+          "id": "q1",
+          "text": "6月v1含取消单、7月v2排除取消单。要历史展示、统一重算还是两套？",
+          "owner": "user",
+          "affects": []
+        }
+      ],
+      "question": "6月v1含取消单、7月v2排除取消单。要历史展示、统一重算还是两套？",
+      "delivery": [],
+      "knowledge_refs": [
+        "SYN-cx_fx_premium",
+        "SYN-cx_timely_food",
+        "SYN-cx_timely_merchant",
+        "SYN-cx_timely_platform",
+        "SYN-cx_timely_retail",
+        "SYN-cx_timely_pharma",
+        "SYN-cx_cancel_premium",
+        "SYN-cx_total_premium",
+        "SYN-cx_active_merchants",
+        "SYN-cx_active_fx",
+        "SYN-cx_fx_orders",
+        "SYN-cx_food_orders",
+        "SYN-cx_exposure",
+        "SYN-cx_click",
+        "SYN-cx_join",
+        "SYN-cx_open",
+        "SYN-cx_ctr",
+        "SYN-cx_cvr",
+        "SYN-cx_cancel_rate",
+        "K-REPORT",
+        "K-FUNNEL",
+        "K-SCOPE",
+        "K-CANCEL-V1",
+        "K-CANCEL-V2",
+        "K-RECOMPUTE"
+      ],
+      "supersedes_revision": null,
+      "changes": []
+    },
+    {
+      "outcome": "ready",
+      "revision": 2,
+      "goal": "校准用人工合法任务；不进入实模",
+      "requirements": [
+        {
+          "id": "r-cx_cancel_rate",
+          "label": "取消险订单渗透率",
+          "metric_id": "cx_cancel_rate",
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "status": "active",
+          "replacement_ids": []
+        }
+      ],
+      "tasks": [
+        {
+          "id": "t-cx_cancel_rate",
+          "requirement_ids": [
+            "r-cx_cancel_rate"
+          ],
+          "metric_id": "cx_cancel_rate",
+          "period": {
+            "start": "2026-06-01",
+            "end": "2026-06-30"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "province"
+          ],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v1",
+          "baseline_version": "",
+          "comparison_mode": "historical_display",
+          "purpose": "仅历史展示"
+        },
+        {
+          "id": "t-cx_cancel_rate-july",
+          "requirement_ids": [
+            "r-cx_cancel_rate"
+          ],
+          "metric_id": "cx_cancel_rate",
+          "period": {
+            "start": "2026-07-01",
+            "end": "2026-07-31"
+          },
+          "comparison_period": null,
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "province"
+          ],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v2",
+          "baseline_version": "",
+          "comparison_mode": "historical_display",
+          "purpose": "仅历史展示"
+        },
+        {
+          "id": "t-cx_cancel_rate-recomputed",
+          "requirement_ids": [
+            "r-cx_cancel_rate"
+          ],
+          "metric_id": "cx_cancel_rate",
+          "period": {
+            "start": "2026-07-01",
+            "end": "2026-07-31"
+          },
+          "comparison_period": {
+            "start": "2026-06-01",
+            "end": "2026-06-30"
+          },
+          "views": [
+            {
+              "kind": "total",
+              "months": [],
+              "note": ""
+            }
+          ],
+          "group_by": [
+            "province"
+          ],
+          "filters": {},
+          "predicates": [],
+          "definition_version": "v2",
+          "baseline_version": "v2",
+          "comparison_mode": "same_definition",
+          "recompute": true
+        }
+      ],
+      "questions": [],
+      "question": "历史展示与同口径重算分别列出",
+      "delivery": [],
+      "knowledge_refs": [
+        "SYN-cx_fx_premium",
+        "SYN-cx_timely_food",
+        "SYN-cx_timely_merchant",
+        "SYN-cx_timely_platform",
+        "SYN-cx_timely_retail",
+        "SYN-cx_timely_pharma",
+        "SYN-cx_cancel_premium",
+        "SYN-cx_total_premium",
+        "SYN-cx_active_merchants",
+        "SYN-cx_active_fx",
+        "SYN-cx_fx_orders",
+        "SYN-cx_food_orders",
+        "SYN-cx_exposure",
+        "SYN-cx_click",
+        "SYN-cx_join",
+        "SYN-cx_open",
+        "SYN-cx_ctr",
+        "SYN-cx_cvr",
+        "SYN-cx_cancel_rate",
+        "K-REPORT",
+        "K-FUNNEL",
+        "K-SCOPE",
+        "K-CANCEL-V1",
+        "K-CANCEL-V2",
+        "K-RECOMPUTE"
+      ],
+      "supersedes_revision": 1,
+      "changes": []
+    }
+  ]
+}

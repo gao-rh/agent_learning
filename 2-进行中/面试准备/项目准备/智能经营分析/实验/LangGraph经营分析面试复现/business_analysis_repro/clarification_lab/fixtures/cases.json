@@ -1,0 +1,140 @@
+{
+  "version": "clarification-cases-2026-09-29.1",
+  "cases": [
+    {
+      "id": "explicit_month",
+      "title": "明确查数无需追问",
+      "question": "查2026年7月放心吃总保费。",
+      "history": [],
+      "knowledge_profile": "base",
+      "source_case": "case-r07",
+      "synthetic": true
+    },
+    {
+      "id": "missing_slots",
+      "title": "一次问清指标与时间",
+      "question": "查一下渗透率。",
+      "history": [],
+      "knowledge_profile": "base",
+      "source_case": "case-l10",
+      "synthetic": true
+    },
+    {
+      "id": "alias_unknown",
+      "title": "业务别名缺少定义",
+      "question": "要下沉的。",
+      "history": [
+        {
+          "role": "user",
+          "content": "已经确认：统计2026年7月放心吃总保费，整体汇总。"
+        },
+        {
+          "role": "assistant",
+          "content": "已记录指标为放心吃总保费，时间为2026-07-01至2026-07-31，尚未取数。"
+        }
+      ],
+      "knowledge_profile": "base",
+      "source_case": "case-r08",
+      "synthetic": true
+    },
+    {
+      "id": "alias_defined",
+      "title": "业务别名已有定义",
+      "question": "要下沉的。",
+      "history": [
+        {
+          "role": "user",
+          "content": "已经确认：统计2026年7月放心吃总保费，整体汇总。"
+        },
+        {
+          "role": "assistant",
+          "content": "已记录指标为放心吃总保费，时间为2026-07-01至2026-07-31，尚未取数。"
+        }
+      ],
+      "knowledge_profile": "with_definition",
+      "source_case": "case-r08-control",
+      "synthetic": true
+    },
+    {
+      "id": "mandatory_population",
+      "title": "默认总体不可遗漏",
+      "question": "查询2026-08-23安徽外卖餐饮活跃商户数及其中开通放心吃的数量。",
+      "history": [],
+      "knowledge_profile": "base",
+      "source_case": "case-r03",
+      "synthetic": true
+    },
+    {
+      "id": "inherit_scope",
+      "title": "追问继承曝光渠道与双期间",
+      "question": "外卖商家的新注册商户有没有变化？",
+      "history": [
+        {
+          "role": "user",
+          "content": "看钱包渠道曝光商户，比较2026-08-24至08-30与2026-08-17至08-23，以后者为基期，先整体看。"
+        },
+        {
+          "role": "assistant",
+          "content": "已确认曝光商户数、钱包渠道，当期08-24至08-30，基期08-17至08-23，尚未取数。"
+        }
+      ],
+      "knowledge_profile": "base",
+      "source_case": "case-r06",
+      "synthetic": true
+    },
+    {
+      "id": "ambiguous_metric",
+      "title": "相近加入指标消歧",
+      "question": "查上周加入商户数。",
+      "history": [],
+      "knowledge_profile": "base",
+      "source_case": "case-e04",
+      "synthetic": true
+    },
+    {
+      "id": "filter_scope",
+      "title": "多指标条件作用域澄清",
+      "question": "两个指标都查，都按刚才那个口径。",
+      "history": [
+        {
+          "role": "user",
+          "content": "我们讨论2026-08-24至08-30的保险订单量和外卖订单量。讨论过保险订单排除取消单、外卖订单取全量两种口径；本次是否沿用各自口径，还是两个指标统一排除取消单，还没决定。"
+        },
+        {
+          "role": "assistant",
+          "content": "两个指标都可以表达这些订单状态范围，本次作用范围尚未确认；未取数。"
+        }
+      ],
+      "knowledge_profile": "base",
+      "source_case": "case-e03",
+      "synthetic": true
+    },
+    {
+      "id": "comparison",
+      "title": "比较日期和方向澄清",
+      "question": "昨天的订单量做一下周同比。",
+      "history": [
+        {
+          "role": "user",
+          "content": "这里订单量指外卖订单量，整体全量，没有其他筛选。"
+        },
+        {
+          "role": "assistant",
+          "content": "已确认指标是外卖订单量，尚未选择本次比较时间。"
+        }
+      ],
+      "knowledge_profile": "base",
+      "source_case": "case-e01",
+      "synthetic": true
+    },
+    {
+      "id": "unsupported_enum",
+      "title": "明确筛选超出目录",
+      "question": "查上周放心吃总保费，只看无人机配送。",
+      "history": [],
+      "knowledge_profile": "base",
+      "source_case": "case-r04-extension",
+      "synthetic": true
+    }
+  ]
+}

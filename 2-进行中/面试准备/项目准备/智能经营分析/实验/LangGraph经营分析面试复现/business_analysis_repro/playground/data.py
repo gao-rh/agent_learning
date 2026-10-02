@@ -5,68 +5,12 @@
 """
 
 import hashlib
-import itertools
 import json
-import sqlite3
 from datetime import date, timedelta
 
 from .catalog import DIMENSIONS, METRICS, ClarificationNeeded, enum_name, validate_task
+from .fixtures import distribute, fixture_rows, prepare_data, read_rows  # noqa: F401
 from .run_control import cancellable_query
-
-
-def distribute(total, weights):
-    """整数最大余数分配：切分后仍精确等于预设总量，避免计数出现半个商户。"""
-    denominator = sum(weights)
-    parts = [total * w // denominator for w in weights]
-    order = sorted(range(len(weights)), key=lambda i: -(total * weights[i] % denominator))
-    for i in order[: total - sum(parts)]:
-        parts[i] += 1
-    return parts
-
-
-def fixture_rows(metric, start, end):
-    dims = list(metric["dimensions"])
-    combos = list(itertools.product(*metric["dimensions"].values()))
-    # 两个层级同时存在时，只生成真实的父子组合。
-    combos = [
-        c
-        for c in combos
-        if not {"channel_l1", "channel_l2"}.issubset(dims)
-        or c[dims.index("channel_l1")]
-        == DIMENSIONS["channel_l2"]["parent_values"][c[dims.index("channel_l2")]]
-    ]
-    day = start
-    while day <= end:
-        phase = "current" if day >= date(2026, 8, 24) else "baseline"
-        preset = metric["preset"]
-        # 周预设可不是7的倍数，按周内日序分配余数，整周依然精确闭合。
-        n_week, d_week = preset[phase + "_numerator"], preset[phase + "_denominator"]
-        n_day = n_week // 7 + (day.weekday() < n_week % 7)
-        d_day = d_week // 7 + (day.weekday() < d_week % 7) if d_week else None
-        weights = [
-            1 + int(hashlib.sha256((phase + repr(c)).encode()).hexdigest()[:4], 16) % 5
-            for c in combos
-        ]
-        nums = distribute(n_day, weights)
-        if d_day is not None:
-            # 分母由分子+剩余量组成，保持比例<=100%，且各组权重不同。
-            rest = distribute(d_day - n_day, list(reversed(weights))) if d_day >= n_day else None
-            dens = (
-                [n + r for n, r in zip(nums, rest)]
-                if rest is not None
-                else distribute(d_day, weights)
-            )
-        else:
-            dens = [0] * len(combos)
-        for c, n, denominator in zip(combos, nums, dens):
-            yield {
-                "metric_id": metric["id"],
-                "biz_date": day.isoformat(),
-                **dict(zip(dims, c)),
-                "numerator": n,
-                "denominator": denominator,
-            }
-        day += timedelta(days=1)
 
 
 def number(metric, numerator, denominator):
@@ -92,7 +36,7 @@ def query_agent(task, trace=None):
         date(2026, 12, 31), date.fromisoformat(task["reference_date"])
     ):
         raise ClarificationNeeded("模拟数据覆盖2026年且不超过日期基准日，请调整日期。")
-    rows = list(fixture_rows(METRICS[task["metric_id"]], start, end))
+    store = prepare_data()
     filters = task.get("filters", {})
     params = {
         "metric_id": metric["id"],
@@ -105,17 +49,11 @@ def query_agent(task, trace=None):
         names = [f"{dim}_{i}" for i in range(len(ids))]
         params.update(zip(names, ids))
         sql += f" AND {dim} IN (" + ",".join(":" + n for n in names) + ")"
-    execution = {**metric["query"], "parameters": params, "synthetic": True}
+    execution = {**metric["query"], "parameters": params, "synthetic": True,
+                 "fixture": {k: store[k] for k in ("database", "database_sha256", "manifest")},
+                 "data_version": store["specification"]["data_version"]}
     if execution["method"] == "sql":
-        columns = ["metric_id", "biz_date", *metric["dimensions"], "numerator", "denominator"]
-        with sqlite3.connect(":memory:") as db:
-            db.row_factory = sqlite3.Row
-            db.execute("CREATE TABLE demo_metric_daily (" + ",".join(columns) + ")")
-            db.executemany(
-                "INSERT INTO demo_metric_daily VALUES (" + ",".join("?" for _ in columns) + ")",
-                [[r[c] for c in columns] for r in rows],
-            )
-            rows = [dict(r) for r in db.execute(sql, params)]
+        rows = read_rows(store, sql, params)
         execution.update(executed_sql=sql, execution_status="sqlite_executed")
     else:
         request = {
@@ -124,6 +62,9 @@ def query_agent(task, trace=None):
             "dataset_id": execution["dataset_id"],
             "platform_metric_id": execution["platform_metric_id"],
         }
+        rows = read_rows(store,
+            "SELECT * FROM demo_metric_daily WHERE metric_id=:metric_id "
+            "AND biz_date BETWEEN :start_date AND :end_date", params)
         rows = [r for r in rows if all(r[d] in ids for d, ids in request["filters"].items())]
         execution.update(request=request, execution_status="local_fixture_returned")
     numerator = sum(r["numerator"] for r in rows)

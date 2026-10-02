@@ -1,0 +1,219 @@
+{
+  "suite_id": "simple-query-followup-v1",
+  "status": "dataset_ready_not_executed",
+  "reference_date": "2026-09-01",
+  "timezone": "Asia/Shanghai",
+  "knowledge_catalog": "catalog.json",
+  "synthetic": true,
+  "model_input_policy": "只向模型传当前user_message、实际历史与工具可读知识，不传标题、类别、评审标准或未来用户消息。",
+  "run_plan": {
+    "repetitions_per_case": 1,
+    "initial_smoke_case_ids": [
+      "Q09",
+      "Q11"
+    ],
+    "retest_policy": "仅在失败诊断或修改后追加一次，不默认全量重复。"
+  },
+  "cases": [
+    {
+      "id": "Q01",
+      "title": "一句话中的三个指标",
+      "category": "漏指标",
+      "knowledge_profile": "base",
+      "history": [],
+      "synthetic": true,
+      "turns": [
+        {
+          "user_message": "查2026年7月放心吃总保费、放心吃净保费和外卖订单量，三个都只看安徽，整体汇总。",
+          "advance_when": "start"
+        }
+      ]
+    },
+    {
+      "id": "Q02",
+      "title": "追加在句尾的第三个指标",
+      "category": "漏指标",
+      "knowledge_profile": "base",
+      "history": [],
+      "synthetic": true,
+      "turns": [
+        {
+          "user_message": "查2026年8月老商的放心吃餐饮订单渗透率、放心吃餐饮可投保订单渗透率，整体看。最后再加上取消险餐饮订单渗透率，也按同样的时间和老商范围。",
+          "advance_when": "start"
+        }
+      ]
+    },
+    {
+      "id": "Q03",
+      "title": "两个筛选加两个分组",
+      "category": "漏维度",
+      "knowledge_profile": "base",
+      "history": [],
+      "synthetic": true,
+      "turns": [
+        {
+          "user_message": "查2026年7月放心吃总保费，只看安徽、专送，按城市经营类型和城市等级交叉汇总。",
+          "advance_when": "start"
+        }
+      ]
+    },
+    {
+      "id": "Q04",
+      "title": "一个筛选加渠道来源交叉分组",
+      "category": "漏维度",
+      "knowledge_profile": "base",
+      "history": [],
+      "synthetic": true,
+      "turns": [
+        {
+          "user_message": "查2026年8月流量漏斗里的外卖险加入商户数，只看放心吃险种，按一级渠道和获客来源交叉汇总。",
+          "advance_when": "start"
+        }
+      ]
+    },
+    {
+      "id": "Q05",
+      "title": "明确要净保费而非总保费",
+      "category": "误判指标",
+      "knowledge_profile": "base",
+      "history": [],
+      "synthetic": true,
+      "turns": [
+        {
+          "user_message": "查2026年7月安徽的放心吃净保费，要扣除退款后的金额，不要总保费，整体汇总。",
+          "advance_when": "start"
+        }
+      ]
+    },
+    {
+      "id": "Q06",
+      "title": "明确选择可投保订单分母",
+      "category": "误判指标",
+      "knowledge_profile": "base",
+      "history": [],
+      "synthetic": true,
+      "turns": [
+        {
+          "user_message": "查2026年8月放心吃餐饮可投保订单渗透率，分母用可投保订单，不是全部餐饮订单，整体汇总。",
+          "advance_when": "start"
+        }
+      ]
+    },
+    {
+      "id": "Q07",
+      "title": "渠道筛选与来源分组",
+      "category": "误判维度",
+      "knowledge_profile": "base",
+      "history": [],
+      "synthetic": true,
+      "turns": [
+        {
+          "user_message": "查2026年7月流量漏斗里的外卖险加入商户数，只看一级渠道里的钱包，按获客来源分组。",
+          "advance_when": "start"
+        }
+      ]
+    },
+    {
+      "id": "Q08",
+      "title": "经营类型筛选与城市等级分组",
+      "category": "误判维度",
+      "knowledge_profile": "base",
+      "history": [],
+      "synthetic": true,
+      "turns": [
+        {
+          "user_message": "查2026年7月放心吃总保费，只看城市经营类型为直营的商户，按城市等级分组。",
+          "advance_when": "start"
+        }
+      ]
+    },
+    {
+      "id": "Q09",
+      "title": "澄清日期后保留双指标和范围",
+      "category": "澄清补充",
+      "knowledge_profile": "base",
+      "history": [],
+      "synthetic": true,
+      "turns": [
+        {
+          "user_message": "查安徽的放心吃总保费和放心吃净保费，都只看专送，按城市经营类型分组。",
+          "advance_when": "start"
+        },
+        {
+          "user_message": "2026年7月。",
+          "advance_when": "after_clarification_question"
+        }
+      ]
+    },
+    {
+      "id": "Q10",
+      "title": "消歧时追加险种并修改分组",
+      "category": "澄清补充",
+      "knowledge_profile": "base",
+      "history": [],
+      "synthetic": true,
+      "turns": [
+        {
+          "user_message": "查2026年8月加入商户数，整体汇总。",
+          "advance_when": "start"
+        },
+        {
+          "user_message": "流量漏斗的那个，只看放心吃险种，改成按获客来源分组。",
+          "advance_when": "after_clarification_question"
+        }
+      ]
+    },
+    {
+      "id": "Q11",
+      "title": "查完再新增、替换、撤销条件",
+      "category": "查询后追问",
+      "knowledge_profile": "base",
+      "history": [],
+      "synthetic": true,
+      "turns": [
+        {
+          "user_message": "查2026年7月安徽的外卖餐饮活跃商户数及其中开通放心吃的数量，两个都按商户新老分组。",
+          "advance_when": "start"
+        },
+        {
+          "user_message": "两个都只看新注册商户，其他不变。",
+          "advance_when": "after_query_completed"
+        },
+        {
+          "user_message": "月份改成2026年8月，其他不变。",
+          "advance_when": "after_query_completed"
+        },
+        {
+          "user_message": "两个都不限新老商了，分组仍然保留，其他不变。",
+          "advance_when": "after_query_completed"
+        }
+      ]
+    },
+    {
+      "id": "Q12",
+      "title": "查完追加指标再切换新问题",
+      "category": "查询后追问",
+      "knowledge_profile": "base",
+      "history": [],
+      "synthetic": true,
+      "turns": [
+        {
+          "user_message": "查2026年7月流量漏斗里的外卖险加入商户数，只看钱包渠道、放心吃险种，按获客来源分组。",
+          "advance_when": "start"
+        },
+        {
+          "user_message": "来源只看电销，其他不变。",
+          "advance_when": "after_query_completed"
+        },
+        {
+          "user_message": "保留刚才那项查询，再加一个2026年7月安徽的外卖订单量，按订单状态分组。新增这项不限制订单状态，两个指标各自按自己的条件查。",
+          "advance_when": "after_query_completed"
+        },
+        {
+          "user_message": "换个问题：查2026年8月江苏的外卖订单量，整体全量。",
+          "advance_when": "after_query_completed"
+        }
+      ]
+    }
+  ]
+}

@@ -1,14 +1,52 @@
 # LangGraph 经营分析面试复现
 
-> 当前状态：网页升级为 v4 多指标并行，保留20个模拟指标；当前服务进程共享5个执行名额，完整分组表格与并行Trace已接入。现已接入真实流式正文、断线补读和可点击的执行路线页，122个本地测试通过；最新路线页说明见 [执行路线页说明](business_analysis_repro/playground/执行路线页说明.md)，真实Kimi及流式网页验收见 playground/流式输出实现与验收.md，并行基础验收见 playground/并行实现与验收.md。此前七节点 v2、阅读副本及 E1/E2 示例保留；用户独立理解与运行尚未验收，LangSmith 云端 tracing 保持关闭。
+> 当前入口更新：2026-10-02。聊天主链路为 analysis-v5：多指标并行、简易分析、真实正文流式、队列插入/停止、上下文压缩、Trace 与用量统计；另有隔离澄清实验及固定结果查看器。下文 E1/E2 等保留历史日期，不代表当前整套验收状态。业务数据模拟，LangSmith 云端追踪关闭。
 
 ## 当前实现入口
 
-[经营分析对话试玩 v4](business_analysis_repro/playground/README.md)：网页连续对话、20 个指标、每指标三个维度、枚举搜索与澄清、实际工具调用及可读 Trace。名称参考原材料，数字与支持矩阵为模拟配置。旧七节点 v2 阅读入口继续保留。
+- [项目介绍：架构、能力、存储与运行](../../记录/2026-09-09-智能经营分析复现总览与能力缺口-v1.md)
+- [最新测试报告：C01 AI用户多轮试跑](测试报告-v3-2026-10-02-17-10-19.md)
+- [经营分析聊天试玩](business_analysis_repro/playground/README.md)
+- [固定案例查看器](business_analysis_repro/case_viewer/README.md)
 
-[七节点主 Agent：运行、代码导读与完整 Trace](business_analysis_repro/main_agent/README.md)。这是 2026-09-06 按当前架构讨论新增的完整小实验，下文保留较早的 E1/E2 路线与记录。
+## 现在从这里复现
 
-## 目标
+在本目录执行，前三条不请求模型：
+
+```bash
+.venv/bin/python -m business_analysis_repro doctor
+.venv/bin/python -m business_analysis_repro prepare
+.venv/bin/python -m business_analysis_repro demo
+.venv/bin/python -m business_analysis_repro.playground --open
+```
+
+`prepare` 提前建立固定数据；`demo` 使用真实当前主图/查询/分析/checkpoint，仅以脚本替换模型，不验证自然语言能力。它会返回四场景 Trace 路径。最后一条启动聊天服务，发送问题后才调用 Kimi。常驻进程是否加载当前源码，以 `doctor` 的指纹检查为准。
+
+回归按范围执行 `python -m business_analysis_repro test mechanism|lab|viewer|all`（实际命令选择其中一项）；新实验可先 `inspect-batch <目录>` 检查冻结版本。上一版全套 282 项离线测试通过，本次相关离线回归 92 项通过，完整上一轮实模结果见[测试报告 v2](测试报告-v2-2026-10-02-02-48-37.md)，新流程 C01 试跑见[最新测试报告](测试报告-v3-2026-10-02-17-10-19.md)。以后报告统一命名为 `测试报告-v版本-YYYY-MM-DD-HH-MM-SS.md`；首页只链接最新一份，每份记录本次对错、逐题原因与建议。测试交接已结束，不继续追加。
+
+早期教学入口：[七节点主 Agent](business_analysis_repro/main_agent/README.md)。后面的目标、目录和 E1/E2 记录属于早期阶段；当前代码布局和执行链路以项目介绍为准。
+
+<span id="ai-user-tests"></span>
+
+## 后续多轮测试
+
+2026-10-02 起，新的多轮实模测试统一用 AI 模拟用户，调用独立的 Kimi 用户角色，根据助手实际回复继续对话。初始需求来自案例；后续回复由模型生成，不再直接发送预设句子。用户角色只看到自己的业务设定和实际对话，评审标准与助手内部状态不进入它的上下文。
+
+```bash
+./运行多轮测试.command prepare .runs/ai-user-c01 --kind complex --cases C01
+./运行多轮测试.command run .runs/ai-user-c01 --case C01 --live
+./运行多轮测试.command summary .runs/ai-user-c01
+```
+
+`prepare` 与 `summary` 不请求模型；`run --live` 会付费，先说明本次案例和预算。`--kind query|complex|knowledge` 选择原有执行器；默认每例最多 6 轮，整个批次最多 30 次请求（助手、AI 用户、重试与摘要合计），另有 Token 和估算费用上限。复杂实验仍止于计划，知识实验止于语义任务，查数实验才执行支持的本地模拟查询。可用 `step` 每次推进一轮观察，不需要手写回复。
+
+做不了的部分要明确说明具体缺口，并请用户选择接受部分、替代或结束；保留原始诉求与实际选择，不要求缺口项填全执行字段。评分差异保留后继续观察对话；运行异常、预算耗尽或轮数耗尽会明确停止。AI 用户说“结束”不代表测试通过，动态对话按实际需求和结果审阅，不机械套用旧固定回复的逐轮标准。
+
+启动脚本用同一份 `uv.lock` 在本地缓存准备依赖与 Python 字节码，避免 iCloud 占位造成读取阻塞；首次准备可能下载依赖，原 `.venv` 保留。
+
+固定案例查看器标注每条消息是「测试初始需求」还是「AI 模拟用户」，并展示用户模型的实际输入、返回和用量。`simulation-summary.json` 分别统计助手与 AI 用户，合计不漏算。旧固定脚本和测试报告作为历史对照保留；旧入口不再运行新的多轮实模测试。
+
+## 早期学习目标（保留历史）
 
 使用完全脱敏的模拟指标与数据，逐步完成：
 
@@ -372,7 +410,7 @@ e1_kimi_tool_calling_loop                 # 父 Trace
 代码会在退出前等待 Trace 上传完成。若开启追踪却没有配置 API Key，会在产生 Kimi 费用之前报出明确错误。
 本学习复现只向 LangSmith 发送脱敏模拟数据。
 
-## 下一步边界
+## 早期 E2 下一步边界（保留历史，不是当前待办）
 
 下一步由用户在 Studio 新线程运行重构后的 E2，重点观察
 `clarification_agent → resolve_business_period → clarification_agent → submit_clarification`，再用含歧义输入验证

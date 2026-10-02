@@ -1,0 +1,1340 @@
+{
+  "reference_date": "2026-09-01",
+  "timezone": "Asia/Shanghai",
+  "synthetic": true,
+  "dimensions": {
+    "province": {
+      "name": "省份",
+      "aliases": [],
+      "definition": "省份的模拟枚举",
+      "values": [
+        {
+          "id": "anhui",
+          "name": "安徽",
+          "aliases": [
+            "安徽"
+          ]
+        },
+        {
+          "id": "jiangsu",
+          "name": "江苏",
+          "aliases": [
+            "江苏"
+          ]
+        },
+        {
+          "id": "shanghai",
+          "name": "上海",
+          "aliases": [
+            "上海"
+          ]
+        }
+      ]
+    },
+    "city_operation": {
+      "name": "城市经营类型",
+      "aliases": [],
+      "definition": "城市经营类型的模拟枚举",
+      "values": [
+        {
+          "id": "direct",
+          "name": "直营",
+          "aliases": [
+            "直营"
+          ]
+        },
+        {
+          "id": "agency",
+          "name": "代理",
+          "aliases": [
+            "代理"
+          ]
+        }
+      ]
+    },
+    "business_segment": {
+      "name": "业务分类",
+      "aliases": [],
+      "definition": "业务分类的模拟枚举",
+      "values": [
+        {
+          "id": "food",
+          "name": "外卖餐饮",
+          "aliases": [
+            "外卖餐饮"
+          ]
+        },
+        {
+          "id": "retail",
+          "name": "闪购",
+          "aliases": [
+            "闪购"
+          ]
+        },
+        {
+          "id": "pharma",
+          "name": "医药",
+          "aliases": [
+            "医药"
+          ]
+        }
+      ]
+    },
+    "channel": {
+      "name": "渠道",
+      "aliases": [],
+      "definition": "渠道的模拟枚举",
+      "values": [
+        {
+          "id": "wallet",
+          "name": "钱包",
+          "aliases": [
+            "钱包"
+          ]
+        },
+        {
+          "id": "home",
+          "name": "首页",
+          "aliases": [
+            "首页"
+          ]
+        }
+      ]
+    },
+    "merchant_type": {
+      "name": "外卖商家类型",
+      "aliases": [],
+      "definition": "外卖商家类型的模拟枚举",
+      "values": [
+        {
+          "id": "ka",
+          "name": "KA",
+          "aliases": [
+            "KA"
+          ]
+        },
+        {
+          "id": "smb",
+          "name": "中小商户",
+          "aliases": [
+            "中小商户"
+          ]
+        }
+      ]
+    },
+    "merchant_age": {
+      "name": "商户新老",
+      "aliases": [],
+      "definition": "在渠道曝光人群中新商为曝光当日距平台入驻不超过30天；不是保险新开通。",
+      "values": [
+        {
+          "id": "new",
+          "name": "新商",
+          "aliases": [
+            "新商"
+          ]
+        },
+        {
+          "id": "old",
+          "name": "老商",
+          "aliases": [
+            "老商"
+          ]
+        }
+      ]
+    }
+  },
+  "metrics": [
+    {
+      "id": "cx_fx_premium",
+      "name": "放心吃实收保费",
+      "definition": "按保费记账日期汇总正式实收口径金额，独立处理退款；不额外套用保险订单取消过滤。",
+      "aliases": [
+        "放心吃保费"
+      ],
+      "unit": "元",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "按保费记账日期汇总正式实收口径金额，独立处理退款；不额外套用保险订单取消过滤。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_fx_premium",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_timely_food",
+      "name": "餐饮准时宝实收保费合计",
+      "definition": "餐饮准时宝商家付费与平台付费合计；当前资料不提供付费方拆分。",
+      "aliases": [
+        "餐饮准时宝",
+        "准时宝餐饮合计"
+      ],
+      "unit": "元",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "餐饮准时宝商家付费与平台付费合计；当前资料不提供付费方拆分。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_timely_food",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_timely_merchant",
+      "name": "餐饮准时宝商家付费实收保费",
+      "definition": "需求可以识别，但缺少付费方分类资产，当前不支持；可以由用户接受餐饮准时宝实收保费合计替代。",
+      "aliases": [],
+      "unit": "元",
+      "formula": null,
+      "supported": false,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "需求可以识别，但缺少付费方分类资产，当前不支持；可以由用户接受餐饮准时宝实收保费合计替代。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_timely_merchant",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_timely_platform",
+      "name": "餐饮准时宝平台付费实收保费",
+      "definition": "需求可以识别，但缺少付费方分类资产，当前不支持；可以由用户接受餐饮准时宝实收保费合计替代。",
+      "aliases": [],
+      "unit": "元",
+      "formula": null,
+      "supported": false,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "需求可以识别，但缺少付费方分类资产，当前不支持；可以由用户接受餐饮准时宝实收保费合计替代。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_timely_platform",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_timely_retail",
+      "name": "闪购准时宝实收保费",
+      "definition": "闪购场景准时宝实收保费，不含餐饮或医药。",
+      "aliases": [
+        "闪购准时宝"
+      ],
+      "unit": "元",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "闪购场景准时宝实收保费，不含餐饮或医药。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_timely_retail",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_timely_pharma",
+      "name": "医药准时宝实收保费",
+      "definition": "医药场景准时宝实收保费，不含其他场景。",
+      "aliases": [
+        "医药准时宝"
+      ],
+      "unit": "元",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "医药场景准时宝实收保费，不含其他场景。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_timely_pharma",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_cancel_premium",
+      "name": "取消险实收保费",
+      "definition": "取消险正式实收保费。",
+      "aliases": [
+        "取消险保费"
+      ],
+      "unit": "元",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "取消险正式实收保费。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_cancel_premium",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_total_premium",
+      "name": "三险种实收保费合计",
+      "definition": "三险种正式总保费指标，独立总项；展示分类不是完整互斥可加集合，不允许把展示明细机械相加替代总项。",
+      "aliases": [
+        "三险种合计",
+        "三险种总保费"
+      ],
+      "unit": "元",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "三险种正式总保费指标，独立总项；展示分类不是完整互斥可加集合，不允许把展示明细机械相加替代总项。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_total_premium",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_active_merchants",
+      "name": "外卖餐饮活跃商户数",
+      "definition": "按统计期间外卖餐饮活跃商户去重，必选valid <> 0；不将valid另解释为生产状态。",
+      "aliases": [
+        "活跃商户数"
+      ],
+      "unit": "户",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [
+        {
+          "field": "valid",
+          "op": "ne",
+          "value": 0
+        }
+      ],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "按统计期间外卖餐饮活跃商户去重，必选valid <> 0；不将valid另解释为生产状态。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_active_merchants",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_active_fx",
+      "name": "活跃商户中开通放心吃的数量",
+      "definition": "外卖餐饮活跃商户总体中已开通放心吃的子集，必选valid <> 0且fx_open=true。",
+      "aliases": [
+        "开通放心吃的商户数"
+      ],
+      "unit": "户",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [
+        {
+          "field": "valid",
+          "op": "ne",
+          "value": 0
+        },
+        {
+          "field": "fx_open",
+          "op": "eq",
+          "value": true
+        }
+      ],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "外卖餐饮活跃商户总体中已开通放心吃的子集，必选valid <> 0且fx_open=true。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_active_fx",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_fx_orders",
+      "name": "放心吃保险订单量",
+      "definition": "按保险订单计数，该模拟正式指标排除取消单；此规则不外溢到外卖全量订单、保费或商户。",
+      "aliases": [
+        "放心吃订单量"
+      ],
+      "unit": "单",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [
+        {
+          "field": "order_status",
+          "op": "ne",
+          "value": "cancelled"
+        }
+      ],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "按保险订单计数，该模拟正式指标排除取消单；此规则不外溢到外卖全量订单、保费或商户。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_fx_orders",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_food_orders",
+      "name": "外卖餐饮订单量",
+      "definition": "统计外卖餐饮全量订单，包括取消单；不套保险订单的过滤。",
+      "aliases": [
+        "外卖订单量"
+      ],
+      "unit": "单",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "统计外卖餐饮全量订单，包括取消单；不套保险订单的过滤。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_food_orders",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_exposure",
+      "name": "渠道曝光商户数",
+      "definition": "本渠道内有曝光的外卖商户，按期间去重。",
+      "aliases": [
+        "流量",
+        "曝光商户数",
+        "曝光人群"
+      ],
+      "unit": "户",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "本渠道内有曝光的外卖商户，按期间去重。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_exposure",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_click",
+      "name": "渠道点击商户数",
+      "definition": "同一渠道曝光人群中发生点击的商户期间去重数。",
+      "aliases": [
+        "点击商户数"
+      ],
+      "unit": "户",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "同一渠道曝光人群中发生点击的商户期间去重数。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_click",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_join",
+      "name": "渠道新加入商户数",
+      "definition": "同一渠道曝光人群中发生进入加入流程的商户数，不等于完成开通。",
+      "aliases": [
+        "新加入商户",
+        "新加入商户数"
+      ],
+      "unit": "户",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "同一渠道曝光人群中发生进入加入流程的商户数，不等于完成开通。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_join",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_open",
+      "name": "渠道完成开通商户数",
+      "definition": "同一渠道曝光人群中完成开通保险的商户期间去重数，不等于仅进入加入流程。",
+      "aliases": [
+        "完成开通的商户数",
+        "完成开通商户数"
+      ],
+      "unit": "户",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "同一渠道曝光人群中完成开通保险的商户期间去重数，不等于仅进入加入流程。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_open",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_ctr",
+      "name": "渠道CTR",
+      "definition": "同一渠道曝光人群的点击商户数 / 曝光商户数。",
+      "aliases": [
+        "CTR"
+      ],
+      "unit": "单",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "同一渠道曝光人群的点击商户数 / 曝光商户数。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_ctr",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_cvr",
+      "name": "渠道CVR",
+      "definition": "同一渠道曝光人群的完成开通商户数 / 点击商户数。",
+      "aliases": [
+        "CVR"
+      ],
+      "unit": "单",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": null,
+          "rule": "同一渠道曝光人群的完成开通商户数 / 点击商户数。"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_cvr",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    },
+    {
+      "id": "cx_cancel_rate",
+      "name": "取消险订单渗透率",
+      "definition": "版本v1分母为全部餐饮订单，含取消单；v2分母排除取消单。分子与其他范围保持相同；按比例计算，不能累加日比例。",
+      "aliases": [
+        "取消险渗透率"
+      ],
+      "unit": "比例",
+      "formula": null,
+      "supported": true,
+      "availability": {
+        "start": "2021-01-01",
+        "end": "2026-08-31"
+      },
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "business_segment": [
+          "food",
+          "retail",
+          "pharma"
+        ],
+        "channel": [
+          "wallet",
+          "home"
+        ],
+        "merchant_type": [
+          "ka",
+          "smb"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [],
+      "versions": {
+        "v1": {
+          "effective_from": "2021-01-01",
+          "effective_to": "2026-06-30",
+          "rule": "分母含取消单",
+          "source_id": "K-CANCEL-V1"
+        },
+        "v2": {
+          "effective_from": "2026-07-01",
+          "effective_to": null,
+          "rule": "分母排除取消单",
+          "source_id": "K-CANCEL-V2"
+        }
+      },
+      "source": {
+        "id": "SYN-cx_cancel_rate",
+        "version": "2026-09-30",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "execution_enabled": false
+      },
+      "aggregation": "期间去重数/比例按周期计算，不累加日去重数或日比例；金额按记账期间汇总。"
+    }
+  ]
+}

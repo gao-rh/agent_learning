@@ -1,0 +1,114 @@
+{
+  "cases": {
+    "C01": {
+      "outcomes": [
+        "clarify",
+        "partial"
+      ],
+      "replies": [
+        "先出能做的，餐饮准时宝用合计代替，商家付费和平台付费两项留作缺口。"
+      ],
+      "question_topics": [
+        "说明付费方拆分缺口",
+        "询问是否用餐饮准时宝合计替代"
+      ],
+      "original_metrics": [
+        "cx_fx_premium",
+        "cx_timely_merchant",
+        "cx_timely_platform",
+        "cx_timely_retail",
+        "cx_timely_pharma",
+        "cx_cancel_premium",
+        "cx_total_premium"
+      ],
+      "final_metrics": [
+        "cx_fx_premium",
+        "cx_timely_food",
+        "cx_timely_retail",
+        "cx_timely_pharma",
+        "cx_cancel_premium",
+        "cx_total_premium"
+      ],
+      "requirements": [
+        "原七类输出各保留三种视图（21单元）",
+        "接受替代后六类输出三种视图（18单元）",
+        "原两类付费拆分仍为缺口并映射替代项",
+        "全部期间准确，2026年年度不满年标注",
+        "总项为独立正式指标",
+        "报告/Wiki仅为待交付计划"
+      ]
+    },
+    "C02": {
+      "outcomes": [
+        "clarify",
+        "ready",
+        "ready"
+      ],
+      "replies": [
+        "看完成开通的商户数。",
+        "外卖商家的新注册商户有没有变化？"
+      ],
+      "question_topics": [
+        "下降指哪个结果指标"
+      ],
+      "final_metrics": [
+        "cx_open",
+        "cx_exposure",
+        "cx_join",
+        "cx_ctr",
+        "cx_cvr"
+      ],
+      "requirements": [
+        "先确认结果目标",
+        "结果指标加四个观察方向",
+        "商户类型拆解保留",
+        "钱包和曝光人群及两个窗口逐任务保留",
+        "第三轮新老商仍在同一渠道曝光人群",
+        "新商按曝光日距入驻30天，不变成新开通",
+        "无数据只记待检验因素"
+      ]
+    },
+    "C03": {
+      "outcomes": [
+        "ready"
+      ],
+      "replies": [],
+      "question_topics": [],
+      "final_metrics": [
+        "cx_active_merchants",
+        "cx_active_fx",
+        "cx_fx_premium",
+        "cx_fx_orders",
+        "cx_food_orders"
+      ],
+      "requirements": [
+        "五项指标完整且无需追问",
+        "所有任务8月对7月",
+        "安徽江苏+餐饮业务+省份城市经营类型组合分组",
+        "两商户指标保留有效总体及开通子集",
+        "取消单排除只在保险订单",
+        "保费与全量外卖订单不被污染"
+      ]
+    },
+    "C04": {
+      "outcomes": [
+        "clarify",
+        "ready"
+      ],
+      "replies": [
+        "两套都要：保留各月当时看板数，再给一套都按7月新口径重算的变化。不要混在一起。"
+      ],
+      "question_topics": [
+        "解释版本改变",
+        "确认历史展示、统一重算还是两套并列"
+      ],
+      "requirements": [
+        "首轮查明两版有效期和重算能力",
+        "历史6月v1，7月v2，仅展示不当同口径增长",
+        "统一组7月对6月均v2且标重算",
+        "各组按省份，来源与版本明确",
+        "不把重算数当原看板数"
+      ]
+    }
+  }
+}

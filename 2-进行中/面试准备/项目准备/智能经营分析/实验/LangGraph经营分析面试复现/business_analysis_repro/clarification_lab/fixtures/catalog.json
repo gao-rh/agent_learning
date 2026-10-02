@@ -1,0 +1,852 @@
+{
+  "version": "clarification-catalog-2026-09-29.1",
+  "synthetic": true,
+  "reference_date": "2026-09-01",
+  "timezone": "Asia/Shanghai",
+  "description": "只用于澄清实验，没有业务数值、可执行SQL、认证信息或线上连接。",
+  "dimensions": {
+    "city_operation": {
+      "name": "城市经营类型",
+      "aliases": [
+        "经营类型"
+      ],
+      "definition": "模拟经营管理维度；与城市等级是两个独立轴。",
+      "values": [
+        {
+          "id": "direct",
+          "name": "直营",
+          "aliases": []
+        },
+        {
+          "id": "agency",
+          "name": "代理",
+          "aliases": []
+        }
+      ]
+    },
+    "city_tier": {
+      "name": "城市等级",
+      "aliases": [],
+      "definition": "模拟城市等级；不自动推导其他业务分类。",
+      "values": [
+        {
+          "id": "tier1",
+          "name": "一线",
+          "aliases": []
+        },
+        {
+          "id": "tier2",
+          "name": "二线",
+          "aliases": []
+        },
+        {
+          "id": "tier3",
+          "name": "三线",
+          "aliases": []
+        },
+        {
+          "id": "tier4",
+          "name": "四线",
+          "aliases": []
+        },
+        {
+          "id": "tier5",
+          "name": "五线",
+          "aliases": []
+        }
+      ]
+    },
+    "province": {
+      "name": "省份",
+      "aliases": [
+        "地域"
+      ],
+      "definition": "模拟商户所属省份。",
+      "values": [
+        {
+          "id": "anhui",
+          "name": "安徽",
+          "aliases": [
+            "安徽省"
+          ]
+        },
+        {
+          "id": "jiangsu",
+          "name": "江苏",
+          "aliases": [
+            "江苏省"
+          ]
+        },
+        {
+          "id": "shanghai",
+          "name": "上海",
+          "aliases": [
+            "上海市"
+          ]
+        }
+      ]
+    },
+    "delivery": {
+      "name": "配送方式",
+      "aliases": [
+        "配送"
+      ],
+      "definition": "完整模拟枚举，仅支持专送、众包、自配送；目录不含其他同义项。",
+      "values": [
+        {
+          "id": "dedicated",
+          "name": "专送",
+          "aliases": []
+        },
+        {
+          "id": "crowd",
+          "name": "众包",
+          "aliases": []
+        },
+        {
+          "id": "self",
+          "name": "自配送",
+          "aliases": []
+        }
+      ]
+    },
+    "merchant_age": {
+      "name": "商户新老",
+      "aliases": [
+        "新老商"
+      ],
+      "definition": "仅本实验：以观察期末为参照，平台注册不超过30天为新注册商户；超过30天为老商。不是首次投保。",
+      "values": [
+        {
+          "id": "new",
+          "name": "新注册商户",
+          "aliases": [
+            "新商",
+            "新注册"
+          ]
+        },
+        {
+          "id": "old",
+          "name": "老商",
+          "aliases": []
+        }
+      ]
+    },
+    "merchant_business": {
+      "name": "商户业务类型",
+      "aliases": [
+        "业务类型"
+      ],
+      "definition": "模拟商户所属业务类型。",
+      "values": [
+        {
+          "id": "takeaway",
+          "name": "外卖商家",
+          "aliases": [
+            "外卖商户"
+          ]
+        },
+        {
+          "id": "retail",
+          "name": "零售商家",
+          "aliases": []
+        }
+      ]
+    },
+    "channel_l1": {
+      "name": "一级渠道",
+      "aliases": [
+        "渠道"
+      ],
+      "definition": "发生曝光或加入事件的具体入口，区别于获客来源。",
+      "values": [
+        {
+          "id": "wallet",
+          "name": "钱包",
+          "aliases": [
+            "钱包渠道"
+          ]
+        },
+        {
+          "id": "open",
+          "name": "开门营业",
+          "aliases": []
+        },
+        {
+          "id": "outreach",
+          "name": "主动触达",
+          "aliases": []
+        }
+      ]
+    },
+    "source": {
+      "name": "获客来源",
+      "aliases": [
+        "来源"
+      ],
+      "definition": "获得客户的来源，区别于APP入口渠道。",
+      "values": [
+        {
+          "id": "app",
+          "name": "商家端APP",
+          "aliases": []
+        },
+        {
+          "id": "telesales",
+          "name": "电销",
+          "aliases": []
+        },
+        {
+          "id": "organic",
+          "name": "自然访问",
+          "aliases": []
+        }
+      ]
+    },
+    "insurance_type": {
+      "name": "险种",
+      "aliases": [],
+      "definition": "保险产品类型。",
+      "values": [
+        {
+          "id": "fx",
+          "name": "放心吃",
+          "aliases": []
+        },
+        {
+          "id": "qsb",
+          "name": "准时宝",
+          "aliases": []
+        },
+        {
+          "id": "cancel",
+          "name": "取消险",
+          "aliases": []
+        }
+      ]
+    },
+    "category_l1": {
+      "name": "一级品类",
+      "aliases": [
+        "品类"
+      ],
+      "definition": "商户经营品类。",
+      "values": [
+        {
+          "id": "food",
+          "name": "餐饮",
+          "aliases": [
+            "美食"
+          ]
+        },
+        {
+          "id": "entertainment",
+          "name": "娱乐",
+          "aliases": []
+        },
+        {
+          "id": "service",
+          "name": "生活服务",
+          "aliases": []
+        }
+      ]
+    },
+    "order_status": {
+      "name": "订单状态",
+      "aliases": [
+        "取消状态"
+      ],
+      "definition": "模拟两类互斥且完备的订单状态；全量表示不设置该筛选。",
+      "values": [
+        {
+          "id": "non_cancelled",
+          "name": "非取消单",
+          "aliases": [
+            "排除取消单"
+          ]
+        },
+        {
+          "id": "cancelled",
+          "name": "取消单",
+          "aliases": []
+        }
+      ]
+    },
+    "merchant_type": {
+      "name": "商户规模类型",
+      "aliases": [],
+      "definition": "模拟经营规模，不同于商户新老。",
+      "values": [
+        {
+          "id": "ka",
+          "name": "KA",
+          "aliases": [
+            "大连锁"
+          ]
+        },
+        {
+          "id": "cka",
+          "name": "CKA",
+          "aliases": [
+            "小连锁"
+          ]
+        },
+        {
+          "id": "city",
+          "name": "城市商家",
+          "aliases": []
+        }
+      ]
+    }
+  },
+  "predicate_fields": {
+    "valid": {
+      "operators": [
+        "ne"
+      ],
+      "values": [
+        0
+      ]
+    },
+    "fx_open": {
+      "operators": [
+        "eq"
+      ],
+      "values": [
+        true
+      ]
+    }
+  },
+  "metrics": [
+    {
+      "id": "lab_fx_gross_premium",
+      "name": "放心吃总保费",
+      "aliases": [
+        "放心吃保费总额"
+      ],
+      "definition": "模拟：放心吃保单在统计期内的毛保费合计，未扣退款。不得替换为净保费。",
+      "unit": "元",
+      "formula": null,
+      "dimensions": {
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "city_tier": [
+          "tier1",
+          "tier2",
+          "tier3",
+          "tier4",
+          "tier5"
+        ],
+        "delivery": [
+          "dedicated",
+          "crowd",
+          "self"
+        ],
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ]
+      },
+      "mandatory_predicates": [],
+      "availability": {
+        "start": "2026-01-01",
+        "end": "2026-08-31"
+      },
+      "default_group_by": [],
+      "aggregation": "按指标定义整体汇总",
+      "source": {
+        "id": "SYN-lab_fx_gross_premium",
+        "version": "2026-09-29.1",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "dataset_id": "lab_dataset_lab_fx_gross_premium",
+        "business_line_id": "lab_insurance",
+        "execution_enabled": false
+      }
+    },
+    {
+      "id": "lab_fx_net_premium",
+      "name": "放心吃净保费",
+      "aliases": [
+        "放心吃净保费规模"
+      ],
+      "definition": "模拟：毛保费扣除退款后的净额，与总保费不同。",
+      "unit": "元",
+      "formula": null,
+      "dimensions": {
+        "city_operation": [
+          "direct",
+          "agency"
+        ],
+        "delivery": [
+          "dedicated",
+          "crowd",
+          "self"
+        ],
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ]
+      },
+      "mandatory_predicates": [],
+      "availability": {
+        "start": "2026-01-01",
+        "end": "2026-08-31"
+      },
+      "default_group_by": [],
+      "aggregation": "按指标定义整体汇总",
+      "source": {
+        "id": "SYN-lab_fx_net_premium",
+        "version": "2026-09-29.1",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "dataset_id": "lab_dataset_lab_fx_net_premium",
+        "business_line_id": "lab_insurance",
+        "execution_enabled": false
+      }
+    },
+    {
+      "id": "lab_fx_order_rate",
+      "name": "放心吃餐饮订单渗透率",
+      "aliases": [
+        "放心吃订单渗透率",
+        "渗透率"
+      ],
+      "definition": "模拟：放心吃非取消投保订单数 / 外卖餐饮非取消订单数。",
+      "unit": "%",
+      "formula": "非取消投保订单数 / 非取消外卖餐饮订单数",
+      "dimensions": {
+        "merchant_age": [
+          "new",
+          "old"
+        ],
+        "merchant_type": [
+          "ka",
+          "cka",
+          "city"
+        ],
+        "category_l1": [
+          "food",
+          "entertainment",
+          "service"
+        ]
+      },
+      "mandatory_predicates": [],
+      "availability": {
+        "start": "2026-01-01",
+        "end": "2026-08-31"
+      },
+      "default_group_by": [],
+      "aggregation": "ratio_of_sums",
+      "source": {
+        "id": "SYN-lab_fx_order_rate",
+        "version": "2026-09-29.1",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "dataset_id": "lab_dataset_lab_fx_order_rate",
+        "business_line_id": "lab_insurance",
+        "execution_enabled": false
+      }
+    },
+    {
+      "id": "lab_fx_eligible_rate",
+      "name": "放心吃餐饮可投保订单渗透率",
+      "aliases": [
+        "可投保订单渗透率",
+        "渗透率"
+      ],
+      "definition": "模拟：放心吃投保订单数 / 放心吃可投保订单数。",
+      "unit": "%",
+      "formula": "投保订单数 / 可投保订单数",
+      "dimensions": {
+        "merchant_age": [
+          "new",
+          "old"
+        ],
+        "category_l1": [
+          "food",
+          "entertainment",
+          "service"
+        ]
+      },
+      "mandatory_predicates": [],
+      "availability": {
+        "start": "2026-01-01",
+        "end": "2026-08-31"
+      },
+      "default_group_by": [],
+      "aggregation": "ratio_of_sums",
+      "source": {
+        "id": "SYN-lab_fx_eligible_rate",
+        "version": "2026-09-29.1",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "dataset_id": "lab_dataset_lab_fx_eligible_rate",
+        "business_line_id": "lab_insurance",
+        "execution_enabled": false
+      }
+    },
+    {
+      "id": "lab_cancel_order_rate",
+      "name": "取消险餐饮订单渗透率",
+      "aliases": [
+        "取消险渗透率",
+        "渗透率"
+      ],
+      "definition": "模拟：取消险投保订单数 / 外卖餐饮订单数。",
+      "unit": "%",
+      "formula": "取消险投保订单数 / 外卖餐饮订单数",
+      "dimensions": {
+        "merchant_age": [
+          "new",
+          "old"
+        ],
+        "merchant_type": [
+          "ka",
+          "cka",
+          "city"
+        ]
+      },
+      "mandatory_predicates": [],
+      "availability": {
+        "start": "2026-01-01",
+        "end": "2026-08-31"
+      },
+      "default_group_by": [],
+      "aggregation": "ratio_of_sums",
+      "source": {
+        "id": "SYN-lab_cancel_order_rate",
+        "version": "2026-09-29.1",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "dataset_id": "lab_dataset_lab_cancel_order_rate",
+        "business_line_id": "lab_insurance",
+        "execution_enabled": false
+      }
+    },
+    {
+      "id": "lab_active_merchants",
+      "name": "外卖餐饮活跃商户数",
+      "aliases": [
+        "餐饮活跃商户数",
+        "活跃商户数"
+      ],
+      "definition": "模拟：指定期间外卖餐饮活跃商户去重数，总体必选 valid <> 0。这里只规定过滤，不推导 valid 的生产业务含义。",
+      "unit": "户",
+      "formula": null,
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [
+        {
+          "field_id": "valid",
+          "operator": "ne",
+          "value": 0
+        }
+      ],
+      "availability": {
+        "start": "2026-01-01",
+        "end": "2026-08-31"
+      },
+      "default_group_by": [],
+      "aggregation": "按指标定义整体汇总",
+      "source": {
+        "id": "SYN-lab_active_merchants",
+        "version": "2026-09-29.1",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "dataset_id": "lab_dataset_lab_active_merchants",
+        "business_line_id": "lab_insurance",
+        "execution_enabled": false
+      }
+    },
+    {
+      "id": "lab_active_fx_open",
+      "name": "活跃商户中开通放心吃的数量",
+      "aliases": [
+        "活跃开通放心吃商户数"
+      ],
+      "definition": "模拟：与外卖餐饮活跃商户数使用同一有效总体，另要求 fx_open = true。",
+      "unit": "户",
+      "formula": null,
+      "dimensions": {
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ]
+      },
+      "mandatory_predicates": [
+        {
+          "field_id": "valid",
+          "operator": "ne",
+          "value": 0
+        },
+        {
+          "field_id": "fx_open",
+          "operator": "eq",
+          "value": true
+        }
+      ],
+      "availability": {
+        "start": "2026-01-01",
+        "end": "2026-08-31"
+      },
+      "default_group_by": [],
+      "aggregation": "按指标定义整体汇总",
+      "source": {
+        "id": "SYN-lab_active_fx_open",
+        "version": "2026-09-29.1",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "dataset_id": "lab_dataset_lab_active_fx_open",
+        "business_line_id": "lab_insurance",
+        "execution_enabled": false
+      }
+    },
+    {
+      "id": "lab_exposed_merchants",
+      "name": "曝光商户数",
+      "aliases": [
+        "外部入口曝光商户数",
+        "曝光商户"
+      ],
+      "definition": "模拟：指定入口发生曝光的去重商户数，筛选后的曝光人群为统计总体。",
+      "unit": "户",
+      "formula": null,
+      "dimensions": {
+        "channel_l1": [
+          "wallet",
+          "open",
+          "outreach"
+        ],
+        "merchant_age": [
+          "new",
+          "old"
+        ],
+        "merchant_business": [
+          "takeaway",
+          "retail"
+        ]
+      },
+      "mandatory_predicates": [],
+      "availability": {
+        "start": "2026-01-01",
+        "end": "2026-08-31"
+      },
+      "default_group_by": [],
+      "aggregation": "按指标定义整体汇总",
+      "source": {
+        "id": "SYN-lab_exposed_merchants",
+        "version": "2026-09-29.1",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "dataset_id": "lab_dataset_lab_exposed_merchants",
+        "business_line_id": "lab_insurance",
+        "execution_enabled": false
+      }
+    },
+    {
+      "id": "lab_join_funnel",
+      "name": "外卖险加入商户数",
+      "aliases": [
+        "加入商户数",
+        "流量漏斗加入商户数"
+      ],
+      "definition": "模拟流量漏斗事件：在入口发生加入外卖险事件的商户，不能等同于某险种成功开通的餐饮商户。",
+      "unit": "户",
+      "formula": null,
+      "dimensions": {
+        "insurance_type": [
+          "fx",
+          "qsb",
+          "cancel"
+        ],
+        "channel_l1": [
+          "wallet",
+          "open",
+          "outreach"
+        ],
+        "source": [
+          "app",
+          "telesales",
+          "organic"
+        ]
+      },
+      "mandatory_predicates": [],
+      "availability": {
+        "start": "2026-01-01",
+        "end": "2026-08-31"
+      },
+      "default_group_by": [],
+      "aggregation": "按指标定义整体汇总",
+      "source": {
+        "id": "SYN-lab_join_funnel",
+        "version": "2026-09-29.1",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "dataset_id": "lab_dataset_lab_join_funnel",
+        "business_line_id": "lab_insurance",
+        "execution_enabled": false
+      }
+    },
+    {
+      "id": "lab_join_fx",
+      "name": "放心吃餐饮加入商户数",
+      "aliases": [
+        "加入商户数",
+        "放心吃加入商户数"
+      ],
+      "definition": "模拟险种事件：成功加入放心吃的餐饮商户，与外卖险流量漏斗事件不同。",
+      "unit": "户",
+      "formula": null,
+      "dimensions": {
+        "merchant_age": [
+          "new",
+          "old"
+        ],
+        "merchant_type": [
+          "ka",
+          "cka",
+          "city"
+        ],
+        "category_l1": [
+          "food",
+          "entertainment",
+          "service"
+        ]
+      },
+      "mandatory_predicates": [],
+      "availability": {
+        "start": "2026-01-01",
+        "end": "2026-08-31"
+      },
+      "default_group_by": [],
+      "aggregation": "按指标定义整体汇总",
+      "source": {
+        "id": "SYN-lab_join_fx",
+        "version": "2026-09-29.1",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "dataset_id": "lab_dataset_lab_join_fx",
+        "business_line_id": "lab_insurance",
+        "execution_enabled": false
+      }
+    },
+    {
+      "id": "lab_insurance_orders",
+      "name": "保险订单量",
+      "aliases": [
+        "保险订单数"
+      ],
+      "definition": "模拟：保险订单计数，是否排除取消单由本次任务指定；不默认为别的指标添加相同条件。",
+      "unit": "单",
+      "formula": null,
+      "dimensions": {
+        "order_status": [
+          "non_cancelled",
+          "cancelled"
+        ],
+        "insurance_type": [
+          "fx",
+          "qsb",
+          "cancel"
+        ]
+      },
+      "mandatory_predicates": [],
+      "availability": {
+        "start": "2026-01-01",
+        "end": "2026-08-31"
+      },
+      "default_group_by": [],
+      "aggregation": "按指标定义整体汇总",
+      "source": {
+        "id": "SYN-lab_insurance_orders",
+        "version": "2026-09-29.1",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "dataset_id": "lab_dataset_lab_insurance_orders",
+        "business_line_id": "lab_insurance",
+        "execution_enabled": false
+      }
+    },
+    {
+      "id": "lab_takeaway_orders",
+      "name": "外卖订单量",
+      "aliases": [
+        "外卖订单数",
+        "订单量"
+      ],
+      "definition": "模拟：外卖订单计数，全量含取消与非取消；可按订单状态筛选。",
+      "unit": "单",
+      "formula": null,
+      "dimensions": {
+        "order_status": [
+          "non_cancelled",
+          "cancelled"
+        ],
+        "province": [
+          "anhui",
+          "jiangsu",
+          "shanghai"
+        ]
+      },
+      "mandatory_predicates": [],
+      "availability": {
+        "start": "2026-01-01",
+        "end": "2026-08-31"
+      },
+      "default_group_by": [],
+      "aggregation": "按指标定义整体汇总",
+      "source": {
+        "id": "SYN-lab_takeaway_orders",
+        "version": "2026-09-29.1",
+        "kind": "synthetic_definition"
+      },
+      "query_binding": {
+        "method": "mock_metadata_only",
+        "dataset_id": "lab_dataset_lab_takeaway_orders",
+        "business_line_id": "lab_insurance",
+        "execution_enabled": false
+      }
+    }
+  ]
+}
